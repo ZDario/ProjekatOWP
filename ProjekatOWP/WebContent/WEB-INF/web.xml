@@ -32,4 +32,24 @@
     <servlet-name>RegisterServlet</servlet-name>
     <url-pattern>/RegisterServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserServlet</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>bioskop.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListaFilmovaServlet</display-name>
+    <servlet-name>ListaFilmovaServlet</servlet-name>
+    <servlet-class>bioskop.ListaFilmovaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListaFilmovaServlet</servlet-name>
+    <url-pattern>/ListaFilmovaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

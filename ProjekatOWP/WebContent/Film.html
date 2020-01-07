@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="js/jquery-3.3.1.js"></script>
+	<script src="js/Film.js"></script>
+</head>
+<body>
+	<h3>Film:</h3>
+	<table id="userTable">
+		<tr><td align="right"><b>Naziv:</b></td><td id="nameCell"></td></tr>
+		<tr><td align="right"><b>Trajanje:</b></td><td id="durationCell"></td></tr>
+		<tr><td align="right"><b>Distributer:</b></td><td id="distributorCell"></td></tr>
+		<tr><td align="right"><b>Zemlja porekla:</b></td><td id="countryOfOriginCell"></td></tr>
+		<tr><td align="right"><b>Godina proizvodnje:</b></td><td id="yearOfProductionCell"></td></tr>
+	</table>
+	<form id="adminForm">
+		<table>
+			<tr><td align="right">Naziv:</td><td><input type="text" id="nameInput"/></td></tr>
+			<tr><td align="right">Trajanje:</td><td><input type="text" id="durationInput"></td></tr>
+			<tr><td align="right">Distributer:</td><td><input type="text" id="distributorInput"></td></tr>
+			<tr><td align="right">Zemlja porekla:</td><td><input type="text" id="countryOfOriginInput"></td></tr>
+			<tr><td align="right">Godina proizvodnje:</td><td><input type="text" id="yearOfProductionInput"></td></tr>
+			<tr><td/><td><input type="submit" value="Izmeni" id="updateSubmit"></td></tr>
+			<tr><td/><td><input type="submit" value="Obrisi" id="deleteSubmit"></td></tr>
+		</table>
+	</form>
+	<p><a href="ListaFilmova.html">Povratak</a></p>
+	<p><a href="" id="logoutLink">Odjava</a></p>
+</body>
+</html>
