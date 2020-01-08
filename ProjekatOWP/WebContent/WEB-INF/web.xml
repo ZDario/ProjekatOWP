@@ -52,4 +52,14 @@
     <servlet-name>ListaFilmovaServlet</servlet-name>
     <url-pattern>/ListaFilmovaServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Film</display-name>
+    <servlet-name>Film</servlet-name>
+    <servlet-class>bioskop.Film</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Film</servlet-name>
+    <url-pattern>/Film</url-pattern>
+  </servlet-mapping>
 </web-app>
