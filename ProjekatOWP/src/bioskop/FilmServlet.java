@@ -15,9 +15,7 @@ import bioskop.model.Film;
 import bioskop.model.User;
 import bioskop.model.User.Role;
 
-
-
-
+@SuppressWarnings("serial")
 public class FilmServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -65,7 +63,7 @@ public class FilmServlet extends HttpServlet {
 				return;
 			}
 			if (loggedInUser.getRole() != Role.ADMIN) {
-//				response.sendRedirect("./WebShop.html");
+//				response.sendRedirect("./ListaFilmova.html");
 				request.getRequestDispatcher("./UnauthorizedServlet").forward(request, response);
 				return;
 			}
@@ -143,6 +141,6 @@ public class FilmServlet extends HttpServlet {
 			ex.printStackTrace();
 			request.getRequestDispatcher("./FailureServlet").forward(request, response);
 		}
-//		response.sendRedirect("./WebShopServlet");
+//		response.sendRedirect("./ListaFilmovaServlet");
 	}
 }

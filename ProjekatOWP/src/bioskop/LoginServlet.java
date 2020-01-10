@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 	
 			request.getSession().setAttribute("loggedInUserName", user.getUserName());
 			
-//			response.sendRedirect("./WebShopServlet");
+//			response.sendRedirect("./ListaFilmovaServlet");
 			request.getRequestDispatcher("./SuccessServlet").forward(request, response);
 		} catch (Exception ex) {
 			ex.printStackTrace();

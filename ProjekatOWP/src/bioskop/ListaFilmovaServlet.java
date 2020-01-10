@@ -15,7 +15,7 @@ import bioskop.dao.UserDAO;
 import bioskop.model.Film;
 import bioskop.model.User;
 
-
+@SuppressWarnings("serial")
 public class ListaFilmovaServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -83,7 +83,7 @@ public class ListaFilmovaServlet extends HttpServlet {
 //			request.setAttribute("lowPrice", lowPrice);
 //			request.setAttribute("highPrice", highPrice);
 //			request.setAttribute("filteredProducts", filteredProducts);
-//			request.getRequestDispatcher("./WebShop.jsp").forward(request, response);
+//			request.getRequestDispatcher("./ListaFilmova.jsp").forward(request, response);
 			Map<String, Object> data = new LinkedHashMap<>();
 			data.put("filteredProducts", filteredFilms);
 	
