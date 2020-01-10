@@ -10,6 +10,7 @@ import bioskop.model.User;
 import bioskop.model.User.Role;
 
 public class UserDAO {
+	
 	public static User get(String userName, String password) throws Exception {
 		Connection conn = ConnectionManager.getConnection();
 

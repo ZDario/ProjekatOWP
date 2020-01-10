@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import bioskop.dao.UserDAO;
 import bioskop.model.User;
 
+@SuppressWarnings("serial")
 public class UserServlet extends HttpServlet { 
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -1,6 +1,9 @@
 package bioskop;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +40,12 @@ public class FilmServlet extends HttpServlet {
 //			request.setAttribute("loggedInUserRole", loggedInUser.getRole());
 //			request.setAttribute("film", film);
 //			request.getRequestDispatcher("./Film.jsp").forward(request, response);
+			Map<String, Object> data = new LinkedHashMap<>();
+			data.put("film", film);
+			data.put("loggedInUserRole", loggedInUser.getRole());
+	
+			request.setAttribute("data", data);
+			request.getRequestDispatcher("./SuccessServlet").forward(request, response);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -73,13 +82,13 @@ public class FilmServlet extends HttpServlet {
 					String zanrovi = request.getParameter("naziv");
 					zanrovi = (!"".equals(zanrovi)? zanrovi: "<prazni zanrovi>");
 					int trajanje = Integer.parseInt(request.getParameter("trajanje"));
-					trajanje = (trajanje > 0? trajanje: 400);
+					trajanje = (trajanje > 0? trajanje: 9999);
 					String distributer = request.getParameter("naziv");
 					distributer= (!"".equals(distributer)? distributer: "<prazan distributer>");
 					String zemljaPorekla = request.getParameter("naziv");
 					zemljaPorekla = (!"".equals(zemljaPorekla)? zemljaPorekla: "<prazan zemljaPorekla>");
 					int godinaProizvodnje = Integer.parseInt(request.getParameter("godinaProizvodnje"));
-					godinaProizvodnje = (trajanje > 1920? godinaProizvodnje: 2200);
+					godinaProizvodnje = (trajanje > 0? godinaProizvodnje: 9999);
 					String opis = request.getParameter("naziv");
 					opis = (!"".equals(opis)? opis: "<prazan opis>");
 
@@ -129,9 +138,10 @@ public class FilmServlet extends HttpServlet {
 					FilmDAO.delete(idFilm);
 					break;
 				}
-			}
+			}request.getRequestDispatcher("./SuccessServlet").forward(request, response);
 		} catch (Exception ex) {
 			ex.printStackTrace();
+			request.getRequestDispatcher("./FailureServlet").forward(request, response);
 		}
 //		response.sendRedirect("./WebShopServlet");
 	}
