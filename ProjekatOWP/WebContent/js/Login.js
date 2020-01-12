@@ -26,7 +26,7 @@ $(document).ready(function() { // izvršava se nakon što se izgradi DOM stablo 
 				return;
 			}
 			if (data.status == 'success') {
-				window.location.replace('ListaFilmova.html');
+				window.location.replace('GlavnaStranica.html');
 			}
 		});
 		// program se odmah nastavlja dalje, pre nego što stigne odgovor

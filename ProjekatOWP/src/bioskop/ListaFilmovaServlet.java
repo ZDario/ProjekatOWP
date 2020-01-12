@@ -79,13 +79,11 @@ public class ListaFilmovaServlet extends HttpServlet {
 					godinaProizvodnje,lowDuration, highDuration, lowYearOfProduction,highYearOfProduction);
 	
 //			request.setAttribute("loggedInUserRole", loggedInUser.getRole());
-//			request.setAttribute("name", name);
-//			request.setAttribute("lowPrice", lowPrice);
-//			request.setAttribute("highPrice", highPrice);
-//			request.setAttribute("filteredProducts", filteredProducts);
+//			...
+//			request.setAttribute("filteredFilms", filteredFilms);
 //			request.getRequestDispatcher("./ListaFilmova.jsp").forward(request, response);
 			Map<String, Object> data = new LinkedHashMap<>();
-			data.put("filteredProducts", filteredFilms);
+			data.put("filteredFilms", filteredFilms);
 	
 			request.setAttribute("data", data);
 			request.getRequestDispatcher("./SuccessServlet").forward(request, response);

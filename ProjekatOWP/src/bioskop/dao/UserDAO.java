@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import bioskop.model.Film;
 import bioskop.model.User;
 import bioskop.model.User.Role;
 
@@ -71,8 +72,44 @@ public class UserDAO {
 		return null;
 	}
 
-	public static List<User> getAll(String name, Role role) throws Exception {
-		return new ArrayList<>();
+	public static List<User> getAll(String userName,String password,String role) throws Exception {
+		List<User> users = new ArrayList<>();
+		
+		Connection conn = ConnectionManager.getConnection();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		try {
+			String query = "SELECT userName,password,role "
+					+ " FROM users WHERE userName LIKE ? AND"
+					+ "password LIKE ? AND role LIKE ?";
+					
+			pstmt = conn.prepareStatement(query);
+			int index = 1;
+			pstmt.setString(index++, userName);
+			pstmt.setString(index++, password);
+			pstmt.setString(index++, role);
+			System.out.println(pstmt);
+			
+			rset = pstmt.executeQuery();
+			
+			while (rset.next()) {
+				index = 1;
+				String useruserName = rset.getString(index++);
+				String userpassword = rset.getString(index++);
+				//String userrole = rset.getString(index++);
+				
+				//User user = new User(useruserName,userpassword,userrole);
+				//users.add(user);
+			}
+		}
+		finally {
+			try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}
+			try {rset.close();} catch (Exception ex1) {ex1.printStackTrace();}
+			try {conn.close();} catch (Exception ex1) {ex1.printStackTrace();} // ako se koristi DBCP2, konekcija se mora vratiti u pool
+		}
+		
+		return users;
 	}
 
 	public static boolean add(User user) throws Exception {

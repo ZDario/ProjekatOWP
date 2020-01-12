@@ -97,4 +97,14 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListaUseraServlet</display-name>
+    <servlet-name>ListaUseraServlet</servlet-name>
+    <servlet-class>bioskop.ListaUseraServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListaUseraServlet</servlet-name>
+    <url-pattern>/ListaUseraServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -72,7 +72,7 @@ $(document).ready(function() {
 			}
 			
 			if (data.status == 'success') {
-				productsTable.find('tr:gt(1)').remove();
+				filmsTable.find('tr:gt(1)').remove();
 			};
 		});
 	}
