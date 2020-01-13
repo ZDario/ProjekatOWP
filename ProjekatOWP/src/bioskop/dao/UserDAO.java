@@ -97,10 +97,10 @@ public class UserDAO {
 				index = 1;
 				String useruserName = rset.getString(index++);
 				String userpassword = rset.getString(index++);
-				//String userrole = rset.getString(index++);
+				Role userrole = Role.valueOf(rset.getString(index++));
 				
-				//User user = new User(useruserName,userpassword,userrole);
-				//users.add(user);
+				User user = new User(useruserName,userpassword,userrole);
+				users.add(user);
 			}
 		}
 		finally {

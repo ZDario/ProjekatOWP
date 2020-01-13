@@ -15,12 +15,12 @@ $(document).ready(function() {
 	
 	var userNameInput = $('#userNameInput');
 	var passwordInput = $('#passwordInput');
-	var roleInput = $('#roleInput');
+	var roleSelect = $('#roleSelect');
 	
 	$('#userSubmit').on('click', function(event) {
 		var userName = userNameInput.val();
 		var password = passwordInput.val();
-		var role = roleInput.val();
+		var role = roleSelect.val();
 		
 		console.log('userName: ' + userName);
 		console.log('password: ' + password);
@@ -36,7 +36,7 @@ $(document).ready(function() {
 			console.log(data);
 
 			if (data.status == 'unauthenticated') {
-				window.location.replace('Login.html');
+				window.location.replace('ListaUsera.html');
 				return;
 			}
 

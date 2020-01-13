@@ -73,21 +73,21 @@ public class FilmServlet extends HttpServlet {
 				case "add": {
 					String naziv = request.getParameter("naziv");
 					naziv = (!"".equals(naziv)? naziv: "<prazan naziv>");
-					String reziser = request.getParameter("naziv");
+					String reziser = request.getParameter("reziser");
 					reziser = (!"".equals(reziser)? reziser: "<prazan reziser>");
-					String glumci = request.getParameter("naziv");
+					String glumci = request.getParameter("glumci");
 					glumci = (!"".equals(glumci)? glumci: "<prazni glumci>");
-					String zanrovi = request.getParameter("naziv");
+					String zanrovi = request.getParameter("zanrovi");
 					zanrovi = (!"".equals(zanrovi)? zanrovi: "<prazni zanrovi>");
 					int trajanje = Integer.parseInt(request.getParameter("trajanje"));
 					trajanje = (trajanje > 0? trajanje: 9999);
-					String distributer = request.getParameter("naziv");
+					String distributer = request.getParameter("distributer");
 					distributer= (!"".equals(distributer)? distributer: "<prazan distributer>");
-					String zemljaPorekla = request.getParameter("naziv");
+					String zemljaPorekla = request.getParameter("zemljaPorekla");
 					zemljaPorekla = (!"".equals(zemljaPorekla)? zemljaPorekla: "<prazan zemljaPorekla>");
 					int godinaProizvodnje = Integer.parseInt(request.getParameter("godinaProizvodnje"));
 					godinaProizvodnje = (trajanje > 0? godinaProizvodnje: 9999);
-					String opis = request.getParameter("naziv");
+					String opis = request.getParameter("opis");
 					opis = (!"".equals(opis)? opis: "<prazan opis>");
 
 					Film film = new Film("", naziv, reziser, glumci, zanrovi,
