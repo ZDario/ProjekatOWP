@@ -31,14 +31,28 @@ public class ListaFilmovaServlet extends HttpServlet {
 				request.getRequestDispatcher("./LogoutServlet").forward(request, response);
 				return;
 			}
+			int lowDuration = 0;
+			int lowYearOfProduction = 0;
+			int highDuration = Integer.MAX_VALUE;
+			int highYearOfProduction = Integer.MAX_VALUE;
+			
 			String naziv = request.getParameter("nazivFilter");
 			naziv = (naziv != null? naziv: "");
 			
 			String zanrovi = request.getParameter("zanroviFilter");
 			zanrovi = (zanrovi != null? zanrovi: "");
 			
-			int trajanje = request.getContentLength();
-			trajanje = (trajanje != 0? trajanje: 0);
+			try {
+				String lowDurationFilter = request.getParameter("lowDurationFilter");
+				lowDuration = Integer.parseInt(lowDurationFilter);
+				lowDuration = (lowDuration >= 0? lowDuration: 0);
+			} catch (Exception ex) {}
+			try {
+				String highDurationFilter = request.getParameter("highDurationFilter");
+				highDuration = Integer.parseInt(highDurationFilter);
+				highDuration = (highDuration >= 0? highDuration: Integer.MAX_VALUE);
+			} catch (Exception ex) {}
+			
 			
 			String distributer = request.getParameter("distributerFilter");
 			distributer = (distributer != null? distributer: "");
@@ -49,34 +63,21 @@ public class ListaFilmovaServlet extends HttpServlet {
 			int godinaProizvodnje = request.getContentLength();
 			godinaProizvodnje = (godinaProizvodnje != 0? godinaProizvodnje: 0);
 			
-			double lowDuration = 0.0;
-			double lowYearOfProduction = 0.0;
-			try {
-				String lowDurationFilter = request.getParameter("lowDurationFilter");
-				lowDuration = Double.parseDouble(lowDurationFilter);
-				lowDuration = (lowDuration >= 0.0? lowDuration: 0.0);
-			} catch (Exception ex) {}
+
 			try {
 				String lowYearOfProductionFilter = request.getParameter("lowYearOfProductionFilter");
-				lowYearOfProduction = Double.parseDouble(lowYearOfProductionFilter);
-				lowYearOfProduction = (lowYearOfProduction >= 0.0? lowYearOfProduction: 0.0);
+				lowYearOfProduction = Integer.parseInt(lowYearOfProductionFilter);
+				lowYearOfProduction = (lowYearOfProduction >= 0? lowYearOfProduction: 0);
 			} catch (Exception ex) {}
 			
-			double highDuration = Double.MAX_VALUE;
-			double highYearOfProduction = Double.MAX_VALUE;
-			try {
-				String highDurationFilter = request.getParameter("highDurationFilter");
-				highDuration = Double.parseDouble(highDurationFilter);
-				highDuration = (highDuration >= 0.0? highDuration: Double.MAX_VALUE);
-			} catch (Exception ex) {}
 			try {
 				String highYearOfProductionFilter = request.getParameter("highYearOfProductionFilter");
-				highYearOfProduction = Double.parseDouble(highYearOfProductionFilter);
-				highYearOfProduction = (highYearOfProduction >= 0.0? highYearOfProduction: Double.MAX_VALUE);
+				highYearOfProduction = Integer.parseInt(highYearOfProductionFilter);
+				highYearOfProduction = (highYearOfProduction >= 0? highYearOfProduction: Integer.MAX_VALUE);
 			} catch (Exception ex) {}
 	
-			List<Film> filteredFilms = FilmDAO.getAll(naziv, zanrovi, trajanje, distributer, zemljaPorekla,
-					godinaProizvodnje,lowDuration, highDuration, lowYearOfProduction,highYearOfProduction);
+			List<Film> filteredFilms = FilmDAO.getAll(naziv, zanrovi, lowDuration, highDuration, distributer, zemljaPorekla,
+					 lowYearOfProduction,highYearOfProduction);
 	
 //			request.setAttribute("loggedInUserRole", loggedInUser.getRole());
 //			...

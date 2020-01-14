@@ -52,9 +52,8 @@ public class FilmDAO {
 	}
 	
 	public static List<Film> getAll(String naziv,
-			String zanrovi, int trajanje, String distributer, String zemljaPorekla,
-			int godinaProizvodnje, double lowDuration, double highDuration, 
-			double lowYearOfProduction, double highYearOfProduction) throws Exception {
+			String zanrovi, int lowDuration, int highDuration, String distributer, String zemljaPorekla, 
+			int lowYearOfProduction, int highYearOfProduction) throws Exception {
 		List<Film> films = new ArrayList<>();
 
 		Connection conn = ConnectionManager.getConnection();
@@ -64,22 +63,20 @@ public class FilmDAO {
 		try {
 			String query = "SELECT naziv,zanrovi, "
 					+ "trajanje,distributer,zemljaPorekla,godinaProizvodnje FROM films WHERE "
-					+ "naziv LIKE ? AND zanrovi LIKE ? AND trajanje LIKE ? AND distributer LIKE ? AND "
-					+ "zemljaPorekla LIKE ? AND godinaProizvodnje LIKE ? AND trajanje >= ? AND trajanje <= ?"
+					+ "naziv LIKE ? AND zanrovi LIKE ? AND trajanje >= ? AND trajanje <= ? "
+					+ "AND distributer LIKE ? AND zemljaPorekla LIKE ? "
 					+ "AND godinaProizvodnje >= ? AND godinaProizvodnje <= ?";
 
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
 			pstmt.setString(index++, "%" + naziv + "%");
-			pstmt.setString(index++, zanrovi);
-			pstmt.setInt(index, trajanje);
-			pstmt.setString(index++, distributer);
-			pstmt.setString(index++, zemljaPorekla);
-			pstmt.setInt(index++, godinaProizvodnje);
-			pstmt.setDouble(index++, lowDuration);
-			pstmt.setDouble(index++, highDuration);
-			pstmt.setDouble(index++, lowYearOfProduction);
-			pstmt.setDouble(index++, highYearOfProduction);
+			pstmt.setString(index++, "%" + zanrovi + "%");
+			pstmt.setInt(index++, lowDuration);
+			pstmt.setInt(index++, highDuration);
+			pstmt.setString(index++, "%" + distributer + "%");
+			pstmt.setString(index++, "%" + zemljaPorekla + "%");
+			pstmt.setInt(index++, lowYearOfProduction);
+			pstmt.setInt(index++, highYearOfProduction);
 			System.out.println(pstmt);
 
 			rset = pstmt.executeQuery();

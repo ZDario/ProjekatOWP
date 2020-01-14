@@ -85,9 +85,9 @@ public class UserDAO {
 					
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
-			pstmt.setString(index++, userName);
-			pstmt.setString(index++, password);
-			pstmt.setString(index++, role);
+			pstmt.setString(index++, "%"+userName+"%");
+			pstmt.setString(index++, "%"+password+"%");
+			pstmt.setString(index++, "%"+role+"%");
 			System.out.println(pstmt);
 			
 			rset = pstmt.executeQuery();
