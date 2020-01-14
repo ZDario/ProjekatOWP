@@ -13,11 +13,11 @@ $(document).ready(function() {
 		return false;
 	});
 
-	var id = window.location.search.slice(1).split('&')[0].split('=')[1];
-	console.log(id);
+	var idFilm = window.location.search.slice(1).split('&')[0].split('=')[1];
+	console.log(idFilm);
 	
 	function getFilm() {
-		$.get('FilmServlet', {'id': id}, function(data) {
+		$.get('FilmServlet', {'idFilm': idFilm}, function(data) {
 			console.log(data);
 			
 			if (data.status == 'unauthenticated') {
@@ -101,7 +101,7 @@ $(document).ready(function() {
 						console.log(params);
 						$.post('FilmServlet', params, function(data) {
 							if (data.status == 'unauthenticated') {
-								window.location.replace('Login.html');
+								window.location.replace('ListaFilmova.html');
 								return;
 							}
 
@@ -121,7 +121,7 @@ $(document).ready(function() {
 						console.log(params);
 						$.post('FilmServlet', params, function(data) {
 							if (data.status == 'unauthenticated') {
-								window.location.replace('Login.html');
+								window.location.replace('ListaFilmova.html');
 								return;
 							}
 

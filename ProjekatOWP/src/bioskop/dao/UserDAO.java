@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import bioskop.model.Film;
 import bioskop.model.User;
 import bioskop.model.User.Role;
 
@@ -135,11 +134,43 @@ public class UserDAO {
 	}
 
 	public static boolean update(User user) throws Exception {
-		return false;
+		Connection conn = ConnectionManager.getConnection();
+
+		PreparedStatement pstmt = null;
+		try {
+			String query = "UPDATE users SET userName = ?,password = ?,role = ? "
+					+ "WHERE userName = ?";
+
+			pstmt = conn.prepareStatement(query);
+			int index = 1;
+			pstmt.setString(index++, user.getUserName());
+			pstmt.setString(index++, user.getPassword());
+
+			System.out.println(pstmt);
+
+			return pstmt.executeUpdate() == 1;
+		} finally {
+			try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}
+			try {conn.close();} catch (Exception ex1) {ex1.printStackTrace();}
+		}
 	}
 
 	public static boolean delete(String userName) throws Exception {
-		return false;
+		Connection conn = ConnectionManager.getConnection();
+
+	PreparedStatement pstmt = null;
+	try {
+		String query = "DELETE FROM users WHERE userName = ?";
+
+		pstmt = conn.prepareStatement(query);
+		pstmt.setString(1, userName);
+		System.out.println(pstmt);
+
+		return pstmt.executeUpdate() == 1;
+	} finally {
+		try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}
+		try {conn.close();} catch (Exception ex1) {ex1.printStackTrace();} // ako se koristi DBCP2, konekcija se mora vratiti u pool
 	}
+}
 
 }

@@ -60,7 +60,7 @@ $(document).ready(function() {
 			console.log(data);
 
 			if (data.status == 'unauthenticated') {
-				window.location.replace('Login.html');
+				window.location.replace('ListaFilmova.html');
 				return;
 			}
 

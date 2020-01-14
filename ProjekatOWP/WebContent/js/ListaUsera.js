@@ -43,7 +43,19 @@ $(document).ready(function() {
 			
 			if (data.status == 'success') {
 				usersTable.find('tr:gt(1)').remove();
-			};
+
+				var filteredUsers = data.filteredUsers;
+				for (it in filteredUsers) {
+					usersTable.append(
+						'<tr>' + 
+							'<td><a href="User.html?id=' + filteredUsers[it].userName + '">' + filteredUsers[it].userName + '</a></td>' + 
+							'<td>' + filteredUsers[it].password + '</td>' + '<td>' + filteredUsers[it].role + '</td>' +  
+							'<td>' + 
+							'</td>' + 
+						'</tr>'
+					)
+				}
+			}
 		});
 	}
 	function getAdminInterface() {
@@ -65,19 +77,19 @@ $(document).ready(function() {
 		});
 	}
 	userNameFilterInput.on('keyup', function(event) {
-		getFilms();
+		getUsers();
 
 		event.preventDefault();
 		return false;
 	});
 	passwordFilterInput.on('keyup', function(event) {
-		getFilms();
+		getUsers();
 
 		event.preventDefault();
 		return false;
 	});
 	roleFilterInput.on('keyup', function(event) {
-		getFilms();
+		getUsers();
 
 		event.preventDefault();
 		return false;

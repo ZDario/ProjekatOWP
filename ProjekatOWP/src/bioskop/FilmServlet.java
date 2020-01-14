@@ -84,7 +84,7 @@ public class FilmServlet extends HttpServlet {
 					String distributer = request.getParameter("distributer");
 					distributer= (!"".equals(distributer)? distributer: "<prazan distributer>");
 					String zemljaPorekla = request.getParameter("zemljaPorekla");
-					zemljaPorekla = (!"".equals(zemljaPorekla)? zemljaPorekla: "<prazan zemljaPorekla>");
+					zemljaPorekla = (!"".equals(zemljaPorekla)? zemljaPorekla: "<prazna zemljaPorekla>");
 					int godinaProizvodnje = Integer.parseInt(request.getParameter("godinaProizvodnje"));
 					godinaProizvodnje = (trajanje > 0? godinaProizvodnje: 9999);
 					String opis = request.getParameter("opis");
@@ -97,7 +97,7 @@ public class FilmServlet extends HttpServlet {
 					break;
 				}
 				case "update": {
-					String idFilm = request.getParameter("id");
+					String idFilm = request.getParameter("idFilm");
 					Film film = FilmDAO.get(idFilm);
 
 					String naziv = request.getParameter("naziv");

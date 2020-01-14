@@ -115,7 +115,7 @@ public class FilmDAO {
 
 		PreparedStatement pstmt = null;
 		try {
-			String query = "INSERT INTO films (naziv,reziser,glumci,zanrovi,"
+			String query = "INSERT INTO films (naziv,reziser,glumci,zanrovi, "
 					+ "trajanje,distributer,zemljaPorekla,godinaProizvodnje,opis) "
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -145,12 +145,11 @@ public class FilmDAO {
 		PreparedStatement pstmt = null;
 		try {
 			String query = "UPDATE films SET naziv = ?,reziser = ?,glumci = ?,zanrovi = ?, "
-					+ "trajanje = ?,distributer = ?,zemljaPorekla = ?,godinaProizvodnje = ?,opis = ?"
+					+ "trajanje = ?,distributer = ?,zemljaPorekla = ?,godinaProizvodnje = ?,opis = ? "
 					+ "WHERE idFilm = ?";
 
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
-			pstmt.setString(index++, film.getIdFilm());
 			pstmt.setString(index++, film.getNaziv());
 			pstmt.setString(index++, film.getReziser());
 			pstmt.setString(index++, film.getGlumci());
@@ -160,6 +159,7 @@ public class FilmDAO {
 			pstmt.setString(index++, film.getZemljaPorekla());
 			pstmt.setInt(index++, film.getGodinaProizvodnje());
 			pstmt.setString(index++, film.getOpis());
+			pstmt.setString(index++, film.getIdFilm());
 			System.out.println(pstmt);
 
 			return pstmt.executeUpdate() == 1;
@@ -174,7 +174,7 @@ public class FilmDAO {
 
 		PreparedStatement pstmt = null;
 		try {
-			String query = "DELETE FROM films WHERE id = ?";
+			String query = "DELETE FROM films WHERE idFilm = ?";
 
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, idFilm);

@@ -73,7 +73,21 @@ $(document).ready(function() {
 			
 			if (data.status == 'success') {
 				filmsTable.find('tr:gt(1)').remove();
-			};
+
+				var filteredFilms = data.filteredFilms;
+				for (it in filteredFilms) {
+					filmsTable.append(
+						'<tr>' + 
+							'<td><a href="Film.html?id=' + filteredFilms[it].idFilm + '">' + filteredFilms[it].naziv + '</a></td>' + 
+							'<td>' + filteredFilms[it].zanrovi + '</td>' + '<td>' + filteredFilms[it].trajanje + '</td>' + 
+							'<td>' + filteredFilms[it].distributer + '</td>' + '<td>' + filteredFilms[it].zemljaPorekla + '</td>' + 
+							'<td>' + filteredFilms[it].godinaProizvodnje + '</td>' + 
+							'<td>' + 
+							'</td>' + 
+						'</tr>'
+					)
+				}
+			}
 		});
 	}
 	function getAdminInterface() {

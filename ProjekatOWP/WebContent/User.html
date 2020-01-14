@@ -2,16 +2,16 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Dodavanje korisnika</title>
+	<title></title>
 	<script src="js/jquery-3.3.1.js"></script>
-	<script src="js/AddUser.js"></script>
+	<script src="js/User.js"></script>
 </head>
 <body>
-	<h3>Dodavanje korisnika:</h3>
-	<form>
+	<h3>Korisnici:</h3>
+	<form id="adminForm">
 		<table>
-			<tr><td align="right">Korisničko ime:</td><td><input type="text" id="userNameInput"/></td></tr>
-			<tr><td align="right">Lozinka:</td><td><input type="password" id="passwordInput"/></td></tr>
+			<tr><td align="right">Korisnicko Ime:</td><td><input type="text" id="userNameInput"/></td></tr>
+			<tr><td align="right">Lozinka:</td><td><input type="text" id="passwordInput"/></td></tr>
 			<tr>
 				<td align="right">Uloga:</td>
 				<td>
@@ -21,12 +21,12 @@
 					</select> 
 				</td>
 			</tr>
-			<tr><td/><td><input type="submit" value="Dodaj" id="userSubmit"></td></tr>
+			<tr><td/><td><input type="submit" value="Izmeni" id="updateSubmit"></td></tr>
+			<tr><td/><td><input type="submit" value="Obrisi" id="deleteSubmit"></td></tr>
 		</table>
 	</form>
-	<p style="color: red;" id="messageParagraph"/>
-
 	<p><a href="ListaUsera.html">Povratak na listu Korisnika</a></p>
 	<p><a href="" id="logoutLink">Odjava</a></p>
+	
 </body>
 </html>
