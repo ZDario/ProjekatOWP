@@ -32,26 +32,21 @@ $(document).ready(function() {
 					
 					var userNameInput = $('#userNameInput');
 					var passwordInput = $('#passwordInput');
-					var roleSelect = $('#roleSelect');
 
 					
 					userNameInput.val(user.userName);
 					passwordInput.val(user.password);
-					roleSelect.val(user.role);
 					
 					$('#updateSubmit').on('click', function(event) {
 						var userName = userNameInput.val();
 						var password = passwordInput.val();
-						var role = roleSelect.val();
 						console.log('userName: ' + userName);
 						console.log('password: ' + password);
-						console.log('role: ' + role);
 						
 						params = {
 							'action': 'update',
 							'userName': userName,
 							'password': password,
-							'role': role
 						};
 						console.log(params);
 						$.post('UserServlet', params, function(data) {

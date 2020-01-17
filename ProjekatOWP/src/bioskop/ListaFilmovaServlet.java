@@ -60,9 +60,6 @@ public class ListaFilmovaServlet extends HttpServlet {
 			String zemljaPorekla = request.getParameter("zemljaPoreklaFilter");
 			zemljaPorekla = (zemljaPorekla != null? zemljaPorekla: "");
 			
-			int godinaProizvodnje = request.getContentLength();
-			godinaProizvodnje = (godinaProizvodnje != 0? godinaProizvodnje: 0);
-			
 
 			try {
 				String lowYearOfProductionFilter = request.getParameter("lowYearOfProductionFilter");

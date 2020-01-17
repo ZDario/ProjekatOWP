@@ -15,10 +15,8 @@ $(document).ready(function() {
 	
 	var nazivFilterInput = $('#nazivFilterInput');
 	var zanroviFilterInput = $('#zanroviFilterInput');
-	var trajanjeFilterInput = $('#trajanjeFilterInput');
 	var distributerFilterInput = $('#distributerFilterInput');
 	var zemljaPoreklaFilterInput = $('#zemljaPoreklaFilterInput');
-	var godinaProizvodnjeFilterInput = $('#godinaProizvodnjeFilterInput');
 	
 	var lowDurationFilterInput = $('#lowDurationFilterInput');
 	var highDurationFilterInput = $('#highDurationFilterInput');
@@ -32,34 +30,28 @@ $(document).ready(function() {
 	function getFilms() {
 		var nazivFilter = nazivFilterInput.val();
 		var zanroviFilter = zanroviFilterInput.val();
-		var trajanjeFilter = trajanjeFilterInput.val();
-		var distributerFilter = distributerFilterInput.val();
-		var zemljaPoreklaFilter = zemljaPoreklaFilterInput.val();
-		var godinaProizvodnjeFilter = godinaProizvodnjeFilterInput.val();
 		var lowDurationFilter = lowDurationFilterInput.val();
 		var highDurationFilter = highDurationFilterInput.val();
+		var distributerFilter = distributerFilterInput.val();
+		var zemljaPoreklaFilter = zemljaPoreklaFilterInput.val();
 		var lowYearOfProductionFilter = lowYearOfProductionFilterInput.val();
 		var highYearOfProductionFilter = highYearOfProductionFilterInput.val();
 		console.log('nazivFilter: ' + nazivFilter);
 		console.log('zanroviFilter: ' + zanroviFilter);
-		console.log('trajanjeFilter: ' + trajanjeFilter);
-		console.log('distributerFilter: ' + distributerFilter);
-		console.log('zemljaPoreklaFilter: ' + zemljaPoreklaFilter);
-		console.log('godinaProizvodnjeFilter: ' + godinaProizvodnjeFilter);
 		console.log('lowDurationFilter: ' + lowDurationFilter);
 		console.log('highDurationFilter: ' + highDurationFilter);
+		console.log('distributerFilter: ' + distributerFilter);
+		console.log('zemljaPoreklaFilter: ' + zemljaPoreklaFilter);
 		console.log('lowYearOfProductionFilter: ' + lowYearOfProductionFilter);
 		console.log('highYearOfProductionFilter: ' + highYearOfProductionFilter);
 		
 		var params = {
 				'nazivFilter': nazivFilter,
 				'zanroviFilter': zanroviFilter,
-				'trajanjeFilter': trajanjeFilter,
-				'distributerFilter': distributerFilter,
-				'zemljaPoreklaFilter': zemljaPoreklaFilter,
-				'godinaProizvodnjeFilter': godinaProizvodnjeFilter,
 				'lowDurationFilter': lowDurationFilter,
 				'highDurationFilter': highDurationFilter,
+				'distributerFilter': distributerFilter,
+				'zemljaPoreklaFilter': zemljaPoreklaFilter,
 				'lowYearOfProductionFilter': lowYearOfProductionFilter,
 				'highYearOfProductionFilter': highYearOfProductionFilter
 		};
@@ -120,7 +112,13 @@ $(document).ready(function() {
 		event.preventDefault();
 		return false;
 	});
-	trajanjeFilterInput.on('keyup', function(event) {
+	lowDurationFilterInput.on('keyup', function(event) {
+		getFilms();
+
+		event.preventDefault();
+		return false;
+	});
+	highDurationFilterInput.on('keyup', function(event) {
 		getFilms();
 
 		event.preventDefault();
@@ -138,24 +136,7 @@ $(document).ready(function() {
 		event.preventDefault();
 		return false;
 	});
-	godinaProizvodnjeFilterInput.on('keyup', function(event) {
-		getFilms();
 
-		event.preventDefault();
-		return false;
-	});
-	lowDurationFilterInput.on('keyup', function(event) {
-		getFilms();
-
-		event.preventDefault();
-		return false;
-	});
-	highDurationFilterInput.on('keyup', function(event) {
-		getFilms();
-
-		event.preventDefault();
-		return false;
-	});
 	lowYearOfProductionFilterInput.on('keyup', function(event) {
 		getFilms();
 
