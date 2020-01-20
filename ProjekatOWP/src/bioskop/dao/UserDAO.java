@@ -80,7 +80,7 @@ public class UserDAO {
 		ResultSet rset = null;
 		try {
 			String query = "SELECT userName,password,role "
-					+ " FROM users WHERE userName LIKE ? AND"
+					+ " FROM users WHERE userName LIKE ? AND "
 					+ "password LIKE ? AND role LIKE ?";
 					
 			pstmt = conn.prepareStatement(query);
@@ -138,7 +138,7 @@ public class UserDAO {
 
 		PreparedStatement pstmt = null;
 		try {
-			String query = "UPDATE users SET userName = ?,password = ?,role = ? "
+			String query = "UPDATE users SET userName = ?,password = ? "
 					+ "WHERE userName = ?";
 
 			pstmt = conn.prepareStatement(query);

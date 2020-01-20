@@ -17,6 +17,8 @@ $(document).ready(function() {
 	var passwordFilterInput = $('#passwordFilterInput');
 	var roleFilterInput = $('#roleFilterInput');
 	
+	var usersTable = $('#usersTable');
+	
 	var adminParagraph = $('#adminParagraph');
 	
 	function getUsers() {

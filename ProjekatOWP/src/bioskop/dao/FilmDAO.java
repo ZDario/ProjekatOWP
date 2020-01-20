@@ -61,8 +61,8 @@ public class FilmDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		try {
-			String query = "SELECT naziv,zanrovi, "
-					+ "trajanje,distributer,zemljaPorekla,godinaProizvodnje FROM films WHERE "
+			String query = "SELECT idFilm,naziv,reziser,glumci, zanrovi, "
+					+ "trajanje,distributer,zemljaPorekla,godinaProizvodnje, opis FROM films WHERE "
 					+ "naziv LIKE ? AND zanrovi LIKE ? AND trajanje >= ? AND trajanje <= ? "
 					+ "AND distributer LIKE ? AND zemljaPorekla LIKE ? "
 					+ "AND godinaProizvodnje >= ? AND godinaProizvodnje <= ?";

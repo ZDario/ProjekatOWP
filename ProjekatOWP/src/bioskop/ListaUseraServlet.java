@@ -37,6 +37,9 @@ public class ListaUseraServlet extends HttpServlet {
 		role = (role != null? role: "");
 		
 		List<User> filteredUsers = UserDAO.getAll(userName, password, role);
+		for (User user : filteredUsers) {
+			System.out.println(user);
+		}
 		
 		Map<String, Object> data = new LinkedHashMap<>();
 		data.put("filteredUsers", filteredUsers);

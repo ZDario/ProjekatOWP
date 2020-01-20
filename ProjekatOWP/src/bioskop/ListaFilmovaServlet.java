@@ -75,7 +75,11 @@ public class ListaFilmovaServlet extends HttpServlet {
 	
 			List<Film> filteredFilms = FilmDAO.getAll(naziv, zanrovi, lowDuration, highDuration, distributer, zemljaPorekla,
 					 lowYearOfProduction,highYearOfProduction);
-	
+			for (Film film : filteredFilms) {
+				System.out.println(film);
+				
+			}
+			
 //			request.setAttribute("loggedInUserRole", loggedInUser.getRole());
 //			...
 //			request.setAttribute("filteredFilms", filteredFilms);

@@ -20,7 +20,7 @@ $(document).ready(function() {
 	
 	var lowDurationFilterInput = $('#lowDurationFilterInput');
 	var highDurationFilterInput = $('#highDurationFilterInput');
-	var lowYearOfProductionFilterInput = $('#lowYearOfProductionnFilterInput');
+	var lowYearOfProductionFilterInput = $('#lowYearOfProductionFilterInput');
 	var highYearOfProductionFilterInput = $('#highYearOfProductionFilterInput');
 	
 	var filmsTable = $('#filmsTable');

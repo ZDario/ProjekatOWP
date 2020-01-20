@@ -2,7 +2,7 @@ package bioskop.model;
 
 public class TipProjekcije {
 	
-	public enum Tip {DD,DDD,DDDD};
+	public enum Tip {D2,D3,D4};
 	
 	private String idTipProjekcije;
 	private Tip tip;

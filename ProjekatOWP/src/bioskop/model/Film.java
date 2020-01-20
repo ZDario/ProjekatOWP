@@ -126,5 +126,15 @@ public class Film {
 	public void setOpis(String opis) {
 		this.opis = opis;
 	}
+
+	@Override
+	public String toString() {
+		return "Film [idFilm=" + idFilm + ", naziv=" + naziv + ", reziser=" + reziser + ", glumci=" + glumci
+				+ ", zanrovi=" + zanrovi + ", trajanje=" + trajanje + ", distributer=" + distributer
+				+ ", zemljaPorekla=" + zemljaPorekla + ", godinaProizvodnje=" + godinaProizvodnje + ", opis=" + opis
+				+ "]";
+	}
+	
+	
 	
 }

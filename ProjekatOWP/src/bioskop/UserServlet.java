@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bioskop.dao.FilmDAO;
 import bioskop.dao.UserDAO;
 import bioskop.model.User;
 import bioskop.model.User.Role;
@@ -29,16 +28,15 @@ public class UserServlet extends HttpServlet {
 				request.getRequestDispatcher("./LogoutServlet").forward(request, response);
 				return;
 			}
+			
+			
+			String userName = request.getParameter("userName");
+			User user = UserDAO.get(userName);
 	
 			Map<String, Object> data = new LinkedHashMap<>();
 	
-			String action = request.getParameter("action");
-			switch (action) {
-				case "loggedInUserRole": {
-					data.put("loggedInUserRole", loggedInUser.getRole());
-					break;
-				}
-			}
+			data.put("user", user);
+			data.put("loggedInUserRole", loggedInUser.getRole());
 	
 			request.setAttribute("data", data);
 			request.getRequestDispatcher("./SuccessServlet").forward(request, response);
@@ -78,22 +76,22 @@ public class UserServlet extends HttpServlet {
 					
 			}
 			case "update": {
-				String userName = request.getParameter("userName");
-				User user = UserDAO.get(userName);
+				String userName1 = request.getParameter("userName");
+				User user = UserDAO.get(userName1);
 				
-				String userName1 = request.getParameter("userName1");
-				userName1 = (!"".equals(userName1)? userName1: user.getUserName());
+				String userName = request.getParameter("userName");
+				userName = (!"".equals(userName)? userName: user.getUserName());
 				String password = request.getParameter("password");
 				password = (!"".equals(password)? password: user.getPassword());
 				
-				user.setUserName(userName1);
+				user.setUserName(userName);
 				user.setPassword(password);
 				UserDAO.update(user);
 				break;
 			}
 			case "delete": {
 				String userName = request.getParameter("userName");
-				FilmDAO.delete(userName);
+				UserDAO.delete(userName);
 				break;
 			}
 			}request.getRequestDispatcher("./SuccessServlet").forward(request, response);
