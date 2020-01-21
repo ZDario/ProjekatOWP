@@ -1,0 +1,55 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+#container{ 
+    width: 1000px;
+    margin: 0 auto;
+    height: 100%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    background-image: url(../Photos/GlavnaStranica.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h2 {
+    color: rgba(38, 139, 255);
+    font-family: 'Great Vibes', cursive;
+    font-size: 50px;
+}
+
+nav ul { list-style: none; }
+
+nav ul li {
+    background-color: rgba(38, 139, 255, 0.8);
+    border-bottom: 1px solid white;
+    width: 25%;
+    padding: 10px;
+    text-align: center;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Merienda', cursive;
+    font-size: 25px;
+}
+
+nav ul li:hover {
+    background-color: rgba(9, 6, 216, 0.8);
+}
+
+#logoutlink {
+    border-bottom: none;
+}

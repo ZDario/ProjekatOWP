@@ -76,16 +76,16 @@ public class UserServlet extends HttpServlet {
 					
 			}
 			case "update": {
-				String userName1 = request.getParameter("userName");
-				User user = UserDAO.get(userName1);
-				
 				String userName = request.getParameter("userName");
+				User user = UserDAO.get(userName);
+				
 				userName = (!"".equals(userName)? userName: user.getUserName());
 				String password = request.getParameter("password");
 				password = (!"".equals(password)? password: user.getPassword());
 				
 				user.setUserName(userName);
 				user.setPassword(password);
+				user.setRole(Role.USER);
 				UserDAO.update(user);
 				break;
 			}

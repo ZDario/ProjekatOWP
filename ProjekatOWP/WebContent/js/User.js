@@ -32,7 +32,6 @@ $(document).ready(function() {
 					
 					var userNameInput = $('#userNameInput');
 					var passwordInput = $('#passwordInput');
-
 					
 					userNameInput.val(user.userName);
 					passwordInput.val(user.password);
@@ -47,6 +46,7 @@ $(document).ready(function() {
 							'action': 'update',
 							'userName': userName,
 							'password': password,
+							'role': role
 						};
 						console.log(params);
 						$.post('UserServlet', params, function(data) {

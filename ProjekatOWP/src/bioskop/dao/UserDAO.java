@@ -138,13 +138,14 @@ public class UserDAO {
 
 		PreparedStatement pstmt = null;
 		try {
-			String query = "UPDATE users SET userName = ?,password = ? "
+			String query = "UPDATE users SET userName = ?,password = ?,role = ? "
 					+ "WHERE userName = ?";
 
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
 			pstmt.setString(index++, user.getUserName());
 			pstmt.setString(index++, user.getPassword());
+			pstmt.setString(index++, user.getRole().toString());
 
 			System.out.println(pstmt);
 
