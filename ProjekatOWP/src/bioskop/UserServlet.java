@@ -1,6 +1,8 @@
 package bioskop;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -71,7 +73,11 @@ public class UserServlet extends HttpServlet {
 					String password = request.getParameter("password");
 					password = (!"".equals(password)? password: "<prazan password>");
 					
-					User user = new User(userName,password,Role.USER);
+					Date sadaDatum = new java.util.Date();
+					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					String dateOfRegistration = dateFormat.format(sadaDatum);
+					
+					User user = new User(userName,password,dateOfRegistration,Role.USER);
 					UserDAO.add(user);
 					
 			}
@@ -85,7 +91,6 @@ public class UserServlet extends HttpServlet {
 				
 				user.setUserName(userName);
 				user.setPassword(password);
-				user.setRole(Role.USER);
 				UserDAO.update(user);
 				break;
 			}

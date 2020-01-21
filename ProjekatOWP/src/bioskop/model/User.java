@@ -6,11 +6,13 @@ public class User {
 	
 	private String userName;
 	private String password;
+	private String dateOfRegistration;
 	private Role role;
 
-	public User(String userName, String password, Role role) {
+	public User(String userName, String password, String dateOfRegistration, Role role) {
 		this.userName = userName;
 		this.password = password;
+		this.dateOfRegistration = dateOfRegistration;
 		this.role = role;
 	}
 
@@ -53,12 +55,20 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
+	
+
+	public String getDateOfRegistration() {
+		return dateOfRegistration;
+	}
+
+	public void setDateOfRegistration(String dateOfRegistration) {
+		this.dateOfRegistration = dateOfRegistration;
+	}
 
 	@Override
 	public String toString() {
-		return "User [userName=" + userName + ", password=" + password + ", role=" + role + "]";
+		return "User [userName=" + userName + ", password=" + password + ", dateOfRegistration=" + dateOfRegistration
+				+ ", role=" + role + "]";
 	}
-	
-	
 
 }

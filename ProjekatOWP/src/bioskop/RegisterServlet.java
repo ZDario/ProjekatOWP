@@ -1,6 +1,8 @@
 package bioskop;
 
 import java.io.IOException;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -33,7 +35,11 @@ public class RegisterServlet extends HttpServlet {
 			if ("".equals(password))
 				throw new Exception("Lozinka je prazna!");
 			
-			User user = new User(userName, password, Role.USER);
+			Date sadaDatum = new java.util.Date();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			String dateOfRegistration = dateFormat.format(sadaDatum);
+			
+			User user = new User(userName, password,dateOfRegistration, Role.USER);
 			UserDAO.add(user);
 
 //			response.sendRedirect("./Login.html");

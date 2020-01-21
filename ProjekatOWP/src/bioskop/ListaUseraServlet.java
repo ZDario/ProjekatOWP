@@ -33,10 +33,12 @@ public class ListaUseraServlet extends HttpServlet {
 		userName = (userName != null? userName: "");
 		String password = request.getParameter("passwordFilter");
 		password = (password != null? password: "");
+		String dateOfRegistration = request.getParameter("dateOfRegistrationFilter");
+		dateOfRegistration = (dateOfRegistration != null? dateOfRegistration: "");
 		String role = request.getParameter("roleFilter");
 		role = (role != null? role: "");
 		
-		List<User> filteredUsers = UserDAO.getAll(userName, password, role);
+		List<User> filteredUsers = UserDAO.getAll(userName, password, dateOfRegistration, role);
 		for (User user : filteredUsers) {
 			System.out.println(user);
 		}

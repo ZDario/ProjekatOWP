@@ -32,7 +32,7 @@ $(document).ready(function() {
 				return;
 			}
 			if (data.status == 'success') {
-				window.location.replace('GlavnaStranica.html');
+				window.location.replace('Login.html');
 			}
 		});
 

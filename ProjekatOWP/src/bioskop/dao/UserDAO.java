@@ -1,8 +1,10 @@
 package bioskop.dao;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +19,7 @@ public class UserDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		try {
-			String query = "SELECT role FROM users WHERE userName = ? AND password = ?";
+			String query = "SELECT dateOfRegistration, role FROM users WHERE userName = ? AND password = ?";
 
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
@@ -28,9 +30,10 @@ public class UserDAO {
 			rset = pstmt.executeQuery();
 
 			if (rset.next()) {
-				Role role = Role.valueOf(rset.getString(1));
+				String dateOfRegistration = rset.getString("dateOfRegistration");
+				Role role = Role.valueOf(rset.getString("role"));
 
-				return new User(userName, password, role);
+				return new User(userName, password,dateOfRegistration, role);
 			}
 		} finally {
 			try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}
@@ -47,7 +50,7 @@ public class UserDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		try {
-			String query = "SELECT password, role FROM users WHERE userName = ?";
+			String query = "SELECT password, dateOfRegistration, role FROM users WHERE userName = ?";
 
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, userName);
@@ -58,9 +61,10 @@ public class UserDAO {
 			if (rset.next()) {
 				int index = 1;
 				String password = rset.getString(index++);
+				String dateOfRegistration = rset.getString(index++);
 				Role role = Role.valueOf(rset.getString(index++));
 
-				return new User(userName, password, role);
+				return new User(userName, password, dateOfRegistration, role);
 			}
 		} finally {
 			try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}
@@ -71,7 +75,7 @@ public class UserDAO {
 		return null;
 	}
 
-	public static List<User> getAll(String userName,String password,String role) throws Exception {
+	public static List<User> getAll(String userName,String password, String dateOfRegistration, String role) throws Exception {
 		List<User> users = new ArrayList<>();
 		
 		Connection conn = ConnectionManager.getConnection();
@@ -79,14 +83,15 @@ public class UserDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		try {
-			String query = "SELECT userName,password,role "
+			String query = "SELECT userName,password,dateOfRegistration,role "
 					+ " FROM users WHERE userName LIKE ? AND "
-					+ "password LIKE ? AND role LIKE ?";
+					+ "password LIKE ? AND dateOfRegistration LIKE ? AND role LIKE ?";
 					
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
 			pstmt.setString(index++, "%"+userName+"%");
 			pstmt.setString(index++, "%"+password+"%");
+			pstmt.setString(index++, "%"+dateOfRegistration+"%");
 			pstmt.setString(index++, "%"+role+"%");
 			System.out.println(pstmt);
 			
@@ -96,9 +101,10 @@ public class UserDAO {
 				index = 1;
 				String useruserName = rset.getString(index++);
 				String userpassword = rset.getString(index++);
+				String userdateOfRegistration = rset.getString(index++);
 				Role userrole = Role.valueOf(rset.getString(index++));
 				
-				User user = new User(useruserName,userpassword,userrole);
+				User user = new User(useruserName,userpassword,userdateOfRegistration ,userrole);
 				users.add(user);
 			}
 		}
@@ -116,13 +122,17 @@ public class UserDAO {
 
 		PreparedStatement pstmt = null;
 		try {
-			String query = "INSERT INTO users (userName, password, role) "
-					+ "VALUES (?, ?, ?)";
+			String query = "INSERT INTO users (userName, password, dateOfRegistration, role) "
+					+ "VALUES (?, ?, ? , ?)";
 
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
+			SimpleDateFormat sqlDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			Date parsed = sqlDateFormat.parse(user.getDateOfRegistration());
+			java.sql.Date sqlDate = new java.sql.Date(parsed.getTime());
 			pstmt.setString(index++, user.getUserName());
 			pstmt.setString(index++, user.getPassword());
+			pstmt.setString(index++, sqlDate.toString());
 			pstmt.setString(index++, user.getRole().toString());
 			System.out.println(pstmt);
 
@@ -138,14 +148,13 @@ public class UserDAO {
 
 		PreparedStatement pstmt = null;
 		try {
-			String query = "UPDATE users SET userName = ?,password = ?,role = ? "
+			String query = "UPDATE users SET userName = ?,password = ? "
 					+ "WHERE userName = ?";
 
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
 			pstmt.setString(index++, user.getUserName());
 			pstmt.setString(index++, user.getPassword());
-			pstmt.setString(index++, user.getRole().toString());
 
 			System.out.println(pstmt);
 

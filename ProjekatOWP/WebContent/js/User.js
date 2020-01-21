@@ -33,8 +33,13 @@ $(document).ready(function() {
 					var userNameInput = $('#userNameInput');
 					var passwordInput = $('#passwordInput');
 					
+					$('#dateCell').text(user.dateOfRegistration);
+					$('#roleCell').text(user.role);
+					
+					
 					userNameInput.val(user.userName);
 					passwordInput.val(user.password);
+					
 					
 					$('#updateSubmit').on('click', function(event) {
 						var userName = userNameInput.val();
@@ -45,8 +50,7 @@ $(document).ready(function() {
 						params = {
 							'action': 'update',
 							'userName': userName,
-							'password': password,
-							'role': role
+							'password': password
 						};
 						console.log(params);
 						$.post('UserServlet', params, function(data) {

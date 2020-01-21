@@ -16,6 +16,7 @@ $(document).ready(function() {
 	var userNameFilterInput = $('#userNameFilterInput');
 	var passwordFilterInput = $('#passwordFilterInput');
 	var roleFilterInput = $('#roleFilterInput');
+	var dateOfRegistrationFilterInput = $("#dateOfRegistrationFilterInput");
 	
 	var usersTable = $('#usersTable');
 	
@@ -24,15 +25,18 @@ $(document).ready(function() {
 	function getUsers() {
 		var userNameFilter = userNameFilterInput.val();
 		var passwordFilter = passwordFilterInput.val();
+		var dateOfRegistrationFilter = dateOfRegistrationFilterInput.val();
 		var roleFilter = roleFilterInput.val();
 		
 		console.log('userNameFilter: ' + userNameFilter);
 		console.log('passwordFilter: ' + passwordFilter);
+		console.log('dateOfRegistrationFilter: ' + dateOfRegistrationFilter);
 		console.log('roleFilter: ' + roleFilter);
 		
 		var params = {
 				'userNameFilter': userNameFilter,
 				'passwordFilter': passwordFilter,
+				'dateOfRegistrationFilter': dateOfRegistrationFilter,
 				'roleFilter': roleFilter
 		};
 		$.get('ListaUseraServlet', params, function(data){
@@ -51,7 +55,8 @@ $(document).ready(function() {
 					usersTable.append(
 						'<tr>' + 
 							'<td><a href="User.html?id=' + filteredUsers[it].userName + '">' + filteredUsers[it].userName + '</a></td>' + 
-							'<td>' + filteredUsers[it].password + '</td>' + '<td>' + filteredUsers[it].role + '</td>' +  
+							'<td>' + filteredUsers[it].password + '</td>' + '<td>'+ filteredUsers[it].dateOfRegistration + '</td>' + 
+							'<td>' + filteredUsers[it].role + '</td>' +  
 							'<td>' + 
 							'</td>' + 
 						'</tr>'
@@ -90,6 +95,14 @@ $(document).ready(function() {
 		event.preventDefault();
 		return false;
 	});
+	
+	dateOfRegistrationFilterInput.on('keyup', function(event) {
+		getUsers();
+
+		event.preventDefault();
+		return false;
+	});
+	
 	roleFilterInput.on('keyup', function(event) {
 		getUsers();
 
