@@ -2,19 +2,29 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Prijava:</title>
+    <title>Prijava:</title>
+    <link rel="stylesheet" href="css/Login.css">
 	<script src="js/jquery-3.3.1.js"></script>
 	<script src="js/Login.js"></script>
 </head>
 <body>
-	<h3>Prijava:</h3>
-	<form>
-		<table>
-			<tr><td align="right">Korisničko ime:</td><td><input type="text" name="userName" id="userNameInput"/></td></tr>
-			<tr><td align="right">Lozinka:</td><td><input type="password" name="password" id="passwordInput"/></td></tr>
-			<tr><td/><td><input type="submit" value="Prijava" id="loginSubmit"></td></tr>
-		</table>
-	</form>
-	<p><a href="Register.html">Registracija</a></p>
+    <div id="container">
+        <div class="box">
+            <h2>Prijava:</h2>
+            <form>
+                <div class="inputBox">
+                    <input type="text" name="userName" id="userNameInput" required="">
+                    <label>Korisnicko Ime</label>
+                </div>
+                <div class="inputBox">
+                    <input type="password" name="password" id="passwordInput" required="">
+                    <label>Lozinka</label>
+                </div>
+                <input type="submit" value="Prijava" id="loginSubmit">
+            
+                <p><a href="Register.html">Registracija</a></p>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
