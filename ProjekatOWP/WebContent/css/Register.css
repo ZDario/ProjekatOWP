@@ -83,9 +83,9 @@ body {
 
 .box input[type="submit"]:hover {
     transition: 0.5s; 
-    -webkit-box-shadow: 0px 0px 27px 8px rgba(255,49,49,0.77);
-    -moz-box-shadow: 0px 0px 27px 8px rgba(255,49,49,0.77);
-    box-shadow: 0px 0px 27px 8px rgba(255,49,49,0.77);
+    -webkit-box-shadow: 0px 0px 27px 8px rgba(0,0,0,0.77);
+    -moz-box-shadow: 0px 0px 27px 8px rgba(0,0,0,0.77);
+    box-shadow: 0px 0px 27px 8px rgba(0,0,0,0.77);
 }
 
 .box p a {

@@ -1,0 +1,174 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container{ 
+    width: 1150px;
+    margin: 0 auto;
+    height: 100%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body {
+    background-image: url(../Photos/ListaFilmova.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+
+/* HEADER */
+header {
+    background-color: black;
+    border-radius: 0 0 20px 20px;
+}
+
+header p {
+    font-family: 'Great Vibes', cursive;
+    float: left;
+    color: white;
+    padding: 20px 10px 0px 10px;
+    font-size: 50px;
+}
+
+header a img {
+    width: 8%;
+    margin-left: 24%;
+    border-radius: 36px;
+}
+
+header button, #logoutLink {
+    float: right;
+    background-color: rgba(255, 102, 72, 1);
+    border-radius: 20px;
+    padding: 7px;
+    color: white;
+    font-size: 15px;
+    margin: 10px 10px 0px 0px;
+}
+
+button:hover {
+    background-color: rgba(255, 41, 41, 0.8);
+    -webkit-box-shadow: 10px 10px 65px 5px rgba(245,92,10,1);
+    -moz-box-shadow: 10px 10px 65px 5px rgba(245,92,10,1);
+    box-shadow: 10px 10px 65px 5px rgba(245,92,10,1);
+}
+button{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+
+main {
+    padding: 28px 0px 15px 0px;
+}
+
+/* MENI */
+.meni {
+    float: left;
+    width: 12%;    
+    text-align: center;
+    margin-right: 10px;
+}
+
+nav ul { list-style: none; }
+div ul { list-style: none; }
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    display: block;
+    padding: 10px 0;
+    text-transform: uppercase;
+    font-size: 18px;
+    background-color: rgba(255, 102, 72, 0.8);
+}
+.meni a:hover { background-color: rgba(255, 41, 41, 0.8); }
+
+h1 {
+    padding: 6px;
+    margin-bottom: 5px;
+    background-color: black;
+    color: rgba(255, 102, 72, 0.8);
+    border-radius: 25px;
+    width: 13%;
+    margin-left: 145px;
+    font-family: 'Merienda', cursive;
+}
+
+#filmsTable {
+    width: 87%;
+    float: right;
+}
+
+
+td input {
+    width: 140px;
+    font-size: 15px;
+    padding: 0px 0px 0px 4px;
+    border-radius: 15px;
+}
+
+
+td ::placeholder{
+    color: black;
+    padding-left: 2px;   
+}
+
+#filmovi{
+	padding: 15px;
+}
+
+table {
+	border-spacing: 12px;
+}
+
+#filmsTable #filmovi td{
+	padding: 15px;
+}
+
+td {
+	padding: 8px;
+	border-width: 4px;
+	border-style: outset;
+	background-color:rgba(251, 250, 249, 0.794);
+    border-color: rgba(255, 81, 46, 0.8);
+	-webkit-box-shadow: inset 10px 10px 65px -15px rgba(0,0,0,0.8);
+    -moz-box-shadow: inset 10px 10px 65px -15px rgba(0,0,0,0.8);
+    box-shadow: inset 10px 10px 65px -15px rgba(0,0,0,0.8);  
+}
+
+#pretraga td{
+	border: none;
+	background: none;
+	box-shadow: none;
+	padding: unset;
+}
+
+
+
+
+/* FOOTER */
+footer{
+    clear: both;
+    background-color: black;
+    padding-top: 5px;
+    border-radius: 20px 20px 0px 0px;
+    
+}
+
+footer img {
+    padding-left: 6px;
+    width: 3%;
+}
+
+#footer1{
+    float: right;
+}
+#footer1 a{
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px 0px 0px;
+    margin-top: 5px;
+}

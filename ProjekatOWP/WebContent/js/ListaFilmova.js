@@ -70,12 +70,11 @@ $(document).ready(function() {
 				for (it in filteredFilms) {
 					filmsTable.append(
 						'<tr>' + 
-							'<td><a href="Film.html?id=' + filteredFilms[it].idFilm + '">' + filteredFilms[it].naziv + '</a></td>' + 
-							'<td>' + filteredFilms[it].zanrovi + '</td>' + '<td>' + filteredFilms[it].trajanje + '</td>' + 
-							'<td>' + filteredFilms[it].distributer + '</td>' + '<td>' + filteredFilms[it].zemljaPorekla + '</td>' + 
-							'<td>' + filteredFilms[it].godinaProizvodnje + '</td>' + 
-							'<td>' + 
-							'</td>' + 
+							'<td colspan="6"><a href="Film.html?id=' + filteredFilms[it].idFilm + '">' + filteredFilms[it].naziv + '</a><br />' + 
+							filteredFilms[it].zanrovi + '<br />' + filteredFilms[it].trajanje + ' | '+
+							filteredFilms[it].distributer + '<br />' + filteredFilms[it].zemljaPorekla + ' | '+
+							filteredFilms[it].godinaProizvodnje +
+							'</td>' +
 						'</tr>'
 					)
 				}
