@@ -1,20 +1,25 @@
 package bioskop.model;
 
-import bioskop.model.TipProjekcije.Tip;
+import java.util.ArrayList;
 
 public class Sala{
 	
 	private String idSala;
 	private String naziv;
-	private Tip tip;
+
+	private ArrayList<TipProjekcije> tipProjekcije;
+	private ArrayList<Sediste> sedista;
+	private ArrayList<Projekcija> projekcije;
 
 
 	
-	public Sala(String idSala, String naziv, Tip tip) {
+	public Sala(String idSala, String naziv) {
 		super();
 		this.idSala = idSala;
 		this.naziv = naziv;
-		this.tip = tip;
+		tipProjekcije = new ArrayList<TipProjekcije>();
+		sedista = new ArrayList<Sediste>();
+		projekcije = new ArrayList<Projekcija>();
 	}
 
 	@Override
@@ -50,12 +55,16 @@ public class Sala{
 		this.naziv = naziv;
 	}
 
-	public Tip getTip() {
-		return tip;
+	public ArrayList<TipProjekcije> getTipProjekcija() {
+		return tipProjekcije;
 	}
-
-	public void setTip(Tip tip) {
-		this.tip = tip;
+	
+	public ArrayList<Sediste> getSedista(){
+		return sedista;
+	}
+	
+	public ArrayList<Projekcija> getProjekcije(){
+		return projekcije;
 	}
 	
 }

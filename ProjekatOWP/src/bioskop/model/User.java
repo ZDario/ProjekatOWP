@@ -3,7 +3,7 @@ package bioskop.model;
 public class User {
 
 	public enum Role {USER, ADMIN};
-	
+
 	private String userName;
 	private String password;
 	private String dateOfRegistration;
@@ -31,6 +31,7 @@ public class User {
 		User other = (User) obj;
 		return userName.equals(other.userName);
 	}
+
 
 	public String getUserName() {
 		return userName;
@@ -71,4 +72,5 @@ public class User {
 				+ ", role=" + role + "]";
 	}
 
+	
 }

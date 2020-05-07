@@ -1,16 +1,22 @@
 package bioskop.model;
 
+import java.util.ArrayList;
+
 public class TipProjekcije {
 	
-	public enum Tip {D2,D3,D4};
-	
 	private String idTipProjekcije;
-	private Tip tip;
+	private String naziv;
+	public ArrayList<String> tipProjekcije = new ArrayList<String>();
 	
 	
-	public TipProjekcije(String idTipProjekcije,Tip tip) {
+	public TipProjekcije(String idTipProjekcije, String naziv) {
+		super();
 		this.idTipProjekcije = idTipProjekcije;
-		this.tip = tip;
+		this.naziv = naziv;
+		tipProjekcije.clear();
+		tipProjekcije.add("2D");
+		tipProjekcije.add("3D");
+		tipProjekcije.add("4D");
 	}
 	
 	@Override
@@ -31,21 +37,32 @@ public class TipProjekcije {
 
 	
 
-	public String getId() {
+	public String getIdTipProjekcije() {
 		return idTipProjekcije;
 	}
 
-	public void setId(String id) {
-		this.idTipProjekcije = id;
+	public void setIdTipProjekcije(String idTipProjekcije) {
+		this.idTipProjekcije = idTipProjekcije;
 	}
 
-	public Tip getTip() {
-		return tip;
+	public String getNaziv() {
+		return naziv;
 	}
 
-
-	public void setTip(Tip tip) {
-		this.tip = tip;
+	public void setNaziv(String naziv) {
+		if(tipProjekcije.contains(naziv)) {
+			this.naziv = naziv;
+		}else {
+			this.naziv = "2D";
+		}
+	}
+	
+	public ArrayList<String> getTipProjekcije(){
+		return tipProjekcije;
+	}
+	
+	public void setTipProjekcije(ArrayList<String> tipProjekcije) {
+		this.tipProjekcije = tipProjekcije;
 	}
 	
 }

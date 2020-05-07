@@ -17,6 +17,8 @@ $(document).ready(function() {
 	var passwordInput = $('#passwordInput');
 	var roleSelect = $('#roleSelect');
 	
+	var messageParagraph = $('#messageParagraph');
+	
 	$('#userSubmit').on('click', function(event) {
 		var userName = userNameInput.val();
 		var password = passwordInput.val();
@@ -37,6 +39,14 @@ $(document).ready(function() {
 
 			if (data.status == 'unauthenticated') {
 				window.location.replace('ListaUsera.html');
+				return;
+			}
+			
+			if (data.status == 'failure') {
+				messageParagraph.text(data.message);
+				userNameInput.val('');
+				passwordInput.val('');
+				
 				return;
 			}
 

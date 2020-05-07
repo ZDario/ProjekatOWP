@@ -69,6 +69,8 @@ public class UserServlet extends HttpServlet {
 			switch (action) {
 			case "add": {
 					String userName = request.getParameter("userName");
+					if (UserDAO.get(userName) != null)
+						throw new Exception("Korisnicko ime vec postoji!");
 					userName = (!"".equals(userName)? userName: "<prazan userName>");
 					String password = request.getParameter("password");
 					password = (!"".equals(password)? password: "<prazan password>");
@@ -82,8 +84,13 @@ public class UserServlet extends HttpServlet {
 					
 			}
 			case "update": {
+				String dateOfRegistration = request.getParameter("dateOfRegistration");
+				User user = UserDAO.get(dateOfRegistration);
+				
 				String userName = request.getParameter("userName");
-				User user = UserDAO.get(userName);
+				if (UserDAO.get(userName) != null)
+					throw new Exception("Korisnicko ime vec postoji!");
+				
 				
 				userName = (!"".equals(userName)? userName: user.getUserName());
 				String password = request.getParameter("password");
@@ -101,7 +108,16 @@ public class UserServlet extends HttpServlet {
 			}
 			}request.getRequestDispatcher("./SuccessServlet").forward(request, response);
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			String message = ex.getMessage();
+			if (message == null) {
+				message = "Nepredvidjena greska!";
+				ex.printStackTrace();
+			}
+			
+			Map<String, Object> data = new LinkedHashMap<>();
+			data.put("message", message);
+
+			request.setAttribute("data", data);
 			request.getRequestDispatcher("./FailureServlet").forward(request, response);
 		}
 //		response.sendRedirect("./ListaUseraServlet");

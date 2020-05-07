@@ -19,6 +19,12 @@ $(document).ready(function() {
 			event.preventDefault();
 			return false;
 		}
+		if (userName == '' && password == '' && repeatedPassword == '') {
+			messageParagraph.text('Niste popunili polja!');
+
+			event.preventDefault();
+			return false;
+		}
 		
 		var params = {
 			'userName': userName, 
@@ -29,6 +35,10 @@ $(document).ready(function() {
 
 			if (data.status == 'failure') {
 				messageParagraph.text(data.message);
+				userNameInput.val('');
+				passwordInput.val('');
+				repeatedPasswordInput.val('');
+				
 				return;
 			}
 			if (data.status == 'success') {

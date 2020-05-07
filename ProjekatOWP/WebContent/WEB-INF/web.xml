@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>ProjekatOWP</display-name>
   <welcome-file-list>
-    <welcome-file>Login.html</welcome-file>
+    <welcome-file>GlavnaStranica.html</welcome-file>
   </welcome-file-list>
   <listener>
     <listener-class>bioskop.InitListener</listener-class>
@@ -106,5 +106,15 @@
   <servlet-mapping>
     <servlet-name>ListaUseraServlet</servlet-name>
     <url-pattern>/ListaUseraServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GlavnaStranicaServlet</display-name>
+    <servlet-name>GlavnaStranicaServlet</servlet-name>
+    <servlet-class>bioskop.GlavnaStranicaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GlavnaStranicaServlet</servlet-name>
+    <url-pattern>/GlavnaStranicaServlet</url-pattern>
   </servlet-mapping>
 </web-app>

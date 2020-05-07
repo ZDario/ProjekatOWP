@@ -1,35 +1,28 @@
 $(document).ready(function() {
-	$('#logoutLink').on('click', function(event) {
-		$.get('LogoutServlet', function(data) {
-			console.log(data);
-
-			if (data.status == 'unauthenticated') {
-				window.location.replace('Login.html');
-				return;
-			}
-		});
-	
-		event.preventDefault();
-		return false;
-	});
 
 	var idFilm = window.location.search.slice(1).split('&')[0].split('=')[1];
 	console.log(idFilm);
 	
+	var messageParagraph = $('#messageParagraph');
+	
+
 	function getFilm() {
 		$.get('FilmServlet', {'idFilm': idFilm}, function(data) {
 			console.log(data);
 			
-			if (data.status == 'unauthenticated') {
-				window.location.replace('Login.html');
-				return;
-			}
-			
+//			if (data.status == 'unauthenticated') {
+//				window.location.replace('Login.html');
+//				return;
+//			}
 			if (data.status == 'success') {
 				var film = data.film;
-				if(data.loggedInUserRole == 'USER') {
+				if (data.loggedInUserRole == 'USER') {
+//					adminForm.empty();
 					$('#userTable').show();
 					$('#adminForm').hide();
+					$('.unregisteredParagraph').hide();
+					$('#userParagraph').show();
+					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
 					
 					$('#nazivCell').text(film.naziv);
 					$('#reziserCell').text(film.reziser);
@@ -40,10 +33,29 @@ $(document).ready(function() {
 					$('#zemljaPoreklaCell').text(film.zemljaPorekla);
 					$('#godinaProizvodnjeCell').text(film.godinaProizvodnje);
 					$('#opisCell').text(film.opis);
+				
+					$('#logoutLink').on('click', function(event) {
+						$.get('LogoutServlet', function(data) {
+							console.log(data);
+		
+							if (data.status == 'unauthenticated') {
+								window.location.replace('Login.html');
+								return;
+							}
+						});
+				
+						event.preventDefault();
+						return false;
+					});
 					
 				} else if (data.loggedInUserRole == 'ADMIN') {
-					$('#userTable').hide()
+//					userTable.empty();
+//					unregisteredParagraph.empty();
+					$('#userTable').hide();
+					$('.unregisteredParagraph').hide();
 					$('#adminForm').show();
+					$('#userParagraph').show();
+					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
 					
 					var nazivInput = $('#nazivInput');
 					var reziserInput = $('#reziserInput');
@@ -65,6 +77,20 @@ $(document).ready(function() {
 					godinaProizvodnjeInput.val(film.godinaProizvodnje);
 					opisInput.val(film.opis);
 					
+					$('#logoutLink').on('click', function(event) {
+						$.get('LogoutServlet', function(data) {
+							console.log(data);
+		
+							if (data.status == 'unauthenticated') {
+								window.location.replace('Login.html');
+								return;
+							}
+						});
+					
+						event.preventDefault();
+						return false;
+					});
+				
 					$('#updateSubmit').on('click', function(event) {
 						var naziv = nazivInput.val();
 						var reziser = reziserInput.val();
@@ -104,7 +130,7 @@ $(document).ready(function() {
 								window.location.replace('ListaFilmova.html');
 								return;
 							}
-
+		
 							if (data.status == 'success') {
 								window.location.replace('ListaFilmova.html');
 								return;
@@ -124,20 +150,19 @@ $(document).ready(function() {
 								window.location.replace('ListaFilmova.html');
 								return;
 							}
-
+		
 							if (data.status == 'success') {
 								window.location.replace('ListaFilmova.html');
 								return;
 							}
 						});
-
+		
 						event.preventDefault();
 						return false;
 					});
 				}
 			}
-			
 		});
 	}
-	getFilm();
+	getFilm();	
 });

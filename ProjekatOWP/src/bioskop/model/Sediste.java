@@ -2,19 +2,21 @@ package bioskop.model;
 
 public class Sediste{
 	
-	private String redniBroj;
+	private String idSediste;
 	private Sala sala;
+	private boolean zauzeto;
 	
-	public Sediste(String redniBroj, Sala sala) {
+	public Sediste(String idSediste, Sala sala, boolean zauzeto) {
 		super();
-		this.redniBroj = redniBroj;
+		this.idSediste = idSediste;
 		this.sala = sala;
+		this.zauzeto = zauzeto;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		return prime + redniBroj.hashCode();
+		return prime + idSediste.hashCode();
 	}
 
 	@Override
@@ -24,15 +26,15 @@ public class Sediste{
 		if (getClass() != obj.getClass()) return false;
 
 		Sediste other = (Sediste) obj;
-		return redniBroj.equals(other.redniBroj);
+		return idSediste.equals(other.idSediste);
 	}
 
-	public String getRedniBroj() {
-		return redniBroj;
+	public String getIdSediste() {
+		return idSediste;
 	}
 
-	public void setRedniBroj(String redniBroj) {
-		this.redniBroj = redniBroj;
+	public void setIdSediste(String idSediste) {
+		this.idSediste = idSediste;
 	}
 
 	public Sala getSala() {
@@ -41,6 +43,14 @@ public class Sediste{
 
 	public void setSala(Sala sala) {
 		this.sala = sala;
+	}
+
+	public boolean isZauzeto() {
+		return zauzeto;
+	}
+
+	public void setZauzeto(boolean zauzeto) {
+		this.zauzeto = zauzeto;
 	}
 	
 	

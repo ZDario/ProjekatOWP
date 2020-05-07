@@ -1,17 +1,4 @@
 $(document).ready(function() {
-	$('#logoutLink').on('click', function(event) {
-		$.get('LogoutServlet', function(data) {
-			console.log(data);
-
-			if (data.status == 'unauthenticated') {
-				window.location.replace('Login.html');
-				return;
-			}
-		});
-	
-		event.preventDefault();
-		return false;
-	});
 	
 	var nazivFilterInput = $('#nazivFilterInput');
 	var zanroviFilterInput = $('#zanroviFilterInput');
@@ -26,6 +13,14 @@ $(document).ready(function() {
 	var filmsTable = $('#filmsTable');
 	
 	var adminParagraph = $('#adminParagraph');
+	var userParagraph = $('#userParagraph');
+	var unregisteredParagraph = $('.unregisteredParagraph');
+	
+	function getUnregisteredInterface(){	
+		adminParagraph.hide();
+		userParagraph.hide();
+		unregisteredParagraph.show();
+	}
 	
 	function getFilms() {
 		var nazivFilter = nazivFilterInput.val();
@@ -58,13 +53,13 @@ $(document).ready(function() {
 		$.get('ListaFilmovaServlet', params, function(data){
 			console.log(data);
 			
-			if (data.status == 'unauthenticated') {
-				window.location.replace('Login.html');
-				return;
-			}
+//			if (data.status == 'unauthenticated') {
+//				window.location.replace('Login.html');
+//				return;
+//			}
 			
 			if (data.status == 'success') {
-				filmsTable.find('tr:gt(1)').remove();
+				filmsTable.find('tr:gt(0)').remove();
 
 				var filteredFilms = data.filteredFilms;
 				for (it in filteredFilms) {
@@ -81,20 +76,66 @@ $(document).ready(function() {
 			}
 		});
 	}
+	
+	function getUserInterface() {
+		$.get('UserServlet', {'action': 'loggedInUserRole'}, function(data) {
+			console.log(data);
+			
+			userParagraph.parent().empty();
+			if (data.status == 'success') {
+				userParagraph.parent().empty();
+				if (data.loggedInUserRole == 'USER') {
+					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
+					userParagraph.parent().show();
+					unregisteredParagraph.hide();
+					
+					$('#logoutLink').on('click', function(event) {
+						$.get('LogoutServlet', function(data) {
+							console.log(data);
+
+							if (data.status == 'unauthenticated') {
+								window.location.replace('Login.html');
+								return;
+							}
+						});
+					
+						event.preventDefault();
+						return false;
+					});
+				}
+			}
+		});
+	}
+	
 	function getAdminInterface() {
 		$.get('UserServlet', {'action': 'loggedInUserRole'}, function(data) {
 			console.log(data);
 
-			if (data.status == 'unauthenticated') {
-				window.location.replace('Login.html');
-				return;
-			}
-
 			adminParagraph.empty();
+			userParagraph.empty();
 			if (data.status == 'success') {
 				adminParagraph.empty();
+				userParagraph.empty();
 				if (data.loggedInUserRole == 'ADMIN') {
 					$('#adminParagraph').append('<a href="AddFilm.html">Dodavanje filma</a>');
+					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
+					adminParagraph.show();
+					userParagraph.show();
+					unregisteredParagraph.hide();
+					
+					$('#logoutLink').on('click', function(event) {
+						$.get('LogoutServlet', function(data) {
+							console.log(data);
+
+							if (data.status == 'unauthenticated') {
+								window.location.replace('Login.html');
+								return;
+							}
+						});
+					
+						event.preventDefault();
+						return false;
+					});
 				}
 			}
 		});
@@ -151,5 +192,7 @@ $(document).ready(function() {
 
 	// lista proizvoda se osvežava jednom na početku, nakon učitavanja HTML dokumenta
 	getFilms();
+	getUnregisteredInterface();
+	getUserInterface();
 	getAdminInterface();
 });

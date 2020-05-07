@@ -11,16 +11,20 @@
 </head>
 <body>
     <div id="container">
-        <header class = "clearfix">
-            <p>FilmoviNS</p>
+        <header>
+            <p id="FilmNS">FilmoviNS</p>
             <a href="GlavnaStranica.html"><img src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
-            <button a href="" id="logoutLink">Odjava</button>
-            <button a href="Register.html">Registracija</button>
-            <button a href="Login.html">Prijava</button>
+            <div id ="header1">
+	            <p id="userParagraph">
+                <a href="" id="logoutLink">Odjava</a>
+                </p>
+	            <p class="unregisteredParagraph"><a href="Register.html">Registracija</a></p>
+	    		<p class="unregisteredParagraph"><a href="Login.html">Prijava</a></p>
+            </div>
         </header>
 
 
-        <main class = "clearfix">
+        <main>
             <nav class="meni">
                 <ul>
                     <li><p id="adminParagraph">
@@ -30,7 +34,7 @@
             </nav>
 
             
-            <h2>Pretraga</h2>
+            <h1>Pretraga Filmova:</h1>
             <table id="filmsTable">
                 <tr id="pretraga">
                     <td><input type="text" id="nazivFilterInput" placeholder="Naziv"></td>
@@ -46,23 +50,20 @@
                         <input type="text" id="highYearOfProductionFilterInput" placeholder="Godina Proizvodnje">
                     </td>
                 </tr>
-                <tr>
-                    <td><a href="Film.html?id="></a></td>
-                </tr>
             </table>
         </main>
 
         <footer >
-            <a href="#"><img src="Photos/twitter.png" alt="Twitter"></a>
-            <a href="#"><img src="Photos/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="Photos/gplus.png" alt="Google+"></a>
+            <a href="CommingSoon.html"><img src="Photos/twitter.png" alt="Twitter"></a>
+            <a href="CommingSoon.html"><img src="Photos/facebook.png" alt="Facebook"></a>
+            <a href="CommingSoon.html"><img src="Photos/gplus.png" alt="Google+"></a>
             <div id ="footer1">
-                <a href="#">Politika privatnosti</a>
-                <a href="#">Uslovi poslovanja</a>
-                <a href="#">Kontakt</a>
-                <a href="#">Pomoc</a>
+                <a href="CommingSoon.html">Politika privatnosti</a>
+                <a href="CommingSoon.html">Uslovi poslovanja</a>
+                <a href="CommingSoon.html">Kontakt</a>
+                <a href="CommingSoon.html">Pomoc</a>
             </div>
-        </footer >
+        </footer>
     </div>
 </body>
 </html>

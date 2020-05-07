@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import bioskop.model.TipProjekcije;
-import bioskop.model.TipProjekcije.Tip;
 
 public class TipProjekcijeDAO {
 	public static TipProjekcije get(String idTipProjekcije) throws Exception {
@@ -14,7 +13,7 @@ public class TipProjekcijeDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		try {
-			String query = "SELECT tip FROM tipProjekcije WHERE idTipProjekcije = ?";
+			String query = "SELECT naziv FROM tipProjekcije WHERE idTipProjekcije = ?";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, idTipProjekcije);
@@ -23,9 +22,10 @@ public class TipProjekcijeDAO {
 			rset = pstmt.executeQuery();
 
 			if (rset.next()) {
-				Tip tip = Tip.valueOf(rset.getString("DD"));
+				int index = 1;
+				String naziv = rset.getString(index++);
 				
-				return new TipProjekcije(idTipProjekcije, tip);
+				return new TipProjekcije(idTipProjekcije, naziv);
 			}
 		} finally {
 			try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}

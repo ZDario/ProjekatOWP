@@ -2,6 +2,8 @@ $(document).ready(function() { // izvršava se nakon što se izgradi DOM stablo 
 	// keširanje referenci da se ne bi ponavljale pretrage kroz DOM stablo
 	var userNameInput = $('#userNameInput');
 	var passwordInput = $('#passwordInput');
+	
+	var messageParagraph = $('#messageParagraph');
 
 	$('#loginSubmit').on('click', function(event) { // izvršava se na klik na dugme
 		var userName = userNameInput.val();
@@ -9,6 +11,7 @@ $(document).ready(function() { // izvršava se nakon što se izgradi DOM stablo 
 		console.log('userName: ' + userName);
 		console.log('passwrod: ' + password);		
 
+		
 		var params = {
 			'userName': userName, 
 			'password': password
@@ -20,6 +23,7 @@ $(document).ready(function() { // izvršava se nakon što se izgradi DOM stablo 
 			console.log(data);
 
 			if (data.status == 'failure') {
+				messageParagraph.text(data.message);
 				userNameInput.val('');
 				passwordInput.val('');
 

@@ -1,21 +1,21 @@
 package bioskop.model;
 
-import java.util.GregorianCalendar;
+import java.util.Date;
 
 public class Karta {
 	
 	private String idKarta;
 	private Projekcija projekcija;
-	private String sediste;
-	private GregorianCalendar datumPredaje;
+	private Sediste sediste;
+	private Date vremeProdaje;
 	private User user;
 	
-	public Karta(String idKarta, Projekcija projekcija, String sediste, GregorianCalendar datumPredaje, User user) {
+	public Karta(String idKarta, Projekcija projekcija, Sediste sediste,  Date vremeProdaje, User user) {
 		super();
 		this.idKarta = idKarta;
 		this.projekcija = projekcija;
 		this.sediste = sediste;
-		this.datumPredaje = datumPredaje;
+		this.vremeProdaje = vremeProdaje;
 		this.user = user;
 	}
 	
@@ -51,20 +51,20 @@ public class Karta {
 		this.projekcija = projekcija;
 	}
 
-	public String getSediste() {
+	public Sediste getSediste() {
 		return sediste;
 	}
 
-	public void setSediste(String sediste) {
+	public void setSediste(Sediste sediste) {
 		this.sediste = sediste;
 	}
 
-	public GregorianCalendar getDatumPredaje() {
-		return datumPredaje;
+	public Date getVremeProdaje() {
+		return vremeProdaje;
 	}
 
-	public void setDatumPredaje(GregorianCalendar datumPredaje) {
-		this.datumPredaje = datumPredaje;
+	public void setVremeProdaje(Date vremeProdaje) {
+		this.vremeProdaje = vremeProdaje;
 	}
 
 	public User getUser() {

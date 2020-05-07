@@ -20,17 +20,17 @@ public class ListaFilmovaServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String loggedInUserName = (String) request.getSession().getAttribute("loggedInUserName");
-		if (loggedInUserName == null) {
-//			response.sendRedirect("./Login.html");
-			request.getRequestDispatcher("./LogoutServlet").forward(request, response);
-			return;
-		}
+//		if (loggedInUserName == null) {
+////			response.sendRedirect("./Login.html");
+//			request.getRequestDispatcher("./LogoutServlet").forward(request, response);
+//			return;
+//		}
 		try {
 			User loggedInUser = UserDAO.get(loggedInUserName);
-			if (loggedInUser == null) {
-				request.getRequestDispatcher("./LogoutServlet").forward(request, response);
-				return;
-			}
+//			if (loggedInUser == null) {
+//				request.getRequestDispatcher("./LogoutServlet").forward(request, response);
+//				return;
+//			}
 			int lowDuration = 0;
 			int lowYearOfProduction = 0;
 			int highDuration = Integer.MAX_VALUE;
@@ -86,7 +86,7 @@ public class ListaFilmovaServlet extends HttpServlet {
 //			request.getRequestDispatcher("./ListaFilmova.jsp").forward(request, response);
 			Map<String, Object> data = new LinkedHashMap<>();
 			data.put("filteredFilms", filteredFilms);
-	
+			
 			request.setAttribute("data", data);
 			request.getRequestDispatcher("./SuccessServlet").forward(request, response);
 		} catch (Exception ex) {

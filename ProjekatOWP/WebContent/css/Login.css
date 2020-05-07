@@ -15,6 +15,18 @@ body {
     background-attachment: fixed;
 }
 
+header {
+    background-color: rgba(0,0,0,.7);
+    border-radius: 0 0 1000px 1000px;
+    padding: 5px;
+}
+
+header a img {
+    margin-left: 47%;
+    width: 80px;
+    border-radius: 36px;
+}
+
 .box {
     position: absolute;
     top: 50%;
@@ -91,4 +103,10 @@ body {
     float: right;
     color: #fff;
     text-decoration: none;
+}
+
+#messageParagraph {
+	padding: 8px 0 0 0;
+	color: red;
+	font-size: 18px;
 }

@@ -16,6 +16,8 @@ $(document).ready(function() {
 	var userName = window.location.search.slice(1).split('&')[0].split('=')[1];
 	console.log(userName);
 	
+	var messageParagraph = $('#messageParagraph');
+	
 	function getUser() {
 		$.get('UserServlet', {'userName': userName}, function(data) {
 			console.log(data);
@@ -56,6 +58,14 @@ $(document).ready(function() {
 						$.post('UserServlet', params, function(data) {
 							if (data.status == 'unauthenticated') {
 								window.location.replace('ListaUsera.html');
+								return;
+							}
+							
+							if (data.status == 'failure') {
+								messageParagraph.text(data.message);
+								userNameInput.val('');
+								passwordInput.val('');
+								
 								return;
 							}
 

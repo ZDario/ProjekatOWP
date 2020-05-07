@@ -1,28 +1,32 @@
 package bioskop.model;
 
-import java.util.GregorianCalendar;
-
-import bioskop.model.TipProjekcije.Tip;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class Projekcija {
 	
 	private String idProjekcija;
 	private Film film;
-	private Tip tip;
+	private TipProjekcije tipProjekcije;
 	private Sala sala;
-	private GregorianCalendar datumPrikazivanja;
-	private float cena;
+	private Date datumPrikazivanja;
+	private double cena;
+	private User user;
+	
+	private ArrayList<Karta> karte;
 	
 	
-	public Projekcija(String idProjekcija, Film film, Tip tip, Sala sala, GregorianCalendar datumPrikazivanja,
-			float cena) {
+	public Projekcija(String idProjekcija, Film film, TipProjekcije tipProjekcije, Sala sala, Date datumPrikazivanja,
+			double cena, User user) {
 		super();
 		this.idProjekcija = idProjekcija;
 		this.film = film;
-		this.tip = tip;
+		this.tipProjekcije = tipProjekcije;
 		this.sala = sala;
 		this.datumPrikazivanja = datumPrikazivanja;
 		this.cena = cena;
+		this.user = user;
+		karte = new ArrayList<Karta>();
 	}
 	
 	@Override
@@ -58,12 +62,12 @@ public class Projekcija {
 		this.film = film;
 	}
 
-	public Tip getTip() {
-		return tip;
+	public TipProjekcije getTipProjekcije() {
+		return tipProjekcije;
 	}
 
-	public void setTip(Tip tip) {
-		this.tip = tip;
+	public void setTip(TipProjekcije tipProjekcije) {
+		this.tipProjekcije = tipProjekcije;
 	}
 
 	public Sala getSala() {
@@ -74,22 +78,32 @@ public class Projekcija {
 		this.sala = sala;
 	}
 
-	public GregorianCalendar getDatumPrikazivanja() {
+	public Date getDatumPrikazivanja() {
 		return datumPrikazivanja;
 	}
 
-	public void setDatumPrikazivanja(GregorianCalendar datumPrikazivanja) {
+	public void setDatumPrikazivanja(Date datumPrikazivanja) {
 		this.datumPrikazivanja = datumPrikazivanja;
 	}
 
-	public float getCena() {
+	public double getCena() {
 		return cena;
 	}
 
-	public void setCena(float cena) {
+	public void setCena(double cena) {
 		this.cena = cena;
 	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
-	
+	public ArrayList<Karta> getKarte(){
+		return karte;
+	}
 	
 }

@@ -11,12 +11,10 @@
 }
 
 body {
-    background-image: url(../Photos/ListaFilmova.jpg);
+    background-image: url(../Photos/ListaUsera.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
-
-
 
 /* HEADER */
 header {
@@ -62,10 +60,10 @@ header a img {
     box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
 }
 
-
 main {
     padding: 28px 0px 15px 0px;
 }
+
 
 /* MENI */
 .meni {
@@ -96,12 +94,12 @@ h1 {
     background-color: #0B0C10;
     color: #F9F9F9;
     border-radius: 25px;
-    width: 26.5%;
-    margin-left: 145px;
+    width: 30%;
+    margin-left: 155px;
     font-family: 'Merienda', cursive;
 }
 
-#filmsTable {
+#usersTable {
     width: 87%;
     float: right;
 }
@@ -114,7 +112,7 @@ td a {
 }
 
 td input {
-    width: 140px;
+    width: 170px;
     font-size: 15px;
     padding: 0px 0px 0px 4px;
     border-radius: 15px;
@@ -131,7 +129,7 @@ table {
 	border-spacing: 12px;
 }
 
-#filmsTable td{
+#usersTable td{
 	padding: 15px;
 }
 
@@ -146,14 +144,12 @@ td {
     box-shadow: inset 10px 10px 65px -15px rgba(0,0,0,0.5);  
 }
 
-#pretraga td{
+#pretraga td {
 	border: none;
 	background: none;
 	box-shadow: none;
 	padding: unset;
 }
-
-
 
 
 /* FOOTER */
@@ -178,39 +174,4 @@ footer img {
     text-decoration: none;
     padding: 5px 10px 0px 0px;
     margin-top: 5px;
-}
-
-/*MOBILNA VERZIJA*/
-@media screen and (max-width: 1024px) {
-
-    body {
-        background-image: url(../Photos/ListaFilmovaPhone.jpg);
-        background-attachment: fixed;
-    }
-    header{width: 100%;}
-    header button{
-        padding: 15px;
-        font-size: 25px;
-        border-radius: 50%;
-    }
-
-    .meni{
-        width: 100%;
-        padding: 5px;
-    }
-
-    h1{
-        margin: 0px 0px 0px 8px; 
-        background-color: none; 
-    }
-
-    td input {
-        width: 160px;
-        font-size: 18px;
-    }
-
-    #filmsTable {
-    	margin-left: 8px;
-        width: 100%;
-    }
 }

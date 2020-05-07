@@ -20,15 +20,15 @@ public class FilmServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String loggedInUserName = (String) request.getSession().getAttribute("loggedInUserName");
-		if (loggedInUserName == null) {
+//		if (loggedInUserName == null) {
 //			response.sendRedirect("./Login.html");
-			request.getRequestDispatcher("./LogoutServlet").forward(request, response);
-			return;
-		}
+//			request.getRequestDispatcher("./LogoutServlet").forward(request, response);
+//			return;
+//		}
 		try {
 			User loggedInUser = UserDAO.get(loggedInUserName);
 			if (loggedInUser == null) {
-				request.getRequestDispatcher("./LogoutServlet").forward(request, response);
+//				request.getRequestDispatcher("./LogoutServlet").forward(request, response);
 				return;
 			}
 	
@@ -40,7 +40,6 @@ public class FilmServlet extends HttpServlet {
 //			request.getRequestDispatcher("./Film.jsp").forward(request, response);
 			Map<String, Object> data = new LinkedHashMap<>();
 			data.put("film", film);
-			data.put("loggedInUserRole", loggedInUser.getRole());
 	
 			request.setAttribute("data", data);
 			request.getRequestDispatcher("./SuccessServlet").forward(request, response);
@@ -58,10 +57,10 @@ public class FilmServlet extends HttpServlet {
 		}
 		try {
 			User loggedInUser = UserDAO.get(loggedInUserName);
-			if (loggedInUser == null) {
-				request.getRequestDispatcher("./LogoutServlet").forward(request, response);
-				return;
-			}
+//			if (loggedInUser == null) {
+//				request.getRequestDispatcher("./LogoutServlet").forward(request, response);
+//				return;
+//			}
 			if (loggedInUser.getRole() != Role.ADMIN) {
 //				response.sendRedirect("./ListaFilmova.html");
 				request.getRequestDispatcher("./UnauthorizedServlet").forward(request, response);
