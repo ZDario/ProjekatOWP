@@ -21,7 +21,7 @@ public class KartaDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		try {
-			String query = "SELECT idProjekcija, sedisteRbr, vremeProdaje, userName FROM karta WHERE idKarta = ?";
+			String query = "SELECT idProjekcija, sedisteRbr, vremeProdaje, korisnikKorIme FROM karta WHERE idKarta = ?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, idKarta);
 			System.out.println(pstmt);

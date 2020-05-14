@@ -38,7 +38,7 @@ public class SalaDAO {
 		return null;
 	}
 	
-	public static Sala getnaziv(String naziv) throws Exception{
+	public static Sala getNaziv(String naziv) throws Exception{
 		Connection conn = ConnectionManager.getConnection();
 		
 		PreparedStatement pstmt = null;

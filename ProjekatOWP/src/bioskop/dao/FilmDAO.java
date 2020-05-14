@@ -51,6 +51,42 @@ public class FilmDAO {
 		return null;
 	}
 	
+	public static Film getNaziv(String naziv) throws Exception {
+		Connection conn = ConnectionManager.getConnection();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		try {
+			String query = "SELECT idFilm, reziser, glumci, zanrovi, trajanje, " + 
+					"distributer, zemljaPorekla, godinaProizvodnje, opis FROM film WHERE idFilm = ?";
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, naziv);
+			System.out.println(pstmt);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				int index = 1;
+				String idFilm = rset.getString(index++);
+				String reziser = rset.getString(index++);
+				String glumci = rset.getString(index++);
+				String zanrovi = rset.getString(index++);
+				int trajanje = rset.getInt(index++);
+				String distributer = rset.getString(index++);
+				String zemljaPorjekla = rset.getString(index++);
+				int godinaProizvodnje = rset.getInt(index++);
+				String opis = rset.getString(index++);
+				
+				return new Film(idFilm, naziv, reziser, glumci, zanrovi, trajanje, distributer, zemljaPorjekla, godinaProizvodnje, opis);
+			}
+		}finally {
+			try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}
+			try {rset.close();} catch (Exception ex1) {ex1.printStackTrace();}
+			try {conn.close();} catch (Exception ex1) {ex1.printStackTrace();} // ako se koristi DBCP2, konekcija se mora vratiti u pool
+		}
+		return null;
+	}
+	
 	public static List<Film> getAll(String naziv,
 			String zanrovi, int lowDuration, int highDuration, String distributer, String zemljaPorekla, 
 			int lowYearOfProduction, int highYearOfProduction) throws Exception {

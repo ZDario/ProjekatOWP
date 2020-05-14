@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Lista Projekcija</title>
+	<link rel="stylesheet" href="css/ListaFilmova.css">
+	<script src="js/jquery-3.3.1.js"></script>
+    <script src="js/ListaFilmova.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="Photos/faviconasaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.png" type="image/x-icon">
+</head>
+<body>
+    <div id="container">
+        <header>
+            <p id="FilmNS">FilmoviNS</p>
+            <a href="GlavnaStranica.html"><img src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
+            <div id ="header1">
+	            <p id="userParagraph">
+                <a href="" id="logoutLink">Odjava</a>
+                </p>
+	            <p class="unregisteredParagraph"><a href="Register.html">Registracija</a></p>
+	    		<p class="unregisteredParagraph"><a href="Login.html">Prijava</a></p>
+            </div>
+        </header>
+
+
+        <main>
+            <nav class="meni">
+                <ul>
+                    <li><p id="adminParagraph">
+                        <a href="AddProjekcija.html">Dodavanje projekcije</a>
+                    </p></li>
+                    <li><p><a href="KupljeneKarte.html" id="kupljeneKarteLink">Kupljene karte</a></p></li>
+                </ul>
+            </nav>
+
+            
+            <h1>Pretraga Projekcija:</h1>
+            <table id="projekcijeTable">
+                <tr id="pretraga">
+                    <td><input type="text" id="filmFilterInput" placeholder="Film"></td>
+                    <td><input type="text" id="tipProjekcijeFilterInput" placeholder="Tip Projekcije"></td>
+                    <td><input type="text" id="salaFilterInput" placeholder="Sala"></td>
+                    <!-- <td><input type="text" id="datumPrikazivanjaFilterInput" placeholder="Datum Prikazivanja"></td> -->
+                    <td>
+                    	<input type="text" id="mindatvrFilterInput" placeholder="Datum Prikazivanja"><br/>
+						<input type="text" id="maxdatvrFilterInput" placeholder="Datum Prikazivanja">
+					</td>
+                    <td>
+                        <input type="text" id="lowCenaFilterInput" placeholder="Cena"><br/>
+                        <input type="text" id="highCenaFilterInput" placeholder="Cena">
+                    </td>
+                    <td/>
+                 </tr>
+                 <tr>
+					<td><a href="Projekcija.html?id="></a></td>
+					<td></td>
+					<td>
+						<form>
+							<a class="nav-link" href="UnosKupljeneKarte.html" id="kupikar">Kupi kartu</a>
+						</form>
+					</td>
+				 </tr>
+            </table>
+        </main>
+
+        <footer >
+            <a href="CommingSoon.html"><img src="Photos/twitter.png" alt="Twitter"></a>
+            <a href="CommingSoon.html"><img src="Photos/facebook.png" alt="Facebook"></a>
+            <a href="CommingSoon.html"><img src="Photos/gplus.png" alt="Google+"></a>
+            <div id ="footer1">
+                <a href="CommingSoon.html">Politika privatnosti</a>
+                <a href="CommingSoon.html">Uslovi poslovanja</a>
+                <a href="CommingSoon.html">Kontakt</a>
+                <a href="CommingSoon.html">Pomoc</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

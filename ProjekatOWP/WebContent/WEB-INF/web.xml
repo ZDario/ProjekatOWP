@@ -117,4 +117,54 @@
     <servlet-name>GlavnaStranicaServlet</servlet-name>
     <url-pattern>/GlavnaStranicaServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListaProjekcijaServlet</display-name>
+    <servlet-name>ListaProjekcijaServlet</servlet-name>
+    <servlet-class>bioskop.ListaProjekcijaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListaProjekcijaServlet</servlet-name>
+    <url-pattern>/ListaProjekcijaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProjekcijaServlet</display-name>
+    <servlet-name>ProjekcijaServlet</servlet-name>
+    <servlet-class>bioskop.ProjekcijaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProjekcijaServlet</servlet-name>
+    <url-pattern>/ProjekcijaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>KupiKartuServlet</display-name>
+    <servlet-name>KupiKartuServlet</servlet-name>
+    <servlet-class>bioskop.KupiKartuServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KupiKartuServlet</servlet-name>
+    <url-pattern>/KupiKartuServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>KupljenaKartaServlet</display-name>
+    <servlet-name>KupljenaKartaServlet</servlet-name>
+    <servlet-class>bioskop.KupljenaKartaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>KupljenaKartaServlet</servlet-name>
+    <url-pattern>/KupljenaKartaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListaSalaServlet</display-name>
+    <servlet-name>ListaSalaServlet</servlet-name>
+    <servlet-class>bioskop.ListaSalaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListaSalaServlet</servlet-name>
+    <url-pattern>/ListaSalaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
