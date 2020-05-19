@@ -16,7 +16,7 @@ $(document).ready(function(){
 	var tipProjekcijeCellInput = $('#projekcijeSve');
 	var salaCellInput = $('#saleSve');
 	var datVrCellInput = $('#datumVr');
-	var cijenaKarCellInput = $('#cenaKarteInput');
+	var cenaKarCellInput = $('#cenaKarteInput');
 	
 	var select = document.getElementById("filmoviSvi");
 	

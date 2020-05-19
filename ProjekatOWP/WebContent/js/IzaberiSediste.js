@@ -81,7 +81,7 @@ $(document).ready(function(){
 				}
 				
 				if(data.status == 'success'){
-					window.location.replace(url);
+					window.location.replace('TreciKorak.html');
 				}
 			});
 		});

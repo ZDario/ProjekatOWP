@@ -1,69 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Lista Filmova</title>
-	<link rel="stylesheet" href="css/ListaFilmova.css">
-	<script src="js/jquery-3.3.1.js"></script>
-    <script src="js/ListaFilmova.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Lista Filmova</title>
+<link rel="stylesheet" href="css/ListaFilmova.css">
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/ListaFilmova.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Merienda&display=swap"
+	rel="stylesheet">
 </head>
 <body>
-    <div id="container">
-        <header>
-            <p id="FilmNS">FilmoviNS</p>
-            <a href="GlavnaStranica.html"><img src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
-            <div id ="header1">
-	            <p id="userParagraph">
-                <a href="" id="logoutLink">Odjava</a>
-                </p>
-	            <p class="unregisteredParagraph"><a href="Register.html">Registracija</a></p>
-	    		<p class="unregisteredParagraph"><a href="Login.html">Prijava</a></p>
-            </div>
-        </header>
+	<div id="container">
+		<header>
+			<p id="FilmNS">FilmoviNS</p>
+			<a href="GlavnaStranica.html"><img
+				src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
+			<div id="header1">
+				<p id="userParagraph">
+					<a href="" id="logoutLink">Odjava</a>
+				</p>
+				<p class="unregisteredParagraph">
+					<a href="Register.html">Registracija</a>
+				</p>
+				<p class="unregisteredParagraph">
+					<a href="Login.html">Prijava</a>
+				</p>
+			</div>
+		</header>
 
 
-        <main>
-            <nav class="meni">
-                <ul>
-                    <li><p id="adminParagraph">
-                        <a href="AddFilm.html">Dodavanje filma</a>
-                    </p></li>
-                </ul>
-            </nav>
+		<main>
+			<nav class="meni">
+				<ul>
+					<li><p id="adminParagraph">
+							<a href="AddFilm.html">Dodavanje filma</a>
+						</p></li>
+				</ul>
+			</nav>
 
-            
-            <h1>Pretraga Filmova:</h1>
-            <table id="filmsTable">
-                <tr id="pretraga">
-                    <td><input type="text" id="nazivFilterInput" placeholder="Naziv"></td>
-                    <td><input type="text" id="zanroviFilterInput" placeholder="Zanr"></td>
-                    <td>
-                        <input type="text" id="lowDurationFilterInput" placeholder="Trajanje Filma"><br/>
-                        <input type="text" id="highDurationFilterInput" placeholder="Trajanje Filma">
-                    </td>
-                    <td><input type="text" id="distributerFilterInput" placeholder="Distributer"></td>
-                    <td><input type="text" id="zemljaPoreklaFilterInput" placeholder="Zemlja Porekla"></td>
-                    <td>
-                        <input type="text" id="lowYearOfProductionFilterInput" placeholder="Godina Proizvodnje"><br/>
-                        <input type="text" id="highYearOfProductionFilterInput" placeholder="Godina Proizvodnje">
-                    </td>
-                </tr>
-            </table>
-        </main>
 
-        <footer >
-            <a href="CommingSoon.html"><img src="Photos/twitter.png" alt="Twitter"></a>
-            <a href="CommingSoon.html"><img src="Photos/facebook.png" alt="Facebook"></a>
-            <a href="CommingSoon.html"><img src="Photos/gplus.png" alt="Google+"></a>
-            <div id ="footer1">
-                <a href="CommingSoon.html">Politika privatnosti</a>
-                <a href="CommingSoon.html">Uslovi poslovanja</a>
-                <a href="CommingSoon.html">Kontakt</a>
-                <a href="CommingSoon.html">Pomoc</a>
-            </div>
-        </footer>
-    </div>
+			<h1>Pretraga Filmova:</h1>
+			<table id="filmsTable">
+				<tr id="pretraga">
+					<td><input type="text" id="nazivFilterInput"
+						placeholder="Naziv"></td>
+					<td><input type="text" id="zanroviFilterInput"
+						placeholder="Zanr"></td>
+					<td><input type="text" id="lowDurationFilterInput"
+						placeholder="Trajanje Filma"><br /> <input type="text"
+						id="highDurationFilterInput" placeholder="Trajanje Filma">
+					</td>
+					<td><input type="text" id="distributerFilterInput"
+						placeholder="Distributer"></td>
+					<td><input type="text" id="zemljaPoreklaFilterInput"
+						placeholder="Zemlja Porekla"></td>
+					<td><input type="text" id="lowYearOfProductionFilterInput"
+						placeholder="Godina Proizvodnje"><br /> <input type="text"
+						id="highYearOfProductionFilterInput"
+						placeholder="Godina Proizvodnje"></td>
+				</tr>
+			</table>
+		</main>
+
+		<footer>
+			<a href="CommingSoon.html"><img src="Photos/twitter.png"
+				alt="Twitter"></a> <a href="CommingSoon.html"><img
+				src="Photos/facebook.png" alt="Facebook"></a> <a
+				href="CommingSoon.html"><img src="Photos/gplus.png"
+				alt="Google+"></a>
+			<div id="footer1">
+				<a href="CommingSoon.html">Politika privatnosti</a> <a
+					href="CommingSoon.html">Uslovi poslovanja</a> <a
+					href="CommingSoon.html">Kontakt</a> <a href="CommingSoon.html">Pomoc</a>
+			</div>
+		</footer>
+	</div>
 </body>
 </html>

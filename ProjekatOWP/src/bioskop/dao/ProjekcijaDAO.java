@@ -22,7 +22,7 @@ public class ProjekcijaDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		try {
-			String query = "SELECT idFilm, idTipProjekcije, idSala, datumPrikazivanja, cena, administratorKorIme FROM projekcije WHERE idProjekcija = ?"; 
+			String query = "SELECT idFilm, idTipProjekcije, idSala, datumPrikazivanja, cena, administratorKorIme FROM projekcija WHERE idProjekcija = ?"; 
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, idProjekcija);
 			System.out.println(pstmt);
@@ -63,7 +63,7 @@ public class ProjekcijaDAO {
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			try {
-				String query = "SELECT * FROM projekcije";
+				String query = "SELECT * FROM projekcija";
 				
 				pstmt = conn.prepareStatement(query);
 				int index = 1;
@@ -112,7 +112,7 @@ public class ProjekcijaDAO {
 		
 		PreparedStatement pstmt = null;
 		try {
-			String query = "INSERT INTO projekcije(idProjekcija, idFilm, idTipProjekcije, idSala, datumPrikazivanja, cena, userName) " + 
+			String query = "INSERT INTO projekcija(idProjekcija, idFilm, idTipProjekcije, idSala, datumPrikazivanja, cena, userName) " + 
 					"VALUES(?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
@@ -140,7 +140,7 @@ public class ProjekcijaDAO {
 		
 		PreparedStatement pstmt = null;
 		try {
-			String query = "DELETE FROM projekcije WHERE idProjekcija = ?";
+			String query = "DELETE FROM projekcija WHERE idProjekcija = ?";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, idProjekcija);

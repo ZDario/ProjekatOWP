@@ -1,63 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Projekcija</title>
-	<link rel="stylesheet" href="css/Film.css">
-	<script src="js/jquery-3.3.1.js"></script>
-	<script src="js/Projekcija.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Projekcija</title>
+<link rel="stylesheet" href="css/Film.css">
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/Projekcija.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Merienda&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 	<div id="container">
-		<header class = "clearfix">
+		<header class="clearfix">
 			<p id="FilmNS">FilmoviNS</p>
-			<a href="GlavnaStranica.html"><img src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
+			<a href="GlavnaStranica.html"><img
+				src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
 			<div id="header1">
 				<p id="userParagraph">
-				<a href="" id="logoutLink">Odjava</a>
+					<a href="" id="logoutLink">Odjava</a>
 				</p>
-				<p class="unregisteredParagraph"><a href="Register.html">Registracija</a></p>
-	    		<p class="unregisteredParagraph"><a href="Login.html">Prijava</a></p>
+				<p class="unregisteredParagraph">
+					<a href="Register.html">Registracija</a>
+				</p>
+				<p class="unregisteredParagraph">
+					<a href="Login.html">Prijava</a>
+				</p>
 			</div>
 		</header>
-		
+
 		<nav class="meni">
 			<a href="ListaProjekcija.html">Povratak na listu Projekcija</a>
 		</nav>
 
 		<table id="userTable">
-			<tr><td><b>Naziv filma:</b></td><td id="nazivFilmaImeCell"></td></tr>
-			<tr><td><b>Tip projekcije:</b></td><td id="tipProjekcijeCell"></td></tr>
-			<tr><td><b>Sala:</b></td><td id="salaCell"></td></tr>
-			<tr><td><b>Datum Prikazivanja:</b></td><td id="datumPrikazivanjaCell"></td></tr>
-			<tr><td><b>Cena karte:</b></td><td id="cenaKarCell"></td></tr>
-	</table>
+			<tr>
+				<td><b>Naziv filma:</b></td>
+				<td id="nazivFilmaImeCell"></td>
+			</tr>
+			<tr>
+				<td><b>Tip projekcije:</b></td>
+				<td id="tipProjekcijeCell"></td>
+			</tr>
+			<tr>
+				<td><b>Sala:</b></td>
+				<td id="salaCell"></td>
+			</tr>
+			<tr>
+				<td><b>Datum Prikazivanja:</b></td>
+				<td id="datumPrikazivanjaCell"></td>
+			</tr>
+			<tr>
+				<td><b>Cena karte:</b></td>
+				<td id="cenaKarCell"></td>
+			</tr>
+		</table>
 		<form id="adminForm">
 			<table>
-			<tr><td>Naziv filma:</td><td><input type="text" id="nazivFilmaImeCellInput"/></td></tr>
-			<tr><td>Tip projekcije:</td><td><input type="text" id="tipProjekcijeCellInput"/></td></tr>
-			<tr><td>Sala:</td><td><input type="text" id="salaCellInput"/></td></tr>
-			<tr><td>Datum Prikazivanja:</td><td><input type="text" id="datumPrikazivanjaCellInput"/></td></tr>
-			<tr><td>Cena karte:</td><td><input type="text" id="cenaKarCellInput"/></td></tr>
-				<tr><td/><td><input type="submit" value="Izmeni" id="updateProjSubmit"></td></tr>
-				<tr><td/><td><input type="submit" value="Obrisi" id="deleteProjSubmit"></td></tr>
+				<tr>
+					<td>Naziv filma:</td>
+					<td><input type="text" id="nazivFilmaImeCellInput" /></td>
+				</tr>
+				<tr>
+					<td>Tip projekcije:</td>
+					<td><input type="text" id="tipProjekcijeCellInput" /></td>
+				</tr>
+				<tr>
+					<td>Sala:</td>
+					<td><input type="text" id="salaCellInput" /></td>
+				</tr>
+				<tr>
+					<td>Datum Prikazivanja:</td>
+					<td><input type="text" id="datumPrikazivanjaCellInput" /></td>
+				</tr>
+				<tr>
+					<td>Cena karte:</td>
+					<td><input type="text" id="cenaKarCellInput" /></td>
+				</tr>
+				<tr>
+					<td />
+					<td><input type="submit" value="Izmeni" id="updateProjSubmit"></td>
+				</tr>
+				<tr>
+					<td />
+					<td><input type="submit" value="Obrisi" id="deleteProjSubmit"></td>
+				</tr>
 			</table>
 		</form>
-		<p style="color: red;" id="messageParagraph"/>
+		<p style="color: red;" id="messageParagraph" />
 
-		<footer >
-            <a href="CommingSoon.html"><img src="Photos/twitter.png" alt="Twitter"></a>
-            <a href="CommingSoon.html"><img src="Photos/facebook.png" alt="Facebook"></a>
-            <a href="CommingSoon.html"><img src="Photos/gplus.png" alt="Google+"></a>
-            <div id ="footer1">
-                <a href="CommingSoon.html">Politika privatnosti</a>
-                <a href="CommingSoon.html">Uslovi poslovanja</a>
-                <a href="CommingSoon.html">Kontakt</a>
-                <a href="CommingSoon.html">Pomoc</a>
-            </div>
-        </footer>
+		<footer>
+			<a href="CommingSoon.html"><img src="Photos/twitter.png"
+				alt="Twitter"></a> <a href="CommingSoon.html"><img
+				src="Photos/facebook.png" alt="Facebook"></a> <a
+				href="CommingSoon.html"><img src="Photos/gplus.png"
+				alt="Google+"></a>
+			<div id="footer1">
+				<a href="CommingSoon.html">Politika privatnosti</a> <a
+					href="CommingSoon.html">Uslovi poslovanja</a> <a
+					href="CommingSoon.html">Kontakt</a> <a href="CommingSoon.html">Pomoc</a>
+			</div>
+		</footer>
 	</div>
 </body>
 </html>

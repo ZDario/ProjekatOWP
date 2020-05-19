@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Dodavanje projekcije</title>
-	<script src="js/jquery-3.3.1.js"></script>
-	<script src="js/AddProjekcija.js"></script>
+<meta charset="UTF-8">
+<title>Dodavanje projekcije</title>
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/AddProjekcija.js"></script>
 </head>
 <body>
 	<h3>Dodavanje projekcije:</h3>
 	<form>
 		<table>
-			<tr><td align="right">Film:</td><td><select id="filmoviSvi"></select></td></tr>
-			<tr><td align="right">Tip projekcije:</td><td><select id="projekcijeSve">
-				<option value="1">2D</option>
-   				<option value="2">3D</option>
-   				<option value="2">4D</option>
-			</select></td></tr>
-			<tr><td align="right">Sala:</td><td><select id="saleSve"></select></td></tr>
-			<tr><td align="right">Datum i vrijeme:</td><td><input type="datetime-local" id="datumVr"/></td></tr>
-			<tr><td align="right">Cena karte:</td><td><input type="text" id="cenaKarteInput"/></td></tr>
-			<tr><td/><td><input type="submit" value="Dodaj" id="dodajPrSubmit"></td></tr>
+			<tr>
+				<td align="right">Film:</td>
+				<td><select id="filmoviSvi"></select></td>
+			</tr>
+			<tr>
+				<td align="right">Tip projekcije:</td>
+				<td><select id="projekcijeSve">
+						<option value="1">2D</option>
+						<option value="2">3D</option>
+						<option value="2">4D</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td align="right">Sala:</td>
+				<td><select id="saleSve"></select></td>
+			</tr>
+			<tr>
+				<td align="right">Datum i vrijeme:</td>
+				<td><input type="datetime-local" id="datumVr" /></td>
+			</tr>
+			<tr>
+				<td align="right">Cena karte:</td>
+				<td><input type="text" id="cenaKarteInput" /></td>
+			</tr>
+			<tr>
+				<td />
+				<td><input type="submit" value="Dodaj" id="dodajPrSubmit"></td>
+			</tr>
 		</table>
 	</form>
 </body>

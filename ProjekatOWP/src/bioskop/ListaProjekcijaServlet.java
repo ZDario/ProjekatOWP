@@ -14,13 +14,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bioskop.dao.ProjekcijaDAO;
+import bioskop.dao.UserDAO;
 import bioskop.model.Projekcija;
+import bioskop.model.User;
 
 @SuppressWarnings("serial")
 public class ListaProjekcijaServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String loggedInUserName = (String) request.getSession().getAttribute("loggedInUserName");
 		try {
+			User loggedInUser = UserDAO.get(loggedInUserName);
+			
 			String film = request.getParameter("film");
 			film = (film != null?film: "");
 			String tipProjekcije = request.getParameter("tipProjekcije");

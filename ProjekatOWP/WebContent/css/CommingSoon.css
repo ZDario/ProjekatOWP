@@ -1,70 +1,70 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    background-image: url(../Photos/CommingSoon.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+	background-image: url(../Photos/CommingSoon.jpg);
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 p {
-    text-align: center;
-    margin-top: 15px;
-    font-size: 40px;
-    font-family: 'Pacifico', cursive;
+	text-align: center;
+	margin-top: 15px;
+	font-size: 40px;
+	font-family: 'Pacifico', cursive;
 }
 
 #container {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    height: 450px;
-    background-image: url(../Photos/CommingSoon1.jpg);
-    border-radius: 10px;
-    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+	position: absolute;
+	top: 55%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 500px;
+	height: 450px;
+	background-image: url(../Photos/CommingSoon1.jpg);
+	border-radius: 10px;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
 }
 
 #container .content {
-    padding: 40px;
-    text-align: center;   
+	padding: 40px;
+	text-align: center;
 }
 
 h1 {
-    color: #fff;
-    margin-top: 15px;
-    margin-bottom: 50px;
-    font-family: 'Merienda', cursive;
+	color: #fff;
+	margin-top: 15px;
+	margin-bottom: 50px;
+	font-family: 'Merienda', cursive;
 }
 
 h2 {
-    color: #fff;
-    margin-bottom: 90px;
-    font-family: 'Merienda', cursive;
+	color: #fff;
+	margin-bottom: 90px;
+	font-family: 'Merienda', cursive;
 }
 
 a {
-    color: #fff;
-    font-size: 20px;
-    text-decoration: none;
-    background-color: rgb(57, 250, 202);
-    padding: 12px 15px 12px 15px;
-    border: black;
-    box-shadow: 0 15px 25px rgba(0,0,0,.5);
-    border-style: outset;
-    border-radius: 5px;
--webkit-box-shadow: inset 10px 10px 65px -15px rgba(0,0,0,0.5);
-    -moz-box-shadow: inset 10px 10px 65px -15px rgba(0,0,0,0.5);
-    box-shadow: inset 10px 10px 65px -15px rgba(0,0,0,0.5); 
+	color: #fff;
+	font-size: 20px;
+	text-decoration: none;
+	background-color: rgb(57, 250, 202);
+	padding: 12px 15px 12px 15px;
+	border: black;
+	box-shadow: 0 15px 25px rgba(0, 0, 0, .5);
+	border-style: outset;
+	border-radius: 5px;
+	-webkit-box-shadow: inset 10px 10px 65px -15px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 10px 10px 65px -15px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 10px 10px 65px -15px rgba(0, 0, 0, 0.5);
 }
 
 a:hover {
-    color: #fff;
-    background: none;
-    background-color: rgb(3, 180, 136);
-    transition: 0.5s;
+	color: #fff;
+	background: none;
+	background-color: rgb(3, 180, 136);
+	transition: 0.5s;
 }

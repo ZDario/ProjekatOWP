@@ -1,71 +1,141 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Film</title>
-	<link rel="stylesheet" href="css/Film.css">
-	<script src="js/jquery-3.3.1.js"></script>
-	<script src="js/Film.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Film</title>
+<link rel="stylesheet" href="css/Film.css">
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/Film.js"></script>
+<link
+	href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap"
+	rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css?family=Merienda&display=swap"
+	rel="stylesheet">
 </head>
 <body>
 	<div id="container">
-		<header class = "clearfix">
+		<header class="clearfix">
 			<p id="FilmNS">FilmoviNS</p>
-			<a href="GlavnaStranica.html"><img src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
+			<a href="GlavnaStranica.html"><img
+				src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
 			<div id="header1">
 				<p id="userParagraph">
-				<a href="" id="logoutLink">Odjava</a>
+					<a href="" id="logoutLink">Odjava</a>
 				</p>
-				<p class="unregisteredParagraph"><a href="Register.html">Registracija</a></p>
-	    		<p class="unregisteredParagraph"><a href="Login.html">Prijava</a></p>
+				<p class="unregisteredParagraph">
+					<a href="Register.html">Registracija</a>
+				</p>
+				<p class="unregisteredParagraph">
+					<a href="Login.html">Prijava</a>
+				</p>
 			</div>
 		</header>
-		
+
 		<nav class="meni">
 			<a href="ListaFilmova.html">Povratak na listu Filmova</a>
 		</nav>
 
 		<table id="userTable">
-			<tr><td><b>Naziv: </b></td><td id="nazivCell"></td></tr>
-			<tr><td><b>Reziser: </b></td><td id="reziserCell"></td></tr>
-			<tr><td><b>Glumci: </b></td><td id="glumciCell"></td></tr>
-			<tr><td><b>Zanrovi: </b></td><td id="zanroviCell"></td></tr>
-			<tr><td><b>Trajanje: </b></td><td id="trajanjeCell"></td></tr>
-			<tr><td><b>Distributer: </b></td><td id="distributerCell"></td></tr>
-			<tr><td><b>Zemlja porekla: </b></td><td id="zemljaPoreklaCell"></td></tr>
-			<tr><td><b>Godina proizvodnje: </b></td><td id="godinaProizvodnjeCell"></td></tr>
-			<tr><td><b>Opis: </b></td><td id="opisCell"></td></tr>
+			<tr>
+				<td><b>Naziv: </b></td>
+				<td id="nazivCell"></td>
+			</tr>
+			<tr>
+				<td><b>Reziser: </b></td>
+				<td id="reziserCell"></td>
+			</tr>
+			<tr>
+				<td><b>Glumci: </b></td>
+				<td id="glumciCell"></td>
+			</tr>
+			<tr>
+				<td><b>Zanrovi: </b></td>
+				<td id="zanroviCell"></td>
+			</tr>
+			<tr>
+				<td><b>Trajanje: </b></td>
+				<td id="trajanjeCell"></td>
+			</tr>
+			<tr>
+				<td><b>Distributer: </b></td>
+				<td id="distributerCell"></td>
+			</tr>
+			<tr>
+				<td><b>Zemlja porekla: </b></td>
+				<td id="zemljaPoreklaCell"></td>
+			</tr>
+			<tr>
+				<td><b>Godina proizvodnje: </b></td>
+				<td id="godinaProizvodnjeCell"></td>
+			</tr>
+			<tr>
+				<td><b>Opis: </b></td>
+				<td id="opisCell"></td>
+			</tr>
 		</table>
 		<form id="adminForm">
 			<table>
-				<tr><td><p>Naziv: </p></td><td><input type="text" id="nazivInput"/></td></tr>
-				<tr><td><p>Reziser: </p></td><td><input type="text" id="reziserInput"/></td></tr>
-				<tr><td><p>Glumci: </p></td><td><input type="text" id="glumciInput"/></td></tr>
-				<tr><td><p>Zanrovi: </p></td><td><input type="text" id="zanroviInput"/></td></tr>
-				<tr><td><p>Trajanje: </p></td><td><input type="text" id="trajanjeInput"></td></tr>
-				<tr><td><p>Distributer: </p></td><td><input type="text" id="distributerInput"></td></tr>
-				<tr><td><p>Zemlja porekla: </p></td><td><input type="text" id="zemljaPoreklaInput"></td></tr>
-				<tr><td><p>Godina proizvodnje: </p></td><td><input type="text" id="godinaProizvodnjeInput"></td></tr>
-				<tr><td><p>Opis: </p></td><td><input type="text" id="opisInput"/></td></tr>
-				<tr><td/><td><input type="submit" value="Izmeni" id="updateSubmit"></td></tr>
-				<tr><td/><td><input type="submit" value="Obrisi" id="deleteSubmit"></td></tr>
+				<tr>
+					<td><p>Naziv:</p></td>
+					<td><input type="text" id="nazivInput" /></td>
+				</tr>
+				<tr>
+					<td><p>Reziser:</p></td>
+					<td><input type="text" id="reziserInput" /></td>
+				</tr>
+				<tr>
+					<td><p>Glumci:</p></td>
+					<td><input type="text" id="glumciInput" /></td>
+				</tr>
+				<tr>
+					<td><p>Zanrovi:</p></td>
+					<td><input type="text" id="zanroviInput" /></td>
+				</tr>
+				<tr>
+					<td><p>Trajanje:</p></td>
+					<td><input type="text" id="trajanjeInput"></td>
+				</tr>
+				<tr>
+					<td><p>Distributer:</p></td>
+					<td><input type="text" id="distributerInput"></td>
+				</tr>
+				<tr>
+					<td><p>Zemlja porekla:</p></td>
+					<td><input type="text" id="zemljaPoreklaInput"></td>
+				</tr>
+				<tr>
+					<td><p>Godina proizvodnje:</p></td>
+					<td><input type="text" id="godinaProizvodnjeInput"></td>
+				</tr>
+				<tr>
+					<td><p>Opis:</p></td>
+					<td><input type="text" id="opisInput" /></td>
+				</tr>
+				<tr>
+					<td />
+					<td><input type="submit" value="Izmeni" id="updateSubmit"></td>
+				</tr>
+				<tr>
+					<td />
+					<td><input type="submit" value="Obrisi" id="deleteSubmit"></td>
+				</tr>
 			</table>
 		</form>
-		<p style="color: red;" id="messageParagraph"/>
+		<p style="color: red;" id="messageParagraph" />
 
-		<footer >
-            <a href="CommingSoon.html"><img src="Photos/twitter.png" alt="Twitter"></a>
-            <a href="CommingSoon.html"><img src="Photos/facebook.png" alt="Facebook"></a>
-            <a href="CommingSoon.html"><img src="Photos/gplus.png" alt="Google+"></a>
-            <div id ="footer1">
-                <a href="CommingSoon.html">Politika privatnosti</a>
-                <a href="CommingSoon.html">Uslovi poslovanja</a>
-                <a href="CommingSoon.html">Kontakt</a>
-                <a href="CommingSoon.html">Pomoc</a>
-            </div>
-        </footer>
+		<footer>
+			<a href="CommingSoon.html"><img src="Photos/twitter.png"
+				alt="Twitter"></a> <a href="CommingSoon.html"><img
+				src="Photos/facebook.png" alt="Facebook"></a> <a
+				href="CommingSoon.html"><img src="Photos/gplus.png"
+				alt="Google+"></a>
+			<div id="footer1">
+				<a href="CommingSoon.html">Politika privatnosti</a> <a
+					href="CommingSoon.html">Uslovi poslovanja</a> <a
+					href="CommingSoon.html">Kontakt</a> <a href="CommingSoon.html">Pomoc</a>
+			</div>
+		</footer>
 	</div>
 </body>
 </html>

@@ -99,7 +99,7 @@ $(document).ready(function(){
 	
 	projekcijeTable.on('click', 'input.kupiKartuSubmit', function(event){
 		
-		var projekcijaID = $(this).attr('projekcijaID');
+		var idProjekcija = $(this).attr('idProjekcija');
 		var url = "IzaberiSedista.html?id=" + idProjekcija;
 		var dugme = $('#kupikar');
 		dugme.attr("href", url);

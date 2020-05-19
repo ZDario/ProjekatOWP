@@ -1,42 +1,41 @@
 /* OVAJ FAJL SE KORISTI KOD 
 Film.html, User.html, AddFilm.html, AddUser.html */
-
-*{
-    margin: 0px;
-    padding: 0px;
+* {
+	margin: 0px;
+	padding: 0px;
 }
 
-#container{
-    width: 650px;
-    margin: 0 auto;
-    height: 100%;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+#container {
+	width: 650px;
+	margin: 0 auto;
+	height: 100%;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 body {
-    background-image: url(../Photos/Film.jpg);
-    background-size: cover;
-    background-attachment: fixed;
+	background-image: url(../Photos/Film.jpg);
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 /* HEADER */
 header {
-    background-color: #0B0C10;
-    border-radius: 0 0 20px 20px;
+	background-color: #0B0C10;
+	border-radius: 0 0 20px 20px;
 }
 
 #FilmNS {
-    font-family: 'Great Vibes', cursive;
-    float: left;
-    color: #F9F9F9;
-    padding: 15px 10px 0px 10px;
-    font-size: 35px;
+	font-family: 'Great Vibes', cursive;
+	float: left;
+	color: #F9F9F9;
+	padding: 15px 10px 0px 10px;
+	font-size: 35px;
 }
 
 header a img {
-    width: 10%;
-    margin-left: 18%;
-    border-radius: 36px;
+	width: 10%;
+	margin-left: 18%;
+	border-radius: 36px;
 }
 
 #header1 {
@@ -48,114 +47,121 @@ header a img {
 	padding: 10px;
 	margin-left: 8px;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    background-color: rgba(102, 252, 241, 1);
-    color: #1f2833ff;
-    font-size: 18px;
-    text-decoration: none;
-    border-radius: 20px;
+	background-color: rgba(102, 252, 241, 1);
+	color: #1f2833ff;
+	font-size: 18px;
+	text-decoration: none;
+	border-radius: 20px;
 }
 
 #header1 a:hover {
-    background-color: rgba(0, 204, 248, 1);
-    -webkit-box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
-    -moz-box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
-    box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
+	background-color: rgba(0, 204, 248, 1);
+	-webkit-box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
+	-moz-box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
+	box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
 }
-
 
 /* POVRATAK */
 .meni {
-    width: 100%;    
-    text-align: center;
+	width: 100%;
+	text-align: center;
 }
 
-nav ul { list-style: none; }
-div ul { list-style: none; }
-
-nav a{
-   	color: #1F2833;
-    text-decoration: none;
-    border: 1px solid #1F2833;
-    display: block;
-    padding: 10px 0;
-    margin: 10px 0 10px 0;
-    text-transform: uppercase;
-    font-size: 18px;
-    background-color: rgba(102, 252, 241, 0.9);
+nav ul {
+	list-style: none;
 }
-.meni a:hover { background-color: rgba(12, 204, 248, 0.8); }
 
+div ul {
+	list-style: none;
+}
+
+nav a {
+	color: #1F2833;
+	text-decoration: none;
+	border: 1px solid #1F2833;
+	display: block;
+	padding: 10px 0;
+	margin: 10px 0 10px 0;
+	text-transform: uppercase;
+	font-size: 18px;
+	background-color: rgba(102, 252, 241, 0.9);
+}
+
+.meni a:hover {
+	background-color: rgba(12, 204, 248, 0.8);
+}
 
 /* MAIN */
 #userTable {
-    background-color: rgba(249, 249, 249, 0.8);
-    font-family: 'Merienda', cursive;
+	background-color: rgba(249, 249, 249, 0.8);
+	font-family: 'Merienda', cursive;
 }
 
 #adminForm {
-    background-color: rgba(249, 249, 249, 0.8);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	background-color: rgba(249, 249, 249, 0.8);
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 form {
 	padding: 8px;
 	background-color: rgba(249, 249, 249, 0.8);
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 td {
-    padding-bottom: 5px;
+	padding-bottom: 5px;
 }
-
 
 b {
-    color: #4A535C;
-    margin-left: 10px;
-    padding-right: 15px;
+	color: #4A535C;
+	margin-left: 10px;
+	padding-right: 15px;
 }
 
-p{
-    font-style: italic;
-    font-size: 20px;
-    margin-left: 10px;
-    padding-right: 15px;
+p {
+	font-style: italic;
+	font-size: 20px;
+	margin-left: 10px;
+	padding-right: 15px;
 }
 
 input {
-    border-radius: 10px;
-    padding-left: 6px;
-    font-size: 18px;
+	border-radius: 10px;
+	padding-left: 6px;
+	font-size: 18px;
 }
 
-#updateSubmit , #deleteSubmit, #filmSubmit, #userSubmit {
-    padding: 3px;
-    background-color: rgba(102, 252, 241, 0.8);
+#updateSubmit, #deleteSubmit, #filmSubmit, #userSubmit {
+	padding: 3px;
+	background-color: rgba(102, 252, 241, 0.8);
 }
 
-#updateSubmit:hover , #deleteSubmit:hover , #filmSubmit:hover , #userSubmit:hover 
-{ background-color: rgba(12, 204, 248, 0.8); }
-
+#updateSubmit:hover, #deleteSubmit:hover, #filmSubmit:hover, #userSubmit:hover
+	{
+	background-color: rgba(12, 204, 248, 0.8);
+}
 
 /* FOOTER */
-footer{
-    clear: both;
-    background-color: #0B0C10;
-    padding-top: 5px;
-    border-radius: 20px 20px 20px 20px;
-    margin-top: 10px;
+footer {
+	clear: both;
+	background-color: #0B0C10;
+	padding-top: 5px;
+	border-radius: 20px 20px 20px 20px;
+	margin-top: 10px;
 }
 
 footer img {
-    padding-left: 6px;
-    width: 3%;
+	padding-left: 6px;
+	width: 3%;
 }
 
-#footer1{
-    float: right;
+#footer1 {
+	float: right;
 }
-#footer1 a{
-    color: #F9F9F9;
-    text-decoration: none;
-    padding: 5px 10px 0px 0px;
-    margin-top: 5px;
+
+#footer1 a {
+	color: #F9F9F9;
+	text-decoration: none;
+	padding: 5px 10px 0px 0px;
+	margin-top: 5px;
 }
