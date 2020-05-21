@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Bioskop NS</title>
 <link rel="stylesheet" href="css/GlavnaStranica.css">
+<link rel="stylesheet" href="css/Scroll.css">
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/GlavnaStranica.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
@@ -12,28 +13,97 @@
 </head>
 <body>
 	<div id="container">
-		<h2>Dobrodosli u Bioskop NS</h2>
-		<nav>
-			<ul>
-				<li><a href="ListaFilmova.html">Lista Filmova</a></li>
-				<li><a href="ListaProjekcija.html">Lista Projekcija</a></li>
-
-				<li><p id="adminParagraph">
-						<a href="ListaUsera.html">Lista Korisnika</a>
-					</p></li>
-
-				<li><p id="userParagraph">
-						<a href="" id="logoutLink">Odjava</a>
-					</p></li>
-
-			</ul>
-		</nav>
-		<p class="unregisteredParagraph">
-			<a href="Register.html">Registracija</a>
-		</p>
-		<p class="unregisteredParagraph">
-			<a href="Login.html">Prijava</a>
-		</p>
+		<header>
+			<p id="FilmNS">FilmoviNS</p>
+			<a href="GlavnaStranica.html"><img
+				src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
+			<div id="header1">
+				<p id="userParagraph">
+					<a href="" id="logoutLink">Odjava</a>
+				</p>
+				<p class="unregisteredParagraph">
+					<a href="Register.html">Registracija</a>
+				</p>
+				<p class="unregisteredParagraph">
+					<a href="Login.html">Prijava</a>
+				</p>
+			</div>
+		</header>
+		
+		
+		<main>
+			<nav class="meni">
+				<ul>
+					<li><a href="ListaFilmova.html">Lista Filmova</a></li>
+					<li><a href="ListaProjekcija.html">Lista Projekcija</a></li>
+	
+					<li><p id="adminParagraph">
+							<a href="ListaUsera.html">Lista Korisnika</a>
+						</p></li>
+	
+					<!--<li><p id="userParagraph">
+							<a href="" id="logoutLink">Odjava</a>
+						</p></li>-->
+	
+				</ul>
+			</nav>
+			<div class="slidershow middle">
+		        <div class="slides">
+		            <input type="radio" name="r" id="r1" checked>
+		            <input type="radio" name="r" id="r2">
+		            <input type="radio" name="r" id="r3">
+		            <input type="radio" name="r" id="r4">
+		            <div class="slide s1">
+		                <img src="./Photos/ListaFilmova.jpg" alt="">
+		            </div>
+		            <div class="slide">
+		                <img src="./Photos/CommingSoon.jpg" alt="">
+		            </div>
+		            <div class="slide">
+		                <img src="./Photos/CommingSoon1.jpg" alt="">
+		            </div>
+		            <div class="slide">
+		                <img src="./Photos/ListaUsera.jpg" alt="">
+		            </div>
+		        </div>
+		        <div class="navigation">
+		            <label for="r1" class="bar"></label>
+		            <label for="r2" class="bar"></label>
+		            <label for="r3" class="bar"></label>
+		            <label for="r4" class="bar"></label>
+		        </div>
+		    </div>
+			
+			<!--<p class="unregisteredParagraph">
+				<a href="Register.html">Registracija</a>
+			</p>
+			<p class="unregisteredParagraph">
+				<a href="Login.html">Prijava</a>
+			</p>-->
+		</main>
+	<footer>
+			<a href="CommingSoon.html"><img src="Photos/twitter.png"
+				alt="Twitter"></a> <a href="CommingSoon.html"><img
+				src="Photos/facebook.png" alt="Facebook"></a> <a
+				href="CommingSoon.html"><img src="Photos/gplus.png"
+				alt="Google+"></a>
+			<div id="footer1">
+				<a href="CommingSoon.html">Politika privatnosti</a> <a
+					href="CommingSoon.html">Uslovi poslovanja</a> <a
+					href="CommingSoon.html">Kontakt</a> <a href="CommingSoon.html">Pomoc</a>
+			</div>
+		</footer>
 	</div>
+	
+	<div id="progressbar"></div>
+    <div id="scrollPath"></div>
+    <script type="text/javascript">
+        let progress = document.getElementById('progressbar');
+        let totalHeight = document.body.scrollHeight - window.innerHeight;
+        window.onscroll = function(){
+            let progressHeight = (window.pageYOffset / totalHeight) * 100;
+            progress.style.height = progressHeight + "%";
+        }
+    </script>
 </body>
 </html>

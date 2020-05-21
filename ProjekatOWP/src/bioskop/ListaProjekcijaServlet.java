@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import bioskop.dao.ProjekcijaDAO;
 import bioskop.dao.UserDAO;
+import bioskop.model.Film;
 import bioskop.model.Projekcija;
 import bioskop.model.User;
 
@@ -53,38 +54,33 @@ public class ListaProjekcijaServlet extends HttpServlet {
 				maxdatVr = (maxdatVr >= 0? maxdatVr: 0);
 			} catch(Exception ex) {}
 			
-			String lowCena = request.getParameter("lowCena");
-			lowCena = (lowCena != null? lowCena : "");
-			String highCena = request.getParameter("highCena");
-			highCena = (highCena != null? highCena: "");
+			int lowCena1 = 0;
+			int highCena1 = Integer.MAX_VALUE;
+			try {
+				String lowCena = request.getParameter("lowCena ");
+				lowCena1= Integer.parseInt(lowCena );
+				lowCena1 = (lowCena1 >= 0? lowCena1: 0);
+			} catch (Exception ex) {}
+			try {
+				String highCena = request.getParameter("highCena ");
+				highCena1= Integer.parseInt(highCena );
+				highCena1 = (highCena1 >= 0? highCena1: 0);
+			} catch (Exception ex) {}
+			
+			
+//			String lowCena = request.getParameter("lowCena");
+//			lowCena = (lowCena != null? lowCena : "");
+//			String highCena = request.getParameter("highCena");
+//			highCena = (highCena != null? highCena: "");
 		
-			List<Projekcija> filteredProjekcije = ProjekcijaDAO.getAll(film, mindatVr, maxdatVr, tipProjekcije);
-			List<Projekcija> danasnjeProjekcije = new ArrayList<>();
+			List<Projekcija> filteredProjekcije = ProjekcijaDAO.getAllListaProjekcije(film,tipProjekcije,sala, mindatVr, maxdatVr, lowCena1 ,highCena1);
+			
+			for (Projekcija projekcija : filteredProjekcije) {
+				System.out.println(projekcija);
+			}
 			
 			Map<String, Object> data = new LinkedHashMap<>();
 			data.put("filteredProjekcije", filteredProjekcije);
-			data.put("danasnjeProjekcije", danasnjeProjekcije);
-			System.out.println(data + "data");
-			System.out.println(filteredProjekcije + "filteredproj");
-			
-			System.out.println("datumdanas");
-			Date danas = new Date();
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			System.out.println(sdf.format(danas));
-			System.out.println("datumdanas");
-			
-			
-			for(Projekcija projekcija: filteredProjekcije) {
-				if(sdf.format(projekcija.getDatumPrikazivanja()).toString().equals((sdf.format(danas)).toString())) {
-					danasnjeProjekcije.add(projekcija);
-				}
-				System.out.println("vreme trenutne projekcije");
-				System.out.println(sdf.format(projekcija.getDatumPrikazivanja()).toString());
-				System.out.println(sdf.format(danas).toString() + "danasdanas");
-				System.out.println("vreme trenutne projekcije");
-				System.out.println(danasnjeProjekcije + "danasnjeproj");
-			}
-			data.put("danasnjeProjekcije", danasnjeProjekcije);
 			
 			request.setAttribute("data", data);
 			request.getRequestDispatcher("./SuccessServlet").forward(request, response);

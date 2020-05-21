@@ -7,6 +7,7 @@ $(document).ready(function() {
 	function getUnregisteredInterface(){
 		adminParagraph.parent().hide();
 		userParagraph.parent().hide();
+		unregisteredParagraph.parent().show();
 	}
 	
 	function getUserInterface() {
@@ -17,8 +18,8 @@ $(document).ready(function() {
 			if (data.status == 'success') {
 				userParagraph.empty();
 				if (data.loggedInUserRole == 'USER') {
-					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
 					userParagraph.parent().show();
+					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
 					unregisteredParagraph.hide();
 					
 					$('#logoutLink').on('click', function(event) {

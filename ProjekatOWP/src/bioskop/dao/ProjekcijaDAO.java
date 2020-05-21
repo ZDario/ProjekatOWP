@@ -106,6 +106,57 @@ public class ProjekcijaDAO {
 			return projekcije;
 		}
 	
+	public static List<Projekcija> getAllListaProjekcije(String Film, String tipProjekcije, String Sala, int starijidatum, int mladjidatum,int lowCena,int highCena) throws Exception {
+		//public static List<Projekcija> getAll() throws Exception {
+			List<Projekcija> projekcije = new ArrayList<>();
+			
+			Connection conn = ConnectionManager.getConnection();
+			PreparedStatement pstmt = null;
+			ResultSet rset = null;
+			try {
+				String query = "SELECT * FROM projekcija";
+				
+				pstmt = conn.prepareStatement(query);
+				int index = 1;
+				System.out.println(pstmt);
+				
+				rset = pstmt.executeQuery();
+				
+				while(rset.next()) {
+					index = 1;
+					String idProjekcija = rset.getString(index++);
+					String idFilm = rset.getString(index++);
+					String idTipProjekcije = rset.getString(index++);
+					String idSala = rset.getString(index++);
+					String date = rset.getString(index++);
+					SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+					Date datumPrikazivanja = formatter1.parse(date);
+					double cena= rset.getDouble(index++);
+					String administratorKorIme = rset.getString(index++);
+					
+					Film film = FilmDAO.get(idFilm);
+					System.out.println(film.getNaziv());
+					TipProjekcije tipProjekcijee = TipProjekcijeDAO.get(idTipProjekcije);
+					System.out.println(tipProjekcijee.getNaziv());
+					Sala sala = SalaDAO.get(idSala);
+					System.out.println(sala.getNaziv());
+					User user = UserDAO.get(administratorKorIme);
+					System.out.println(user.getUserName());
+					
+					Projekcija projekcija = new Projekcija(idProjekcija, film, tipProjekcijee, sala, datumPrikazivanja, cena, user);
+					projekcije.add(projekcija);
+					System.out.println(projekcija.getIdProjekcija() + projekcija.getFilm().getNaziv() + projekcija.getSala().getNaziv() + projekcija.getTipProjekcije().getNaziv() + projekcija.getCena() + "neki string");
+					
+					
+				}
+			}finally {
+				try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}
+				try {rset.close();} catch (Exception ex1) {ex1.printStackTrace();}
+				try {conn.close();} catch (Exception ex1) {ex1.printStackTrace();} // ako se koristi DBCP2, konekcija se mora vratiti u pool
+			}
+			return projekcije;
+		}
+	
 	public static boolean add(Projekcija projekcija) throws Exception {
 		Connection conn = ConnectionManager.getConnection();
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm");

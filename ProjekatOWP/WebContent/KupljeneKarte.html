@@ -5,41 +5,67 @@
 <title>Kupljene karte</title>
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/KupljeneKarte.js"></script>
+<link rel="stylesheet" href="css/Film.css">
+<link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="Photos/Logo.jpg" type="image/x-icon">
 </head>
 <body>
-	<h3>Kupljene karte:</h3>
-	<table border="1" id="karteTable">
-		<tr bgcolor="lightgrey">
-			<th>Naziv filma</th>
-			<th>Datum i vreme prikazivanja</th>
-			<th>Tip projekcije</th>
-			<th>Sala</th>
-			<th>Sediste</th>
-			<th>Cena</th>
-			<th />
-		</tr>
-		<tr>
-			<td align="center"></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td><form>
-					<input type="submit" value="Obrisi">
-				</form></td>
-		</tr>
-	</table>
-	<p>
-		<a id="totalnaCena">Ukupno: dinara.</a>
-	</p>
+	<div id="container">
+		<header class="clearfix">
+			<p id="FilmNS">FilmoviNS</p>
+			<a href="GlavnaStranica.html"><img
+				src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
+			<div id="header1">
+				<p id="userParagraph">
+					<a href="" id="logoutLink">Odjava</a>
+				</p>
+			</div>
+		</header>
 
-	<p>
-		<a href="GlavnaStranica.html">Povratak</a>
-	</p>
-	<p>
-		<a href="" id="logoutLink">Odjava</a>
-	</p>
+		<nav class="meni">
+			<a href="ListaProjekcija.html">Povratak na listu Projekcija</a>
+		</nav>
+	
+		<table border="1" id="karteTable">
+			<tr bgcolor="lightgrey">
+				<th>Naziv filma</th>
+				<th>Datum i vreme prikazivanja</th>
+				<th>Tip projekcije</th>
+				<th>Sala</th>
+				<th>Sediste</th>
+				<th>Cena</th>
+				<th />
+			</tr>
+			<tr>
+				<td align="center"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><form>
+						<input type="submit" value="Obrisi">
+					</form></td>
+			</tr>
+		</table>
+		<p>
+			<a id="totalnaCena">Ukupno: dinara.</a>
+		</p>
+		
+		<footer>
+			<a href="CommingSoon.html"><img src="Photos/twitter.png"
+				alt="Twitter"></a> <a href="CommingSoon.html"><img
+				src="Photos/facebook.png" alt="Facebook"></a> <a
+				href="CommingSoon.html"><img src="Photos/gplus.png"
+				alt="Google+"></a>
+			<div id="footer1">
+				<a href="CommingSoon.html">Politika privatnosti</a> <a
+					href="CommingSoon.html">Uslovi poslovanja</a> <a
+					href="CommingSoon.html">Kontakt</a> <a href="CommingSoon.html">Pomoc</a>
+			</div>
+		</footer>
+	</div>
 </body>
 </html>
