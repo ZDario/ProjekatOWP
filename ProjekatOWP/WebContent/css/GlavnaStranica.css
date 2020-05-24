@@ -11,6 +11,7 @@
 
 #container {
 	margin: 0 auto;
+	width: 1800px;
 	height: 100%;
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -23,17 +24,8 @@ body {
 
 /* HEADER */
 header {
-	position: fixed;
-	top: 0;
-	left: 0;
 	background-color: #0B0C10;
 	border-radius: 0 0 20px 20px;
-	width: 100%;
-	transition: 0.6s;
-}
-
-header.sticky{
-	background-color: blue;
 }
 
 #FilmNS {
@@ -74,12 +66,13 @@ header a img {
 }
 
 main {
-	padding: 150px 0px 15px 0px;
+	padding: 50px 0px 15px 0px;
 }
 
 .meni {
+	position: fixed;
 	float: left;
-	width: 12%;
+	width: 250px;
 	text-align: center;
 	margin: 30px 10px 0px 20px;
 }
@@ -122,7 +115,7 @@ footer {
 
 footer img {
 	padding-left: 6px;
-	width: 3%;
+	width: 2%;
 }
 
 #footer1 {
@@ -139,7 +132,11 @@ footer img {
 
 
 
-
+h1{
+	margin: 15px 0 15px 800px;
+	color: white;
+	font-family: 'Merienda', cursive;
+}
 
 /*SLIDERSHOW*/
 .slidershow{
@@ -149,7 +146,7 @@ footer img {
 }
 
 .middle{
-	margin: 200px 0 0 1000px;
+	margin: 220px 0 0 1000px;
     transform: translate(-50%,-50%);
 }
 
@@ -204,4 +201,113 @@ input[name="r"]{
 }
 #r4:checked ~ .s1{
     margin-left: -60%;
+}
+#r5:checked ~ .s1{
+    margin-left: -80%;
+}
+
+
+
+/*USKORO U BIOSKOPU KARTE*/
+.uskoro{
+	background-color: rgba(0,0,0,0.7);
+	padding: 10px 0 20px 0;
+}
+.sveKarte {
+    width: 1500px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 12%;
+}
+
+.sveKarte .karta{
+    position: relative;
+}
+
+.sveKarte .karta .lice{
+    width: 320px;
+    height: 250px;
+    transition: 0.5s;
+}
+
+.sveKarte .karta .lice.lice1{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(100px);
+}
+.sveKarte .karta:hover .lice.lice1{
+    transform: translateY(0);
+    background: #ff0057;
+}
+
+
+.sveKarte .karta .lice.lice1 .sadrzaj{
+    transition: 0.5s;
+}
+
+.sveKarte .karta .lice.lice1 .sadrzaj img{
+    max-width: 200px;
+}
+.sveKarte .karta:hover .lice.lice1 .sadrzaj img{
+    max-width: 140px;
+    transition: 0.5s;
+}
+
+.sveKarte .karta:hover .lice.lice1 .sadrzaj h3{
+    margin: 10px 0 0 0;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.sveKarte .karta .lice.lice2{
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    transform: translateY(-100px);
+}
+
+.sveKarte .karta:hover .lice.lice2{
+    transform: translateY(0);
+}
+
+.sveKarte .karta .lice.lice2 .sadrzaj p{
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+.sveKarte .karta:hover .lice.lice2 .sadrzaj p{
+    opacity: 1;
+}
+
+.sveKarte .karta .lice.lice2 .sadrzaj a{
+    margin: 15px 0 0 0;
+    display: inline-block;
+
+    text-decoration: none;
+    font-weight: 900;
+    color: #333;
+    padding: 5px;
+    border: 1px solid #333;
+
+}
+.sveKarte .karta .lice.lice2 .sadrzaj a:hover{
+    background: #333;
+    color: #fff;
+}
+
+span {
+	color:red;
+	font-family: 'Merienda', cursive;
 }
