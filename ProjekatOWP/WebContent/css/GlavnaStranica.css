@@ -26,6 +26,7 @@ body {
 header {
 	background-color: #0B0C10;
 	border-radius: 0 0 20px 20px;
+	margin-bottom: 20px;
 }
 
 #FilmNS {
@@ -44,7 +45,6 @@ header a img {
 
 #header1 {
 	float: right;
-	margin: 35px 15px;
 }
 
 #header1 a {
@@ -58,6 +58,14 @@ header a img {
 	border-radius: 20px;
 }
 
+.unregisteredParagraph {
+	margin: 15px 5px 0 0;
+}
+
+#userParagraph {
+	margin: 30px 20px 0 0;
+}
+
 #header1 a:hover {
 	background-color: rgba(0, 204, 248, 1);
 	-webkit-box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
@@ -67,10 +75,10 @@ header a img {
 
 main {
 	padding: 50px 0px 15px 0px;
+	background-color: rgba(11, 12, 16, 0.7);;
 }
 
 .meni {
-	position: fixed;
 	float: left;
 	width: 250px;
 	text-align: center;
@@ -133,7 +141,7 @@ footer img {
 
 
 h1{
-	margin: 15px 0 15px 800px;
+	margin: 15px 0 0 40%;
 	color: white;
 	font-family: 'Merienda', cursive;
 }
@@ -146,7 +154,7 @@ h1{
 }
 
 .middle{
-	margin: 220px 0 0 1000px;
+	margin: 220px 0 0 50%;
     transform: translate(-50%,-50%);
 }
 
@@ -210,15 +218,16 @@ input[name="r"]{
 
 /*USKORO U BIOSKOPU KARTE*/
 .uskoro{
-	background-color: rgba(0,0,0,0.7);
+	background-color: rgba(11, 12, 16, 0.7);;
 	padding: 10px 0 20px 0;
 }
 .sveKarte {
     width: 1500px;
-    position: relative;
+    margin-left: 10%;
+    position: center;
     display: flex;
     justify-content: space-between;
-    margin-left: 12%;
+
 }
 
 .sveKarte .karta{
@@ -310,4 +319,126 @@ input[name="r"]{
 span {
 	color:red;
 	font-family: 'Merienda', cursive;
+}
+
+
+
+/*Laptop VERZIJA*/
+@media screen and (max-width: 1400px) {
+	
+	#container {
+	width: 1200px;
+	}
+	
+	header a img {
+	margin-left: 25%;
+	width: 8%;
+	border-radius: 36px;
+	}
+	
+	.slidershow{
+    width: 550px;
+    height: 300px;
+    overflow: hidden;
+	}
+	
+	.middle{
+		margin: 180px 0 0 55%;
+	    transform: translate(-50%,-50%);
+	}
+	
+	.navigation{
+    position: absolute;
+    bottom: 20px;
+    left: 55%;
+    transform: translate(-50%);
+    display: flex;
+	}
+	
+	.sveKarte {
+    width: 1100px;
+    position: center;
+    margin-left: 5%;
+    justify-content: space-between;
+    display: flex;
+	}
+	
+	.sveKarte .karta .lice{
+    width: 230px;
+    height: 270px;
+	}
+
+    .sveKarte .karta .lice.lice1 .sadrzaj img {
+    max-width: 150px;
+	}
+	
+	.sveKarte .karta:hover .lice.lice1 .sadrzaj img {
+    max-width: 90px;
+	}
+
+}
+
+/*MOBILNA VERZIJA*/
+@media screen and (max-width: 1024px) {
+	#container {
+	width: 900px;
+	}
+	
+	h1{
+	margin: 15px 0 15px 32%;
+
+	}
+
+	header a img {
+	margin-left: 22%;
+	width: 8%;
+	border-radius: 36px;
+	}
+	
+	.meni {
+	width: 100%;
+	text-align: center;
+	margin: 30px 10px 30px 20px;
+	}
+	
+	.slidershow{
+    width: 550px;
+    height: 300px;
+    overflow: hidden;
+	}
+	
+	.middle{
+		margin: 220px 0 0 55%;
+	    transform: translate(-50%,-50%);
+	}
+	
+	.navigation{
+    position: absolute;
+    bottom: 20px;
+    left: 55%;
+    transform: translate(-50%);
+    display: flex;
+	}
+	
+	.sveKarte {
+    width: 800px;
+    position: center;
+    margin-left: 25%;
+    justify-content: space-between;
+    display: block;
+	}
+	
+	.sveKarte .karta .lice{
+    width: 420px;
+    height: 300px;
+	}
+
+    .sveKarte .karta .lice.lice1 .sadrzaj img {
+    max-width: 220px;
+	}
+	
+	.sveKarte .karta:hover .lice.lice1 .sadrzaj img {
+    max-width: 175px;
+	}
+	
 }

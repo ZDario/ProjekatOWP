@@ -69,11 +69,16 @@ public class UserServlet extends HttpServlet {
 			switch (action) {
 			case "add": {
 					String userName = request.getParameter("userName");
-					if (UserDAO.get(userName) != null)
-						throw new Exception("Korisnicko ime vec postoji!");
-					userName = (!"".equals(userName)? userName: "<prazan userName>");
+					userName = (!"".equals(userName)? userName: "");
 					String password = request.getParameter("password");
-					password = (!"".equals(password)? password: "<prazan password>");
+					password = (!"".equals(password)? password: "");
+					if ("".equals(userName) && "".equals(password))
+						throw new Exception("Niste popunili polja!");
+					if ("".equals(userName))
+						throw new Exception("Korisnicko ime je prazno!");
+					if ("".equals(password))
+						throw new Exception("Lozinka je prazna!");
+
 					
 					Date sadaDatum = new java.util.Date();
 					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -90,11 +95,16 @@ public class UserServlet extends HttpServlet {
 				String userName = request.getParameter("userName");
 				if (UserDAO.get(userName) != null)
 					throw new Exception("Korisnicko ime vec postoji!");
-				
+				if ("".equals(userName))
+					throw new Exception("Korisnicko ime je prazno!");
 				
 				userName = (!"".equals(userName)? userName: user.getUserName());
 				String password = request.getParameter("password");
 				password = (!"".equals(password)? password: user.getPassword());
+				if ("".equals(password))
+					throw new Exception("Lozinka je prazna!");
+				if ("".equals(userName) && "".equals(password))
+					throw new Exception("Niste popunili polja!");
 				
 				user.setUserName(userName);
 				user.setPassword(password);

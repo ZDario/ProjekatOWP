@@ -59,17 +59,16 @@ $(document).ready(function() {
 //			}
 			
 			if (data.status == 'success') {
-				filmsTable.find('tr:gt(0)').remove();
+				filmsTable.find('tr:gt(1)').remove();
 
 				var filteredFilms = data.filteredFilms;
 				for (it in filteredFilms) {
 					filmsTable.append(
-						'<tr>' + 
-							'<td colspan="6"><a href="Film.html?id=' + filteredFilms[it].idFilm + '">' + filteredFilms[it].naziv + '</a><br />' + 
-							filteredFilms[it].zanrovi + '<br />' + filteredFilms[it].trajanje + ' | '+
-							filteredFilms[it].distributer + '<br />' + filteredFilms[it].zemljaPorekla + ' | '+
-							filteredFilms[it].godinaProizvodnje +
-							'</td>' +
+						'<tr class="item" style="text-align:center;">' + 
+							'<td><a href="Film.html?id=' + filteredFilms[it].idFilm + '">' + filteredFilms[it].naziv + '</a><br />' + '</td>'+
+							'<td>' + filteredFilms[it].zanrovi + '</td>' + '<br />' +'<td>' + filteredFilms[it].trajanje + '</td>'+ ' | '+
+							'<td>' + filteredFilms[it].distributer + '</td>'+ '<br />' + '<td>' + filteredFilms[it].zemljaPorekla + '</td>'+ ' | '+
+							'<td>' + filteredFilms[it].godinaProizvodnje + '</td>'+
 						'</tr>'
 					)
 				}

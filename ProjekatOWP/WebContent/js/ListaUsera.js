@@ -48,15 +48,15 @@ $(document).ready(function() {
 			}
 			
 			if (data.status == 'success') {
-				usersTable.find('tr:gt(0)').remove();
+				usersTable.find('tr:gt(1)').remove();
 
 				var filteredUsers = data.filteredUsers;
 				for (it in filteredUsers) {
 					usersTable.append(
-						'<tr>' + 
-							'<td colspan="4"><a href="User.html?id=' + filteredUsers[it].userName + '">' +'Korisnicko Ime: '+ filteredUsers[it].userName + '</a><br />' + 
-							'Lozinka: ' + filteredUsers[it].password + '<br />' + 'Datum Registracije: ' +  filteredUsers[it].dateOfRegistration + '<br />' +
-							'Uloga: ' + filteredUsers[it].role + 
+						'<tr class="item" style="text-align:center;">' + 
+							'<td><a href="User.html?id=' + filteredUsers[it].userName + '">' + filteredUsers[it].userName + '</a><br />' + '</td>'+ 
+							'<td>' + filteredUsers[it].password + '</td>' +'<br />' +  '<td>' + filteredUsers[it].dateOfRegistration + '<br />' + '</td>' +
+							'<td>' + filteredUsers[it].role + '</td>' + 
 							'</td>' + 
 						'</tr>'
 					)

@@ -57,7 +57,7 @@ public class ProjekcijaDAO {
 	
 	public static List<Projekcija> getAll(String Film, int starijidatum, int mladjidatum, String tipProjekcije) throws Exception {
 		//public static List<Projekcija> getAll() throws Exception {
-			List<Projekcija> projekcije = new ArrayList<>();
+			List<Projekcija> projekcija = new ArrayList<>();
 			
 			Connection conn = ConnectionManager.getConnection();
 			PreparedStatement pstmt = null;
@@ -92,9 +92,9 @@ public class ProjekcijaDAO {
 					User user = UserDAO.get(administratorKorIme);
 					System.out.println(user.getUserName());
 					
-					Projekcija projekcija = new Projekcija(idProjekcija, film, tipProjekcijee, sala, datumPrikazivanja, cena, user);
-					projekcije.add(projekcija);
-					System.out.println(projekcija.getIdProjekcija() + projekcija.getFilm().getNaziv() + projekcija.getSala().getNaziv() + projekcija.getTipProjekcije().getNaziv() + projekcija.getCena() + "neki string");
+					Projekcija projekcijaa = new Projekcija(idProjekcija, film, tipProjekcijee, sala, datumPrikazivanja, cena, user);
+					projekcija.add(projekcijaa);
+					System.out.println(projekcijaa.getIdProjekcija() + projekcijaa.getFilm().getNaziv() + projekcijaa.getSala().getNaziv() + projekcijaa.getTipProjekcije().getNaziv() + projekcijaa.getCena() + "neki string");
 					
 					
 				}
@@ -103,12 +103,12 @@ public class ProjekcijaDAO {
 				try {rset.close();} catch (Exception ex1) {ex1.printStackTrace();}
 				try {conn.close();} catch (Exception ex1) {ex1.printStackTrace();} // ako se koristi DBCP2, konekcija se mora vratiti u pool
 			}
-			return projekcije;
+			return projekcija;
 		}
 	
 	public static List<Projekcija> getAllListaProjekcije(String Film, String tipProjekcije, String Sala, int starijidatum, int mladjidatum,int lowCena,int highCena) throws Exception {
 		//public static List<Projekcija> getAll() throws Exception {
-			List<Projekcija> projekcije = new ArrayList<>();
+			List<Projekcija> projekcija = new ArrayList<>();
 			
 			Connection conn = ConnectionManager.getConnection();
 			PreparedStatement pstmt = null;
@@ -143,9 +143,9 @@ public class ProjekcijaDAO {
 					User user = UserDAO.get(administratorKorIme);
 					System.out.println(user.getUserName());
 					
-					Projekcija projekcija = new Projekcija(idProjekcija, film, tipProjekcijee, sala, datumPrikazivanja, cena, user);
-					projekcije.add(projekcija);
-					System.out.println(projekcija.getIdProjekcija() + projekcija.getFilm().getNaziv() + projekcija.getSala().getNaziv() + projekcija.getTipProjekcije().getNaziv() + projekcija.getCena() + "neki string");
+					Projekcija projekcijaa = new Projekcija(idProjekcija, film, tipProjekcijee, sala, datumPrikazivanja, cena, user);
+					projekcija.add(projekcijaa);
+					System.out.println(projekcijaa.getIdProjekcija() + projekcijaa.getFilm().getNaziv() + projekcijaa.getSala().getNaziv() + projekcijaa.getTipProjekcije().getNaziv() + projekcijaa.getCena() + "neki string");
 					
 					
 				}
@@ -154,7 +154,7 @@ public class ProjekcijaDAO {
 				try {rset.close();} catch (Exception ex1) {ex1.printStackTrace();}
 				try {conn.close();} catch (Exception ex1) {ex1.printStackTrace();} // ako se koristi DBCP2, konekcija se mora vratiti u pool
 			}
-			return projekcije;
+			return projekcija;
 		}
 	
 	public static boolean add(Projekcija projekcija) throws Exception {

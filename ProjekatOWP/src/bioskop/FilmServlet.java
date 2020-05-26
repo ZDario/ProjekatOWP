@@ -71,23 +71,44 @@ public class FilmServlet extends HttpServlet {
 			switch (action) {
 				case "add": {
 					String naziv = request.getParameter("naziv");
-					naziv = (!"".equals(naziv)? naziv: "<prazan naziv>");
+					naziv = (!"".equals(naziv)? naziv: "");
 					String reziser = request.getParameter("reziser");
-					reziser = (!"".equals(reziser)? reziser: "<prazan reziser>");
+					reziser = (!"".equals(reziser)? reziser: "");
 					String glumci = request.getParameter("glumci");
-					glumci = (!"".equals(glumci)? glumci: "<prazni glumci>");
+					glumci = (!"".equals(glumci)? glumci: "");
 					String zanrovi = request.getParameter("zanrovi");
-					zanrovi = (!"".equals(zanrovi)? zanrovi: "<prazni zanrovi>");
+					zanrovi = (!"".equals(zanrovi)? zanrovi: "");
 					int trajanje = Integer.parseInt(request.getParameter("trajanje"));
 					trajanje = (trajanje > 0? trajanje: 9999);
 					String distributer = request.getParameter("distributer");
-					distributer= (!"".equals(distributer)? distributer: "<prazan distributer>");
+					distributer= (!"".equals(distributer)? distributer: "");
 					String zemljaPorekla = request.getParameter("zemljaPorekla");
-					zemljaPorekla = (!"".equals(zemljaPorekla)? zemljaPorekla: "<prazna zemljaPorekla>");
+					zemljaPorekla = (!"".equals(zemljaPorekla)? zemljaPorekla: "");
 					int godinaProizvodnje = Integer.parseInt(request.getParameter("godinaProizvodnje"));
 					godinaProizvodnje = (trajanje > 0? godinaProizvodnje: 9999);
 					String opis = request.getParameter("opis");
-					opis = (!"".equals(opis)? opis: "<prazan opis>");
+					opis = (!"".equals(opis)? opis: "");
+					
+					if ("".equals(naziv))
+						throw new Exception("Naziv je prazan!");
+					if ("".equals(reziser))
+						throw new Exception("Reziser je prazan!");
+					if ("".equals(glumci))
+						throw new Exception("Glumci su prazni!");
+					if ("".equals(zanrovi))
+						throw new Exception("Zanrovi su prazni!");
+					if ("".equals(trajanje))
+						throw new Exception("Trajanje je prazno!");
+					if ("".equals(distributer))
+						throw new Exception("Distributer je prazan!");
+					if ("".equals(zemljaPorekla))
+						throw new Exception("Zemlja Porekla je prazna!");
+					if ("".equals(godinaProizvodnje))
+						throw new Exception("Godina Proizvodnje je prazan!");
+					if ("".equals(opis))
+						throw new Exception("Opis je prazan!");
+
+
 
 					Film film = new Film("", naziv, reziser, glumci, zanrovi,
 							trajanje, distributer, zemljaPorekla,
@@ -137,7 +158,11 @@ public class FilmServlet extends HttpServlet {
 				}
 			}request.getRequestDispatcher("./SuccessServlet").forward(request, response);
 		} catch (Exception ex) {
-			ex.printStackTrace();
+			String message = ex.getMessage();
+			if (message == null) {
+				message = "Nepredvidjena greska!";
+				ex.printStackTrace();
+			}
 			request.getRequestDispatcher("./FailureServlet").forward(request, response);
 		}
 //		response.sendRedirect("./ListaFilmovaServlet");

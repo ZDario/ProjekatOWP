@@ -19,12 +19,19 @@ $(document).ready(function(){
 	var cenaKarCellInput = $('#cenaKarteInput');
 	
 	var select = document.getElementById("filmoviSvi");
+	var messageParagraph = $('#messageParagraph');
 	
 	$.get('ListaFilmovaServlet', function(data) {
 		console.log(data);
 		
 		if(data.status == 'unauthenticated'){
 			window.location.replace('Login.html');
+			return;
+		}
+		
+		if (data.status == 'failure') {
+			messageParagraph.text(data.message);
+
 			return;
 		}
 		
@@ -44,6 +51,12 @@ $(document).ready(function(){
 		
 		if(data.status == 'unauthenticated'){
 			window.location.replace('Login.html');
+			return;
+		}
+		
+		if (data.status == 'failure') {
+			messageParagraph.text(data.message);
+
 			return;
 		}
 		
@@ -106,6 +119,12 @@ $(document).ready(function(){
 			return;
 		}
 		
+		if (data.status == 'failure') {
+			messageParagraph.text(data.message);
+
+			return;
+		}
+		
 		if (data.status == 'success') {
 
 			var filteredFilmovi = data.filteredFilmovi;
@@ -122,6 +141,12 @@ $(document).ready(function(){
 		
 		if(data.status == 'unauthenticated'){
 			window.location.replace('Login.html');
+			return;
+		}
+		
+		if (data.status == 'failure') {
+			messageParagraph.text(data.message);
+
 			return;
 		}
 		

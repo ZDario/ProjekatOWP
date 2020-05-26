@@ -105,6 +105,11 @@ h1 {
 	font-family: 'Merienda', cursive;
 }
 
+#sortiranje {
+	background-color: #0B0C10;
+	border-radius: 90%;
+}
+
 #usersTable {
 	width: 87%;
 	float: right;
@@ -131,7 +136,7 @@ td ::placeholder {
 }
 
 table {
-	border-spacing: 12px;
+	border-spacing: 0px 15px;
 }
 
 #usersTable td {
@@ -178,4 +183,33 @@ footer img {
 	text-decoration: none;
 	padding: 5px 10px 0px 0px;
 	margin-top: 5px;
+}
+
+/*MOBILNA VERZIJA*/
+@media screen and (max-width: 1024px) {
+	/*
+	body {
+		background-image: url(../Photos/ListaFilmovaPhone.jpg);
+		background-attachment: fixed;
+	}
+	*/
+	header {
+		width: 100%;
+	}
+	.meni {
+		width: 100%;
+		padding: 5px;
+	}
+	h1 {
+		margin: 0px 0px 0px 8px;
+		background-color: unset;
+	}
+	td input {
+		width: 180px;
+		font-size: 18px;
+	}
+	#usersTable {
+		margin-left: 8px;
+		width: 100%;
+	}
 }

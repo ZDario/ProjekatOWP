@@ -23,6 +23,8 @@ $(document).ready(function() {
 	var godinaProizvodnjeInput = $('#godinaProizvodnjeInput');
 	var opisInput = $('#opisInput');
 	
+	var messageParagraph = $('#messageParagraph');
+	
 	$('#filmSubmit').on('click', function(event) {
 		var naziv = nazivInput.val();
 		var reziser = reziserInput.val();
@@ -61,6 +63,12 @@ $(document).ready(function() {
 
 			if (data.status == 'unauthenticated') {
 				window.location.replace('ListaFilmova.html');
+				return;
+			}
+			
+			if (data.status == 'failure') {
+				messageParagraph.text(data.message);
+				
 				return;
 			}
 

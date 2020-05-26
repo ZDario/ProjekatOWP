@@ -53,11 +53,11 @@ $(document).ready(function(){
 				console.log(data.status);
 
 
-				projekcijeTable.find('tr:gt(0)').remove();
+				projekcijeTable.find('tr:gt(1)').remove();
 				var filteredProjekcije = data.filteredProjekcije;
 				for(it in filteredProjekcije){
 					projekcijeTable.append(
-						'<tr>' +
+						'<tr class="item" style="text-align:center;">' +
 							'<td><a href="Film.html?id=' + filteredProjekcije[it].film.idFilm +
 							'">' + filteredProjekcije[it].film.naziv + '</a></td>' +
 							'<td>' + filteredProjekcije[it].tipProjekcije.naziv + '</td>' +
@@ -100,7 +100,7 @@ $(document).ready(function(){
 	projekcijeTable.on('click', 'input.kupiKartuSubmit', function(event){
 		
 		var idProjekcija = $(this).attr('idProjekcija');
-		var url = "IzaberiSedista.html?id=" + idProjekcija;
+		var url = "IzaberiSediste.html?id=" + idProjekcija;
 		var dugme = $('#kupikar');
 		dugme.attr("href", url);
 		
@@ -116,7 +116,7 @@ $(document).ready(function(){
 			}
 			
 			if(data.status == 'success'){
-				window.location.replace(url);
+				window.location.replace('IzaberiSediste.html');
 			}
 			getKupljeneKarteSize();
 		});
