@@ -52,7 +52,6 @@ $(document).ready(function(){
 			}
 			
 			if(data.status == 'success'){
-				//dodje do ovdje
 				var projekcija = data.projekcija;
 				
 				$('#nazivFilmaImeCell').text(projekcija.film.naziv);

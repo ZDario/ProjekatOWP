@@ -22,10 +22,10 @@
 					<a href="" id="logoutLink">Odjava</a>
 				</p>
 				<p class="unregisteredParagraph">
-					<a href="Register.html">Registracija</a>
+					<a onclick="myFunction1()">Registracija</a>
 				</p>
 				<p class="unregisteredParagraph">
-					<a href="Login.html">Prijava</a>
+					<a onclick="myFunction2()">Prijava</a>
 				</p>
 			</div>
 		</header>
@@ -86,5 +86,13 @@
 			</div>
 		</footer>
 	</div>
+	<script>
+	function myFunction1() {
+  		window.open("Register.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=500,height=750");
+		}
+	function myFunction2() {
+  		window.open("Login.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=500,height=750");
+		}
+	</script>
 </body>
 </html>

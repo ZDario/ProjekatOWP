@@ -15,38 +15,46 @@ $(document).ready(function() {
 
 		if (password != repeatedPassword) {
 			messageParagraph.text('Lozinke se ne podudaraju!');
-
-			event.preventDefault();
-			return false;
 		}
-		if (userName == '' && password == '' && repeatedPassword == '') {
-			messageParagraph.text('Niste popunili polja!');
-
-			event.preventDefault();
-			return false;
+		else if(userName=="" && password==""){
+			$('#messageParagraph').text("Polje Korisnicko Ime i Lozinka je prazno");
+			userNameInput.val('');
+			passwordInput.val('');
+			repeatedPasswordInput.val('');
 		}
-		
-		var params = {
-			'userName': userName, 
-			'password': password
+		else if(userName==""){
+			$('#messageParagraph').text("Polje Korisnicko Ime je prazno");
+			userNameInput.val('');
+			passwordInput.val('');
+			repeatedPasswordInput.val('');
 		}
-		$.post('RegisterServlet', params, function(data) {
-			console.log(data);
-
-			if (data.status == 'failure') {
-				messageParagraph.text(data.message);
-				userNameInput.val('');
-				passwordInput.val('');
-				repeatedPasswordInput.val('');
-				
-				return;
+		else if(password==""){
+			$('#messageParagraph').text("Polje Lozinka je prazno");
+			userNameInput.val('');
+			passwordInput.val('');
+			repeatedPasswordInput.val('');
+		}
+		else{
+			var params = {
+				'userName': userName, 
+				'password': password
 			}
-			if (data.status == 'success') {
-				window.location.replace('Login.html');
-			}
-		});
-
-		event.preventDefault();
+			$.post('RegisterServlet', params, function(data) {
+				console.log(data);
+	
+				if (data.status == 'failure') {
+					messageParagraph.text(data.message);
+					userNameInput.val('');
+					passwordInput.val('');
+					repeatedPasswordInput.val('');
+					
+					return;
+				}
+				if (data.status == 'success') {
+					window.location.replace('Login.html');
+				}
+			});
+		}
 		return false;
 	});
 });

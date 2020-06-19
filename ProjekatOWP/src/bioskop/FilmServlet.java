@@ -88,27 +88,6 @@ public class FilmServlet extends HttpServlet {
 					godinaProizvodnje = (trajanje > 0? godinaProizvodnje: 9999);
 					String opis = request.getParameter("opis");
 					opis = (!"".equals(opis)? opis: "");
-					
-					if ("".equals(naziv))
-						throw new Exception("Naziv je prazan!");
-					if ("".equals(reziser))
-						throw new Exception("Reziser je prazan!");
-					if ("".equals(glumci))
-						throw new Exception("Glumci su prazni!");
-					if ("".equals(zanrovi))
-						throw new Exception("Zanrovi su prazni!");
-					if ("".equals(trajanje))
-						throw new Exception("Trajanje je prazno!");
-					if ("".equals(distributer))
-						throw new Exception("Distributer je prazan!");
-					if ("".equals(zemljaPorekla))
-						throw new Exception("Zemlja Porekla je prazna!");
-					if ("".equals(godinaProizvodnje))
-						throw new Exception("Godina Proizvodnje je prazan!");
-					if ("".equals(opis))
-						throw new Exception("Opis je prazan!");
-
-
 
 					Film film = new Film("", naziv, reziser, glumci, zanrovi,
 							trajanje, distributer, zemljaPorekla,

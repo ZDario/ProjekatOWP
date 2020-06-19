@@ -14,15 +14,16 @@ $(document).ready(function() {
 //				window.location.replace('Login.html');
 //				return;
 //			}
+			
 			if (data.status == 'success') {
 				var film = data.film;
+				$.get('UserServlet', {'action': 'loggedInUserRole'}, function(data){
 				if (data.loggedInUserRole == 'USER') {
 //					adminForm.empty();
 					$('#userTable').show();
 					$('#adminForm').hide();
 					$('.unregisteredParagraph').hide();
 					$('#userParagraph').show();
-					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
 					
 					$('#nazivCell').text(film.naziv);
 					$('#reziserCell').text(film.reziser);
@@ -47,7 +48,7 @@ $(document).ready(function() {
 						event.preventDefault();
 						return false;
 					});
-					
+				
 				} else if (data.loggedInUserRole == 'ADMIN') {
 //					userTable.empty();
 //					unregisteredParagraph.empty();
@@ -55,7 +56,6 @@ $(document).ready(function() {
 					$('.unregisteredParagraph').hide();
 					$('#adminForm').show();
 					$('#userParagraph').show();
-					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
 					
 					var nazivInput = $('#nazivInput');
 					var reziserInput = $('#reziserInput');
@@ -92,6 +92,7 @@ $(document).ready(function() {
 					});
 				
 					$('#updateSubmit').on('click', function(event) {
+						event.preventDefault();
 						var naziv = nazivInput.val();
 						var reziser = reziserInput.val();
 						var glumci = glumciInput.val();
@@ -111,58 +112,112 @@ $(document).ready(function() {
 						console.log('godinaProizvodnje: ' + godinaProizvodnje);
 						console.log('opis: ' + opis);
 						
-						params = {
-							'action': 'update',
-							'idFilm': idFilm,
-							'naziv': naziv,
-							'reziser': reziser,
-							'glumci': glumci,
-							'zanrovi': zanrovi,
-							'trajanje': trajanje,
-							'distributer': distributer,
-							'zemljaPorekla': zemljaPorekla,
-							'godinaProizvodnje': godinaProizvodnje,
-							'opis': opis
-						};
-						console.log(params);
-						$.post('FilmServlet', params, function(data) {
-							if (data.status == 'unauthenticated') {
-								window.location.replace('ListaFilmova.html');
-								return;
-							}
-		
-							if (data.status == 'success') {
-								window.location.replace('ListaFilmova.html');
-								return;
-							}
-						});
-						event.preventDefault();
-						return false;
+						
+						if(naziv==""){
+							$('#messageParagraph').text("Polje Naziv filma je prazno");
+						}
+						else if(reziser==""){
+							$('#messageParagraph').text("Polje Reziser je prazan");
+						}
+						else if(glumci==""){
+							$('#messageParagraph').text("Polje Glumci je prazno");
+						}
+						else if(zanrovi==""){
+							$('#messageParagraph').text("Polje Zanrovi je prazno");
+						}
+						else if(trajanje==""){
+							$('#messageParagraph').text("Polje Trajanje je prazno");
+						}
+						else if(distributer==""){
+							$('#messageParagraph').text("Polje Distributer je prazno");
+						}
+						else if(zemljaPorekla==""){
+							$('#messageParagraph').text("Polje Zemlja Porekla je prazno");
+						}
+						else if(godinaProizvodnje==""){
+							$('#messageParagraph').text("Polje Godina Proizvodnje je prazno");
+						}
+						else if(opis==""){
+							$('#messageParagraph').text("Polje Opis je prazno");
+						}
+						else{
+							params = {
+								'action': 'update',
+								'idFilm': idFilm,
+								'naziv': naziv,
+								'reziser': reziser,
+								'glumci': glumci,
+								'zanrovi': zanrovi,
+								'trajanje': trajanje,
+								'distributer': distributer,
+								'zemljaPorekla': zemljaPorekla,
+								'godinaProizvodnje': godinaProizvodnje,
+								'opis': opis
+							};
+							console.log(params);
+							$.post('FilmServlet', params, function(data) {
+								if (data.status == 'unauthenticated') {
+									window.location.replace('ListaFilmova.html');
+									return;
+								}
+			
+								if (data.status == 'success') {
+									window.location.replace('ListaFilmova.html');
+									return;
+								}
+							});
+							return false;
+						}
 					});
 					$('#deleteSubmit').on('click', function(event) {
-						params = {
-							'action': 'delete',
-							'idFilm': idFilm, 
-						};
-						console.log(params);
-						$.post('FilmServlet', params, function(data) {
-							if (data.status == 'unauthenticated') {
-								window.location.replace('ListaFilmova.html');
-								return;
-							}
-		
-							if (data.status == 'success') {
-								window.location.replace('ListaFilmova.html');
-								return;
-							}
-						});
-		
 						event.preventDefault();
-						return false;
+						var txt;
+						var potvrdi = $('#potvrdi');
+						var potvrdi = confirm("Da li ste sigurni da zelite da obrisete ovaj film?");
+						if (potvrdi == true){
+							params = {
+									'action': 'delete',
+									'idFilm': idFilm, 
+								};
+								console.log(params);
+								$.post('FilmServlet', params, function(data) {
+									if (data.status == 'unauthenticated') {
+										window.location.replace('ListaFilmova.html');
+										return;
+									}
+				
+									if (data.status == 'success') {
+										window.location.replace('ListaFilmova.html');
+										return;
+									}
+								});
+								return false;
+						} else {
+							txt ="Ponistili ste brisanje";
+						}
+						document.getElementById("poruka1").innerHTML = txt;
 					});
 				}
+				});
+			} else{
+				var film = data.film; 
+				
+				$('#userTable').show();
+				$('#adminForm').hide();
+				$('.unregisteredParagraph').show();
+				$('#userParagraph').hide();
+				
+				$('#nazivCell').text(film.naziv);
+				$('#reziserCell').text(film.reziser);
+				$('#glumciCell').text(film.glumci);
+				$('#zanroviCell').text(film.zanrovi);
+				$('#trajanjeCell').text(film.trajanje);
+				$('#distributerCell').text(film.distributer);
+				$('#zemljaPoreklaCell').text(film.zemljaPorekla);
+				$('#godinaProizvodnjeCell').text(film.godinaProizvodnje);
+				$('#opisCell').text(film.opis);
 			}
 		});
 	}
-	getFilm();	
+	getFilm();
 });

@@ -57,12 +57,12 @@ public class ListaProjekcijaServlet extends HttpServlet {
 			int lowCena1 = 0;
 			int highCena1 = Integer.MAX_VALUE;
 			try {
-				String lowCena = request.getParameter("lowCena ");
+				String lowCena = request.getParameter("lowCena");
 				lowCena1= Integer.parseInt(lowCena );
 				lowCena1 = (lowCena1 >= 0? lowCena1: 0);
 			} catch (Exception ex) {}
 			try {
-				String highCena = request.getParameter("highCena ");
+				String highCena = request.getParameter("highCena");
 				highCena1= Integer.parseInt(highCena );
 				highCena1 = (highCena1 >= 0? highCena1: 0);
 			} catch (Exception ex) {}

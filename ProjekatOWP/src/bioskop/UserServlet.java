@@ -72,12 +72,14 @@ public class UserServlet extends HttpServlet {
 					userName = (!"".equals(userName)? userName: "");
 					String password = request.getParameter("password");
 					password = (!"".equals(password)? password: "");
-					if ("".equals(userName) && "".equals(password))
-						throw new Exception("Niste popunili polja!");
-					if ("".equals(userName))
-						throw new Exception("Korisnicko ime je prazno!");
-					if ("".equals(password))
-						throw new Exception("Lozinka je prazna!");
+					if (UserDAO.get(userName) != null)
+						throw new Exception("Korisnicko ime vec postoji!");
+//					if ("".equals(userName) && "".equals(password))
+//						throw new Exception("Niste popunili polja!");
+//					if ("".equals(userName))
+//						throw new Exception("Korisnicko ime je prazno!");
+//					if ("".equals(password))
+//						throw new Exception("Lozinka je prazna!");
 
 					
 					Date sadaDatum = new java.util.Date();
@@ -93,18 +95,16 @@ public class UserServlet extends HttpServlet {
 				User user = UserDAO.get(dateOfRegistration);
 				
 				String userName = request.getParameter("userName");
-				if (UserDAO.get(userName) != null)
-					throw new Exception("Korisnicko ime vec postoji!");
-				if ("".equals(userName))
-					throw new Exception("Korisnicko ime je prazno!");
+//				if ("".equals(userName))
+//					throw new Exception("Korisnicko ime je prazno!");
 				
 				userName = (!"".equals(userName)? userName: user.getUserName());
 				String password = request.getParameter("password");
 				password = (!"".equals(password)? password: user.getPassword());
-				if ("".equals(password))
-					throw new Exception("Lozinka je prazna!");
-				if ("".equals(userName) && "".equals(password))
-					throw new Exception("Niste popunili polja!");
+//				if ("".equals(password))
+//					throw new Exception("Lozinka je prazna!");
+//				if ("".equals(userName) && "".equals(password))
+//					throw new Exception("Niste popunili polja!");
 				
 				user.setUserName(userName);
 				user.setPassword(password);
@@ -116,16 +116,17 @@ public class UserServlet extends HttpServlet {
 				UserDAO.delete(userName);
 				break;
 			}
-			}request.getRequestDispatcher("./SuccessServlet").forward(request, response);
+			}
+			request.getRequestDispatcher("./SuccessServlet").forward(request, response);
 		} catch (Exception ex) {
 			String message = ex.getMessage();
 			if (message == null) {
-				message = "Nepredvidjena greska!";
+				message = "Korisnicko ime vec postoji";
 				ex.printStackTrace();
 			}
 			
 			Map<String, Object> data = new LinkedHashMap<>();
-			data.put("message", message);
+//			data.put("message", message);
 
 			request.setAttribute("data", data);
 			request.getRequestDispatcher("./FailureServlet").forward(request, response);
@@ -133,4 +134,3 @@ public class UserServlet extends HttpServlet {
 //		response.sendRedirect("./ListaUseraServlet");
 	}
 }
-

@@ -79,13 +79,9 @@ $(document).ready(function() {
 	function getUserInterface() {
 		$.get('UserServlet', {'action': 'loggedInUserRole'}, function(data) {
 			console.log(data);
-			
-			userParagraph.parent().empty();
 			if (data.status == 'success') {
-				userParagraph.parent().empty();
 				if (data.loggedInUserRole == 'USER') {
-					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
-					userParagraph.parent().show();
+					userParagraph.show();
 					unregisteredParagraph.hide();
 					
 					$('#logoutLink').on('click', function(event) {
@@ -111,13 +107,11 @@ $(document).ready(function() {
 			console.log(data);
 
 			adminParagraph.empty();
-			userParagraph.empty();
 			if (data.status == 'success') {
 				adminParagraph.empty();
-				userParagraph.empty();
 				if (data.loggedInUserRole == 'ADMIN') {
 					$('#adminParagraph').append('<a href="AddFilm.html">Dodavanje filma</a>');
-					$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
+					//$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
 					adminParagraph.show();
 					userParagraph.show();
 					unregisteredParagraph.hide();

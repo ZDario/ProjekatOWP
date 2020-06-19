@@ -28,12 +28,8 @@ public class RegisterServlet extends HttpServlet {
 			String userName = request.getParameter("userName");
 			if (UserDAO.get(userName) != null)
 				throw new Exception("Korisnicko ime vec postoji!");
-			if ("".equals(userName))
-				throw new Exception("Korisnicko ime je prazno!");
 
 			String password = request.getParameter("password");
-			if ("".equals(password))
-				throw new Exception("Lozinka je prazna!");
 			
 			Date sadaDatum = new java.util.Date();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

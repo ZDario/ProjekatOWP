@@ -33,7 +33,7 @@ header {
 }
 
 header a img {
-	width: 10%;
+	width: 12%;
 	margin-left: 18%;
 	border-radius: 36px;
 }
@@ -59,6 +59,10 @@ header a img {
 	-webkit-box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
 	-moz-box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
 	box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
+}
+
+.unregisteredParagraph {
+	margin: 5px 5px 0 0;
 }
 
 /* POVRATAK */
@@ -139,6 +143,10 @@ input {
 #updateSubmit:hover, #deleteSubmit:hover, #filmSubmit:hover, #userSubmit:hover
 	{
 	background-color: rgba(12, 204, 248, 0.8);
+}
+
+#potvrdi {
+	padding:10px;
 }
 
 /* FOOTER */

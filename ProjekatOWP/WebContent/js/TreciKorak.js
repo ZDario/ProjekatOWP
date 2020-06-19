@@ -81,6 +81,7 @@ $(document).ready(function(){
 						
 						if(data.status == 'success'){
 							alert('karta uspjesno kupljena');
+							window.location.replace('GlavnaStranica.html');
 						}
 					});
 				});

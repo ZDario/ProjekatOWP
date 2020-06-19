@@ -24,12 +24,12 @@ public class LoginServlet extends HttpServlet {
 		try {
 			String userName = request.getParameter("userName");
 			String password = request.getParameter("password");
-			if ("".equals(userName) && "".equals(password))
-				throw new Exception("Niste popunili polja!");
-			if ("".equals(userName))
-				throw new Exception("Korisnicko ime je prazno!");
-			if ("".equals(password))
-				throw new Exception("Lozinka je prazna!");
+//			if ("".equals(userName) && "".equals(password))
+//				throw new Exception("Niste popunili polja!");
+//			if ("".equals(userName))
+//				throw new Exception("Korisnicko ime je prazno!");
+//			if ("".equals(password))
+//				throw new Exception("Lozinka je prazna!");
 			
 			User user = UserDAO.get(userName, password);
 			if (user == null) {

@@ -1,18 +1,30 @@
 $(document).ready(function(){
+	
 	var filmFilterInput = $('#filmFilterInput');
 	var tipProjekcijeFilterInput = $('#tipProjekcijeFilterInput');
 	var salaFilterInput = $('#salaFilterInput');
 	//var datumPrikazivanjaFilterInput = $('#datumPrikazivanjaFilterInput');
-	var mindatvr = mindatvrFilterInput.val();
-	var maxdatvr = maxdatvrFilterInput.val();
+	var mindatvrFilterInput = $('mindatvrFilterInput');
+	var maxdatvrFilterInput = $('maxdatvrFilterInput');
 	var lowCenaFilterInput = $('#lowCenaFilterInput');
 	var highCenaFilterInput = $('#highCenaFilterInput');
 	
 	var projekcijeTable = $('#projekcijeTable');
 	var kupljeneKarteLink = $('#kupljeneKarteLink');
 	
+	var adminParagraph = $('#adminParagraph');
+	var userParagraph = $('#userParagraph');
+	var unregisteredParagraph = $('.unregisteredParagraph');
+	
+	
+	function getUnregisteredInterface(){	
+		adminParagraph.hide();
+		userParagraph.hide();
+		unregisteredParagraph.show();
+	}
+	
 	function getProjekcije(){
-		var film = nazivFilmaFilterInput.val();
+		var film = filmFilterInput.val();
 		var tipProjekcije = tipProjekcijeFilterInput.val();
 		var sala = salaFilterInput.val();
 		var mindatvr = mindatvrFilterInput.val();
@@ -23,7 +35,8 @@ $(document).ready(function(){
 		console.log('film:' + film);
 		console.log('tipProjekcije:' + tipProjekcije);
 		console.log('sala:' + sala);
-		console.log('datumPrikazivanja:' + datumPrikazivanja);
+		console.log('mindatvr:' + mindatvr);
+		console.log('maxdatvr:' + maxdatvr);
 		console.log('lowCena:' + lowCena);
 		console.log('highCena:' + highCena);
 		
@@ -82,6 +95,49 @@ $(document).ready(function(){
 			}
 		});
 	}
+	function getUserInterface() {
+		userParagraph.show();
+		unregisteredParagraph.hide();
+		
+		$('#logoutLink').on('click', function(event) {
+			$.get('LogoutServlet', function(data) {
+				console.log(data);
+
+				if (data.status == 'unauthenticated') {
+					window.location.replace('Login.html');
+					return;
+				}
+			});
+		
+			event.preventDefault();
+			return false;
+		});
+				
+
+	}
+	
+	function getAdminInterface() {
+		$('#adminParagraph').append('<a href="AddFilm.html">Dodavanje filma</a>');
+		//$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
+		adminParagraph.show();
+		userParagraph.show();
+		unregisteredParagraph.hide();
+		
+		$('#logoutLink').on('click', function(event) {
+			$.get('LogoutServlet', function(data) {
+				console.log(data);
+
+				if (data.status == 'unauthenticated') {
+					window.location.replace('Login.html');
+					return;
+				}
+			});
+		
+			event.preventDefault();
+			return false;
+		});
+	}
+	
 	function getKupljeneKarteSize(){
 		$.get('KupljenaKartaServlet' , {'action': 'size'}, function(data){
 			console.log(data);
@@ -185,7 +241,23 @@ $(document).ready(function(){
 		
 		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute + ":" + sekunde;
 	}
-
+	
+	function getKorisnik(){
+		$.get('UserServlet', {'action': 'loggedInUserRole'}, function(data) {
+			console.log(data);
+			if (data.status == 'success') {
+				if (data.loggedInUserRole == 'USER'){
+					getUserInterface();
+				}
+				else if (data.loggedInUserRole == 'ADMIN'){
+					getAdminInterface();
+				}
+			}
+		});
+	}
+	
 	getProjekcije();
 	getKupljeneKarteSize();
+	getUnregisteredInterface();
+	getKorisnik();
 });

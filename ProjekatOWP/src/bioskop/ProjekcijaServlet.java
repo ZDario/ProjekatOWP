@@ -95,20 +95,7 @@ public class ProjekcijaServlet extends HttpServlet {
 					TipProjekcije tipProjekcijee = TipProjekcijeDAO.getNaziv(tipProjek);
 					Sala sala = SalaDAO.getNaziv(salaPr);
 					User user = UserDAO.get(loggedInUserName);
-					
-					if ("".equals(nazivFilma))
-						throw new Exception("Naziv je prazan!");
-					if ("".equals(tipProjek))
-						throw new Exception("Tip Projekcije je prazno!");
-					if ("".equals(salaPr))
-						throw new Exception("Sala je prazni!");
-					if ("".equals(datumivremee))
-						throw new Exception("Datum je prazni!");
-					if ("".equals(cenazakartu))
-						throw new Exception("Cena je prazna!");
-					if ("".equals(user))
-						throw new Exception("Korisnik je prazan!");
-					
+						
 					Projekcija proj = new Projekcija("", film, tipProjekcijee, sala, datumPrikazivanja, cenazakartu, user);
 					ProjekcijaDAO.add(proj);
 					break;

@@ -26,6 +26,7 @@ $(document).ready(function() {
 	var messageParagraph = $('#messageParagraph');
 	
 	$('#filmSubmit').on('click', function(event) {
+		event.preventDefault();
 		var naziv = nazivInput.val();
 		var reziser = reziserInput.val();
 		var glumci = glumciInput.val();
@@ -46,37 +47,60 @@ $(document).ready(function() {
 		console.log('godinaProizvodnje: ' + godinaProizvodnje);
 		console.log('opis: ' + opis);
 		
-		params = {
-			'action': 'add',
-			'naziv': naziv,
-			'reziser': reziser,
-			'glumci': glumci,
-			'zanrovi': zanrovi,
-			'trajanje': trajanje,
-			'distributer': distributer,
-			'zemljaPorekla': zemljaPorekla,
-			'godinaProizvodnje': godinaProizvodnje,
-			'opis': opis
-		};
-		$.post('FilmServlet', params, function(data) {
-			console.log(data);
+		if(naziv==""){
+			$('#messageParagraph').text("Polje Naziv filma je prazno");
+		}
+		else if(reziser==""){
+			$('#messageParagraph').text("Polje Reziser je prazan");
+		}
+		else if(glumci==""){
+			$('#messageParagraph').text("Polje Glumci je prazno");
+		}
+		else if(zanrovi==""){
+			$('#messageParagraph').text("Polje Zanrovi je prazno");
+		}
+		else if(trajanje==""){
+			$('#messageParagraph').text("Polje Trajanje je prazno");
+		}
+		else if(distributer==""){
+			$('#messageParagraph').text("Polje Distributer je prazno");
+		}
+		else if(zemljaPorekla==""){
+			$('#messageParagraph').text("Polje Zemlja Porekla je prazno");
+		}
+		else if(godinaProizvodnje==""){
+			$('#messageParagraph').text("Polje Godina Proizvodnje je prazno");
+		}
+		else if(opis==""){
+			$('#messageParagraph').text("Polje Opis je prazno");
+		}
+		else{
+			params = {
+					'action': 'add',
+					'naziv': naziv,
+					'reziser': reziser,
+					'glumci': glumci,
+					'zanrovi': zanrovi,
+					'trajanje': trajanje,
+					'distributer': distributer,
+					'zemljaPorekla': zemljaPorekla,
+					'godinaProizvodnje': godinaProizvodnje,
+					'opis': opis
+				};
+				$.post('FilmServlet', params, function(data) {
+					
+					console.log(data);
 
-			if (data.status == 'unauthenticated') {
-				window.location.replace('ListaFilmova.html');
-				return;
-			}
-			
-			if (data.status == 'failure') {
-				messageParagraph.text(data.message);
-				
-				return;
-			}
+					if (data.status == 'unauthenticated') {
+						window.location.replace('ListaFilmova.html');
+						return;
+					}
 
-			if (data.status == 'success') {
-				window.location.replace('ListaFilmova.html');
-			}
-		});
-		event.preventDefault();
+					if (data.status == 'success') {
+						window.location.replace('ListaFilmova.html');
+					}
+				});
+		}
 		return false;
 	});
 });

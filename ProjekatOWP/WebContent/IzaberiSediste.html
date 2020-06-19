@@ -3,76 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <title>Izbor sedista:</title>
+<link rel="stylesheet" href="css/IzaberiSediste.css">
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/IzaberiSediste.js"></script>
 <link rel="shortcut icon" href="Photos/Logo.jpg" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet">
 </head>
 <body>
-	<table>
-		<tr>
-			<td align="left"><b>Naziv filma:</b></td>
-			<td id="nazivFilmaImeCell"></td>
-		</tr>
-		<tr>
-			<td align="left"><b>Tip projekcije:</b></td>
-			<td id="tipProjekcijeCell"></td>
-		</tr>
-		<tr>
-			<td align="left"><b>Sala:</b></td>
-			<td id="salaCell"></td>
-		</tr>
-		<tr>
-			<td align="left"><b>Datum i vreme:</b></td>
-			<td id="datVrCell"></td>
-		</tr>
-		<tr>
-			<td align="left"><b>Cena karte:</b></td>
-			<td id="cenaKarCell"></td>
-		</tr>
-	</table>
-	<h3>Izaberi sediste:</h3>
-	<div class="form-check">
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="1" id="1"> <label class="form-check-label" for="1">1</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="2" id="2"> <label class="form-check-label" for="2">2</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="3" id="3"> <label class="form-check-label" for="3">3</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="4" id="4"> <label class="form-check-label" for="4">4</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="5" id="5"> <label class="form-check-label" for="5">5</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="6" id="6"> <label class="form-check-label" for="6">6</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="7" id="7"> <label class="form-check-label" for="7">7</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="8" id="8"> <label class="form-check-label" for="8">8</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="9" id="9"> <label class="form-check-label" for="9">9</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="10" id="10"> <label class="form-check-label" for="10">10</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="11" id="11"> <label class="form-check-label" for="11">11</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="12" id="12"> <label class="form-check-label" for="12">12</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="13" id="13"> <label class="form-check-label" for="13">13</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="14" id="14"> <label class="form-check-label" for="14">14</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="15" id="15"> <label class="form-check-label" for="15">15</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="16" id="16"> <label class="form-check-label" for="16">16</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="17" id="17"> <label class="form-check-label" for="17">17</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="18" id="18"> <label class="form-check-label" for="18">18</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="19" id="19"> <label class="form-check-label" for="19">19</label>
-		<input class="form-check-input" type="checkbox" name="locationthemes"
-			value="20" id="20"> <label class="form-check-label" for="20">20</label>
+	<div id="container">
+		<header>
+			<p id="FilmNS">FilmoviNS</p>
+			<a href="GlavnaStranica.html"><img
+				src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
+			<div id="header1">
+				<p id="userParagraph">
+					<a href="" id="logoutLink">Odjava</a>
+				</p>
+			</div>
+		</header>
+		<h1>Platno</h1>
+		
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="1A" id="1"> <label class="form-check-label" for="1">1A</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="2A" id="2"> <label class="form-check-label" for="2">2A</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="3A" id="3"> <label class="form-check-label" for="3">3A</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="4A" id="4"> <label class="form-check-label" for="4">4A</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="5A" id="5"> <label class="form-check-label" for="5">5A</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="6A" id="6"> <label class="form-check-label" for="6">6A</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="7A" id="7"> <label class="form-check-label" for="7">7A</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="8A" id="8"> <label class="form-check-label" for="8">8A</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="9A" id="9"> <label class="form-check-label" for="9">9A</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="10A" id="10"> <label class="form-check-label" for="10">10A</label>
+				<br/><br/>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="1B" id="11"> <label class="form-check-label" for="11">1B</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="2B" id="12"> <label class="form-check-label" for="12">2B</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="3B" id="13"> <label class="form-check-label" for="13">3B</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="4B" id="14"> <label class="form-check-label" for="14">4B</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="5B" id="15"> <label class="form-check-label" for="15">5B</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="6B" id="16"> <label class="form-check-label" for="16">6B</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="7B" id="17"> <label class="form-check-label" for="17">7B</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="8B" id="18"> <label class="form-check-label" for="18">8B</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="9B" id="19"> <label class="form-check-label" for="19">9B</label>
+			<input class="form-check-input" type="checkbox" name="locationthemes"
+				value="10B" id="20"> <label class="form-check-label" for="20">10B</label>
+		</div>
+		
+		
+		<table id="tabela">
+			<tr>
+				<td align="left"><b>Naziv filma:</b></td>
+				<td id="nazivFilmaImeCell"></td>
+			</tr>
+			<tr>
+				<td align="left"><b>Tip projekcije:</b></td>
+				<td id="tipProjekcijeCell"></td>
+			</tr>
+			<tr>
+				<td align="left"><b>Sala:</b></td>
+				<td id="salaCell"></td>
+			</tr>
+			<tr>
+				<td align="left"><b>Datum i vreme:</b></td>
+				<td id="datVrCell"></td>
+			</tr>
+			<tr>
+				<td align="left"><b>Cena karte:</b></td>
+				<td id="cenaKarCell"></td>
+			</tr>
+		</table>
+
+		<input type="submit" value="Dalje" id="drugiKorakSubmit">
+	
+		<footer>
+			<a href="CommingSoon.html"><img src="Photos/twitter.png"
+				alt="Twitter"></a> <a href="CommingSoon.html"><img
+				src="Photos/facebook.png" alt="Facebook"></a> <a
+				href="CommingSoon.html"><img src="Photos/gplus.png"
+				alt="Google+"></a>
+			<div id="footer1">
+				<a href="CommingSoon.html">Politika privatnosti</a> <a
+					href="CommingSoon.html">Uslovi poslovanja</a> <a
+					href="CommingSoon.html">Kontakt</a> <a href="CommingSoon.html">Pomoc</a>
+			</div>
+		</footer>
 	</div>
-	<input type="submit" value="Dalje" id="drugiKorakSubmit">
 </body>
 </html>

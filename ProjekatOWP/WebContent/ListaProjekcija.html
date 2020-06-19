@@ -11,7 +11,8 @@
 <link rel="shortcut icon" href="Photos/Logo.jpg" type="image/x-icon">
 <script src="https://www.w3schools.com/lib/w3.js"></script>
 </head>
-<body>
+<body
+style="background-image: url(./Photos/ListaProjekcija.jpg); background-size: cover; background-attachment: fixed;">
 	<div id="container">
 		<header>
 			<p id="FilmNS">FilmoviNS</p>
@@ -22,10 +23,10 @@
 					<a href="" id="logoutLink">Odjava</a>
 				</p>
 				<p class="unregisteredParagraph">
-					<a href="Register.html">Registracija</a>
+					<a onclick="myFunction1()">Registracija</a>
 				</p>
 				<p class="unregisteredParagraph">
-					<a href="Login.html">Prijava</a>
+					<a onclick="myFunction2()">Prijava</a>
 				</p>
 			</div>
 		</header>
@@ -47,7 +48,7 @@
 
 			<h1>Pretraga Projekcija:</h1>
 			<table id="projekcijeTable">
-			<tr>
+			<tr id="sortiranje">
 			<th onclick="w3.sortHTML('#projekcijeTable', '.item', 'td:nth-child(1)')" style="cursor:pointer " style="background-color:black ">Naziv Filma</th>
 			<th onclick="w3.sortHTML('#projekcijeTable', '.item', 'td:nth-child(2)')" style="cursor:pointer " style="background-color:black ">Tip Projekcije</th>
 			<th onclick="w3.sortHTML('#projekcijeTable', '.item', 'td:nth-child(3)')" style="cursor:pointer " style="background-color:black ">Sala</th>
@@ -94,5 +95,13 @@
 			</div>
 		</footer>
 	</div>
+	<script>
+	function myFunction1() {
+  		window.open("Register.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=500,height=750");
+		}
+	function myFunction2() {
+  		window.open("Login.html", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=500,height=750");
+		}
+	</script>
 </body>
 </html>

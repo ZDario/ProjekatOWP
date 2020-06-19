@@ -59,6 +59,7 @@ header a img {
 	box-shadow: 10px 10px 65px 5px rgb(87, 224, 255);
 }
 
+
 main {
 	padding: 28px 0px 15px 0px;
 }
@@ -108,6 +109,7 @@ h1 {
 #sortiranje {
 	background-color: #0B0C10;
 	border-radius: 90%;
+	color: 	#F9F9F9;
 }
 
 #usersTable {

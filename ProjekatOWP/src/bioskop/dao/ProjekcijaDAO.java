@@ -129,8 +129,9 @@ public class ProjekcijaDAO {
 					String idTipProjekcije = rset.getString(index++);
 					String idSala = rset.getString(index++);
 					String date = rset.getString(index++);
-					SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+					SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd");
 					Date datumPrikazivanja = formatter1.parse(date);
+					//String datumPrikazivanja = rset.getString(index++);
 					double cena= rset.getDouble(index++);
 					String administratorKorIme = rset.getString(index++);
 					
