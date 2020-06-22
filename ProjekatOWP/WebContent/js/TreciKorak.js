@@ -96,12 +96,11 @@ $(document).ready(function(){
 		var year = date.getFullYear();
 		var hour = date.getHours();
 		var minute = date.getMinutes();
-		var sekunde = date.getSeconds();
 		
 		var months = ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"];
 		//var months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 		
-		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute + ":" + sekunde;
+		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute;
 	}
 	getProjekcijaa();
 });

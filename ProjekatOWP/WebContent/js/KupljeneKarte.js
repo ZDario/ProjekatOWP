@@ -90,11 +90,10 @@ $(document).ready(function(){
 		var year = date.getFullYear();
 		var hour = date.getHours();
 		var minute = date.getMinutes();
-		var sekunde = date.getSeconds();
 		
 		var months = ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"];
 		
-		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute + ":" + sekunde;
+		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute;
 	}
 	
 	getKupljeneKarte();

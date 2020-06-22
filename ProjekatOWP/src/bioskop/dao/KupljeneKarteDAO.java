@@ -39,7 +39,7 @@ public class KupljeneKarteDAO {
 				String idFilm = rset.getString(index++);
 				System.out.println("idFilm: " + idFilm);
 				String date = rset.getString(index++);
-				SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS");
+				SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 				Date vremeProdaje = formatter1.parse(date);
 				System.out.println("vremeprodaje: " + vremeProdaje);
 				String idTipProjekcije = rset.getString(index++);

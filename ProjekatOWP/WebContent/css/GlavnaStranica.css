@@ -216,6 +216,77 @@ input[name="r"]{
 
 
 
+/*DANASNJE PROJEKCIJE*/
+#danasnjeProjekcije{
+	background-color: rgba(11, 12, 16, 0.7);
+	padding: 10px 0 20px 0;
+	margin: 40px 0 60px 0;
+	
+}
+
+#projekcijeTable {
+	width: 100%;
+	margin: 20px 0 20px 0;
+	background-color: rgba(11, 12, 16, 0.7);
+	font-size: 18px;
+}
+
+.parametri {
+	color:red;
+}
+
+#naziv {
+	font-size: 30px;
+}
+
+td a {
+	font-family: 'Merienda', cursive;
+	color: #0045FF;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+td input {
+	width: 140px;
+	font-size: 15px;
+	padding: 0px 0px 0px 4px;
+	border-radius: 15px;
+	font-family: 'Merienda', cursive;
+}
+
+td ::placeholder {
+	color: #1F2833;
+	padding-left: 2px;
+}
+
+table {
+	border-spacing: 0px 15px;
+}
+
+#projekcijeTable td {
+	padding: 15px;
+}
+
+td {
+	padding: 8px;
+	border-width: 4px;
+	border-style: outset;
+	background-color: rgba(249, 249, 249, 0.8);
+	border-color: rgba(102, 252, 241, 0.8);
+	-webkit-box-shadow: inset 10px 10px 65px -15px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: inset 10px 10px 65px -15px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 10px 10px 65px -15px rgba(0, 0, 0, 0.5);
+}
+
+#pretraga td {
+	border: none;
+	background: none;
+	box-shadow: none;
+	padding: unset;
+}
+
+
+
 /*USKORO U BIOSKOPU KARTE*/
 .uskoro{
 	background-color: rgba(11, 12, 16, 0.7);;

@@ -1,5 +1,14 @@
 $(document).ready(function() {
 	
+	var filmFilterInput = $('#filmFilterInput');
+	var tipProjekcijeFilterInput = $('#tipProjekcijeFilterInput');
+	var salaFilterInput = $('#salaFilterInput');
+	//var datumPrikazivanjaFilterInput = $('#datumPrikazivanjaFilterInput');
+	var mindatvrFilterInput = $('mindatvrFilterInput');
+	var maxdatvrFilterInput = $('maxdatvrFilterInput');
+	var lowCenaFilterInput = $('#lowCenaFilterInput');
+	var highCenaFilterInput = $('#highCenaFilterInput');
+	
 	var adminParagraph = $('#adminParagraph');
 	var userParagraph = $('#userParagraph');
 	var unregisteredParagraph = $('.unregisteredParagraph');
@@ -12,6 +21,32 @@ $(document).ready(function() {
 	}
 	
 	function getProjekcije(){
+		var film = filmFilterInput.val();
+		var tipProjekcije = tipProjekcijeFilterInput.val();
+		var sala = salaFilterInput.val();
+		var mindatvr = mindatvrFilterInput.val();
+		var maxdatvr = maxdatvrFilterInput.val();
+		//var datumPrikazivanja = datumPrikazivanjaFilterInput.val();
+		var lowCena = lowCenaFilterInput.val();
+		var highCena = highCenaFilterInput.val();
+		console.log('film:' + film);
+		console.log('tipProjekcije:' + tipProjekcije);
+		console.log('sala:' + sala);
+		console.log('mindatvr:' + mindatvr);
+		console.log('maxdatvr:' + maxdatvr);
+		console.log('lowCena:' + lowCena);
+		console.log('highCena:' + highCena);
+		
+		var params = {
+			'film': film,
+			'tipProjekcije': tipProjekcije,
+			'sala': sala,
+			'mindatvr':mindatvr,
+			'maxdatvr':maxdatvr,
+			//'datumPrikazivanja': datumPrikazivanja,
+			'lowCena': lowCena,
+			'highCena': highCena
+		};
 		$.get('GlavnaStranicaServlet', params, function(data){
 			console.log("SS");
 
@@ -24,23 +59,22 @@ $(document).ready(function() {
 //			}
 			if(data.status == 'success'){
 				console.log("Success");
-				console.log(data.filteredProjekcije);
+				//console.log(data.filteredProjekcije);
+				console.log(data.danasnjeProjekcije);
 				console.log(data.status);
 
 
 				projekcijeTable.find('tr:gt(0)').remove();
-				var filteredProjekcije = data.filteredProjekcije;
-				for(it in filteredProjekcije){
+				var danasnjeProjekcije = data.danasnjeProjekcije;
+				for(it in danasnjeProjekcije){
 					projekcijeTable.append(
-						'<tr class="item" style="text-align:center;">' +
-							'<td><a href="Film.html?id=' + filteredProjekcije[it].film.idFilm +
-							'">' + filteredProjekcije[it].film.naziv + '</a></td>' +
-							'<td>' + filteredProjekcije[it].tipProjekcije.naziv + '</td>' +
-							'<td>' + filteredProjekcije[it].sala.naziv + '</td>' +
-							'<td>' + formatDate(new Date(filteredProjekcije[it].datumPrikazivanja)) + '</td>' +
-							'<td>' + filteredProjekcije[it].cena + '</td>' +
-							'<td>' +
-						'</td>' +
+						'<tr class="item" style="text-align:left; ">' +
+							'<td colspan="3"><a id="naziv" href="Film.html?id=' + danasnjeProjekcije[it].film.idFilm +
+							'">' + danasnjeProjekcije[it].film.naziv + '</a><br />' +
+							"Tip Projekcije:  " + '<a class="parametri">' + danasnjeProjekcije[it].tipProjekcije.naziv + '</a><br />' +
+							"Sala:  " + '<a class="parametri">' +danasnjeProjekcije[it].sala.naziv + '</a><br />' + 
+							"Datum Prikazivanja:  " + '<a class="parametri">' +formatDate(new Date(danasnjeProjekcije[it].datumPrikazivanja)) + '</a><br />' +
+							"Cena:  " + '<a class="parametri">' +danasnjeProjekcije[it].cena + '</a>' + 
 							/*'<td>' + 
 								'<form>' +
 									'<input type="text" size="3">&nbsp;' +
@@ -55,64 +89,71 @@ $(document).ready(function() {
 	}
 	
 	function getUserInterface() {
+		userParagraph.show();
+		unregisteredParagraph.hide();
+		
+		$('#logoutLink').on('click', function(event) {
+			$.get('LogoutServlet', function(data) {
+				console.log(data);
+
+				if (data.status == 'unauthenticated') {
+					window.location.replace('Login.html');
+					return;
+				}
+			});
+		
+			event.preventDefault();
+			return false;
+		});
+	}
+	
+	function getAdminInterface() {
+		adminParagraph.parent().show();
+		userParagraph.show();
+		unregisteredParagraph.hide();
+		
+		$('#logoutLink').on('click', function(event) {
+			$.get('LogoutServlet', function(data) {
+				console.log(data);
+
+				if (data.status == 'unauthenticated') {
+					window.location.replace('Login.html');
+					return;
+				}
+			});
+		
+			event.preventDefault();
+			return false;
+		});
+	}
+	
+	function getKorisnik(){
 		$.get('UserServlet', {'action': 'loggedInUserRole'}, function(data) {
 			console.log(data);
-			
 			if (data.status == 'success') {
-				if (data.loggedInUserRole == 'USER') {
-					userParagraph.parent().show();
-					unregisteredParagraph.hide();
-					
-					$('#logoutLink').on('click', function(event) {
-						$.get('LogoutServlet', function(data) {
-							console.log(data);
-
-							if (data.status == 'unauthenticated') {
-								window.location.replace('Login.html');
-								return;
-							}
-						});
-					
-						event.preventDefault();
-						return false;
-					});
+				if (data.loggedInUserRole == 'USER'){
+					getUserInterface();
+				}
+				else if (data.loggedInUserRole == 'ADMIN'){
+					getAdminInterface();
 				}
 			}
 		});
 	}
 	
-	function getAdminInterface() {
-		$.get('UserServlet', {'action': 'loggedInUserRole'}, function(data) {
-			console.log(data);
-			
-			adminParagraph.empty();
-			if (data.status == 'success') {
-				adminParagraph.empty();
-				if (data.loggedInUserRole == 'ADMIN') {
-					adminParagraph.parent().show();
-					userParagraph.parent().show();
-					$('#adminParagraph').append('<a href="ListaUsera.html">Lista Korisnika</a>');
-					unregisteredParagraph.hide();
-					
-					$('#logoutLink').on('click', function(event) {
-						$.get('LogoutServlet', function(data) {
-							console.log(data);
-
-							if (data.status == 'unauthenticated') {
-								window.location.replace('Login.html');
-								return;
-							}
-						});
-					
-						event.preventDefault();
-						return false;
-					});
-				}
-			}
-		});
+	function formatDate(date) {
+		var day = date.getDate();
+		var monthIndex = date.getMonth();
+		var year = date.getFullYear();
+		var hour = date.getHours();
+		var minute = date.getMinutes();
+		
+		var months = ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"];
+		
+		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute;
 	}
+	
 	getUnregisteredInterface();
-	getUserInterface();
-	getAdminInterface();
+	getKorisnik();
 	getProjekcije();
 });

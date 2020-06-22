@@ -15,12 +15,16 @@ $(document).ready(function(){
 	var adminParagraph = $('#adminParagraph');
 	var userParagraph = $('#userParagraph');
 	var unregisteredParagraph = $('.unregisteredParagraph');
+	//var kupikar = $('#kupikar');
 	
 	
 	function getUnregisteredInterface(){	
 		adminParagraph.hide();
 		userParagraph.hide();
 		unregisteredParagraph.show();
+		kupljeneKarteLink.hide();
+		//kupikar.parent().hide();
+		
 	}
 	
 	function getProjekcije(){
@@ -98,6 +102,7 @@ $(document).ready(function(){
 	function getUserInterface() {
 		userParagraph.show();
 		unregisteredParagraph.hide();
+		kupljeneKarteLink.show();
 		
 		$('#logoutLink').on('click', function(event) {
 			$.get('LogoutServlet', function(data) {
@@ -122,6 +127,7 @@ $(document).ready(function(){
 		adminParagraph.show();
 		userParagraph.show();
 		unregisteredParagraph.hide();
+		kupljeneKarteLink.show();
 		
 		$('#logoutLink').on('click', function(event) {
 			$.get('LogoutServlet', function(data) {
@@ -142,10 +148,6 @@ $(document).ready(function(){
 		$.get('KupljenaKartaServlet' , {'action': 'size'}, function(data){
 			console.log(data);
 			
-			if(data.status == 'unauthenticated'){
-				window.location.replace('Login.html');
-				return;
-			}
 			
 			if(data.status == 'success') {
 				kupljeneKarteLink.text('Prikaz kupljenih karata (' + data.size + ')');
@@ -235,11 +237,10 @@ $(document).ready(function(){
 		var year = date.getFullYear();
 		var hour = date.getHours();
 		var minute = date.getMinutes();
-		var sekunde = date.getSeconds();
 		
 		var months = ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"];
 		
-		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute + ":" + sekunde;
+		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute;
 	}
 	
 	function getKorisnik(){
