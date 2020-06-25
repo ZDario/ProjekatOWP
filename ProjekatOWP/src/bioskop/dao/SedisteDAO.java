@@ -17,7 +17,7 @@ public class SedisteDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		try {
-			String query = "SELECT sala, zauzeto FROM sediste WHERE idSediste = ?";
+			String query = "SELECT idSala FROM sediste WHERE idSediste = ?";
 			
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, idSediste);
@@ -28,11 +28,11 @@ public class SedisteDAO {
 			if (rset.next()) {
 				int index = 1;
 				String idSala = rset.getString(index++);
-				boolean zauzeto = rset.getBoolean(index++);
+				//boolean zauzeto = rset.getBoolean(index++);
 				
 				Sala sala = SalaDAO.get(idSala);
 				
-				return new Sediste(idSediste, sala, zauzeto);
+				return new Sediste(idSediste, sala);
 			}
 		} finally {
 			try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}
@@ -62,11 +62,11 @@ public class SedisteDAO {
 				index = 1;
 				String idSediste = rset.getString(index++);
 				String idSala = rset.getString(index++);
-				boolean zauzeto = rset.getBoolean(index++);
+				//boolean zauzeto = rset.getBoolean(index++);
 				
 				Sala sala = SalaDAO.get(idSala);
 				
-				Sediste sediste = new Sediste(idSediste, sala, zauzeto);
+				Sediste sediste = new Sediste(idSediste, sala);
 				sedista.add(sediste);
 			}
 		}finally {

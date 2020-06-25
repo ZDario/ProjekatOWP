@@ -69,7 +69,7 @@ $(document).ready(function() {
 				for(it in danasnjeProjekcije){
 					projekcijeTable.append(
 						'<tr class="item" style="text-align:left; ">' +
-							'<td colspan="3"><a id="naziv" href="Film.html?id=' + danasnjeProjekcije[it].film.idFilm +
+							'<td colspan="3"><a id="naziv" href="Projekcija.html?id=' + danasnjeProjekcije[it].idProjekcija +
 							'">' + danasnjeProjekcije[it].film.naziv + '</a><br />' +
 							"Tip Projekcije:  " + '<a class="parametri">' + danasnjeProjekcije[it].tipProjekcije.naziv + '</a><br />' +
 							"Sala:  " + '<a class="parametri">' +danasnjeProjekcije[it].sala.naziv + '</a><br />' + 

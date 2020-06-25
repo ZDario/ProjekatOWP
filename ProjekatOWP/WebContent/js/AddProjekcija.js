@@ -30,14 +30,13 @@ $(document).ready(function(){
 		}
 		
 		if (data.status == 'failure') {
+			console.log("aaaaa");
 			messageParagraph.text(data.message);
 
 			return;
 		}
-		
 		if (data.status == 'success') {
-
-			var filteredFilmovi = data.filteredFilmovi;
+			var filteredFilmovi = data.filteredFilms;
 			for (it in filteredFilmovi) {
 				select.options[select.options.length] = new Option(filteredFilmovi[it].naziv, it);
 			}
@@ -69,11 +68,12 @@ $(document).ready(function(){
 		}
 	});
 	$('#dodajPrSubmit').on('click', function(event){
+		event.preventDefault();
 		var nazivFilma = nazivFilmaImeCellInput.val();
 		var tipProjek = tipProjekcijeCellInput.val();
 		var salaPr = salaCellInput.val();
-		var datumvremee = datVrCellInput.val();
-		var datumvreme = formatDate(datumvremee);
+		var datumvreme = datVrCellInput.val();
+		//var datumvreme = formatDate(datumvremee);
 		var cenazakartu = cenaKarCellInput.val();
 		console.log('nazivFilma:' + nazivFilma);
 		console.log('tipProjek:' + tipProjek);
@@ -81,83 +81,43 @@ $(document).ready(function(){
 		console.log('datumvreme:' + datumvreme);
 		console.log('cenazakartu:' + cenazakartu);
 		
-		params = {
-			'action': 'add',
-			'nazivFilma': nazivFilma,
-			'tipProjekc': tipProjekc,
-			'salaPr': salaPr,
-			'datumvreme': datumvreme,
-			'cenazakartu': cenazakartu
+		if(datumvreme==""){
+			$('#messageParagraph').text("Polje Datum je prazno");
 		}
-		
-		console.log('-----------------------');
-		
-		$.post('AddProjekcijaServlet', params, function(data){
-			console.log('-----------------------');
-			console.log(data);
-			console.log('-----------------------');
-			
-			if(data.status == 'unauthenticated'){
-				window.location.replace('Login.html');
-				return;
+		else if(cenazakartu==""){
+			$('#messageParagraph').text("Polje Cena je prazno");
+		}
+		else{
+			params = {
+				'action': 'add',
+				'nazivFilma': nazivFilma,
+				'tipProjek': tipProjek,
+				'salaPr': salaPr,
+				'datumvreme': datumvreme,
+				'cenazakartu': cenazakartu
 			}
 			
-			if(data.status == 'success'){
-				window.location.replace('ListaProjekcija.html');
-				return;
-			}
-		});
-		event.preventDefault();
+			console.log('-----------------------');
+			
+			$.post('ProjekcijaServlet', params, function(data){
+				console.log('-----------------------');
+				console.log(data);
+				console.log('-----------------------');
+				
+				if(data.status == 'unauthenticated'){
+					window.location.replace('Login.html');
+					return;
+				}
+				
+				if(data.status == 'success'){
+					window.location.replace('ListaProjekcija.html');
+					return;
+				}
+			});
+		}
 		return false;
 	});
 	
-	$.get('ListaFilmovaServlet', function(data) {
-		console.log(data);
-		
-		if(data.status == 'unauthenticated'){
-			window.location.replace('Login.html');
-			return;
-		}
-		
-		if (data.status == 'failure') {
-			messageParagraph.text(data.message);
-
-			return;
-		}
-		
-		if (data.status == 'success') {
-
-			var filteredFilmovi = data.filteredFilmovi;
-			for (it in filteredFilmovi) {
-				select.options[select.options.length] = new Option(filteredFilmovi[it].naziv, it);
-			}
-		}
-	});
-
-	var selects = document.getElementById("saleSve");
-	
-	$.get('ListaSalaServlet', function(data) {
-		console.log(data);
-		
-		if(data.status == 'unauthenticated'){
-			window.location.replace('Login.html');
-			return;
-		}
-		
-		if (data.status == 'failure') {
-			messageParagraph.text(data.message);
-
-			return;
-		}
-		
-		if (data.status == 'success') {
-
-			var filteredSale = data.filteredSale;
-			for (it in filteredSale) {
-				selects.options[selects.options.length] = new Option(filteredSale[it].naziv, it);
-			}
-		}
-	});
 	
 	function formatDate(date) {
 		var day = date.getDate();
@@ -165,10 +125,9 @@ $(document).ready(function(){
 		var year = date.getFullYear();
 		var hour = date.getHours();
 		var minute = date.getMinutes();
-		var sekunde = date.getSeconds();
 		
 		var months = ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"];
 		
-		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute + ":" + sekunde;
+		return year + "-" + months[monthIndex] + "-" + day + " " + hour + ":" + minute;
 	}
 });

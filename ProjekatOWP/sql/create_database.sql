@@ -2,6 +2,11 @@ DROP INDEX IF EXISTS userName;
 
 DROP TABLE IF EXISTS films;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS tipProjekcije;
+DROP TABLE IF EXISTS sala;
+DROP TABLE IF EXISTS sediste;
+DROP TABLE IF EXISTS projekcija;
+DROP TABLE IF EXISTS karta;
 
 CREATE TABLE users (
     userName VARCHAR(10) NOT NULL, 
@@ -97,16 +102,15 @@ CREATE TABLE projekcija (
     FOREIGN KEY (administratorKorIme) REFERENCES users(userName)
 );
 INSERT INTO projekcija(idFilm,idTipProjekcije,idSala,datumPrikazivanja,cena,administratorKorIme)
-VALUES(1,1,1,'2020-06-22',300,'a');
+VALUES (1,1,1,'2020-06-22 13:40',300,'a');
 INSERT INTO projekcija(idFilm,idTipProjekcije,idSala,datumPrikazivanja,cena,administratorKorIme)
-VALUES(2,1,2,'2020-07-25',400,'a');
+VALUES (2,1,2,'2020-07-25 15:20',400,'a');
 INSERT INTO projekcija(idFilm,idTipProjekcije,idSala,datumPrikazivanja,cena,administratorKorIme)
-VALUES(3,1,3,'2020-07-04',400,'a');
+VALUES (3,1,3,'2020-07-04 17:30',400,'a');
 INSERT INTO projekcija(idFilm,idTipProjekcije,idSala,datumPrikazivanja,cena,administratorKorIme)
-VALUES(1,2,2,'2020-06-27',500,'a');
-INSERT INTO projekcija(idFilm,idTipProjekcije,idSala,datumPrikazivanja,cena,administratorKorIme)
-VALUES(2,2,2,'2020-08-15',550,'a');
-
+VALUES (1,2,2,'2020-06-27 15:10',500,'a');
+INSERT INTO projekcija(idFilm,idTipProjekcije,idSala,datumPrikazivanja,cena,administratorKorIme) 
+VALUES (2,2,2,'2020-08-15 18:30',550,'a');
 
 CREATE TABLE karta (
     idKarta INTEGER NOT NULL,
@@ -121,8 +125,8 @@ CREATE TABLE karta (
     FOREIGN KEY (korisnikKorIme) REFERENCES users(userName)
 );
 INSERT INTO karta(idProjekcija,idSediste,vremeProdaje,korisnikKorIme)
-VALUES(1,1,'2020-06-14','b');
-INSERT INTO projekcija(idProjekcija,idSediste,vremeProdaje,korisnikKorIme)
-VALUES(2,2,'2020-07-22','b');
-INSERT INTO projekcija(idProjekcija,idSediste,vremeProdaje,korisnikKorIme)
-VALUES(3,3,'2020-06-28','ab');
+VALUES(1,1,'2020-06-14 20:10','b');
+INSERT INTO karta(idProjekcija,idSediste,vremeProdaje,korisnikKorIme)
+VALUES(2,2,'2020-07-22 14:20','b');
+INSERT INTO karta(idProjekcija,idSediste,vremeProdaje,korisnikKorIme)
+VALUES(3,3,'2020-06-28 15:15','ab');

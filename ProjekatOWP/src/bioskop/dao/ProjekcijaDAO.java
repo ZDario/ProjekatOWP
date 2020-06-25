@@ -106,7 +106,7 @@ public class ProjekcijaDAO {
 			return projekcija;
 		}
 	
-	public static List<Projekcija> getAllListaProjekcije(String Film, String tipProjekcije, String Sala, int starijidatum, int mladjidatum,int lowCena,int highCena) throws Exception {
+	public static List<Projekcija> getAllListaProjekcije(String Film, String tipProjekcije, String Sala, String dateOfRegistration ,int lowCena,int highCena) throws Exception {
 		//public static List<Projekcija> getAll() throws Exception {
 			List<Projekcija> projekcija = new ArrayList<>();
 			
@@ -160,12 +160,12 @@ public class ProjekcijaDAO {
 	
 	public static boolean add(Projekcija projekcija) throws Exception {
 		Connection conn = ConnectionManager.getConnection();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		
 		PreparedStatement pstmt = null;
 		try {
 			String query = "INSERT INTO projekcija(idProjekcija, idFilm, idTipProjekcije, idSala, datumPrikazivanja, cena, userName) " + 
-					"VALUES(?, ?, ?, ?, ?, ?, ?)";
+					" VALUES (?, ?, ?, ?, ?, ?, ?)";
 			pstmt = conn.prepareStatement(query);
 			int index = 1;
 			pstmt.setString(index++, projekcija.getIdProjekcija());
@@ -184,7 +184,30 @@ public class ProjekcijaDAO {
 		}
 	}
 	public static boolean update(Projekcija projekcija) throws Exception{
-		return false;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		Connection conn = ConnectionManager.getConnection();
+
+		PreparedStatement pstmt = null;
+		try {
+			String query = "UPDATE projekcija SET idFilm = ?,idTipProjekcije = ?,idSala = ?,datumPrikazivanja = ?, "
+					+ "cena = ?,administratorKorIme = ? "
+					+ "WHERE idProjekcija = ?";
+
+			pstmt = conn.prepareStatement(query);
+			int index = 1;
+			pstmt.setString(index++, projekcija.getFilm().getNaziv());
+			pstmt.setString(index++, projekcija.getIdProjekcija());
+			pstmt.setString(index++, projekcija.getSala().getNaziv());
+			pstmt.setString(index++, sdf.format(projekcija.getDatumPrikazivanja()));
+			pstmt.setDouble(index++, projekcija.getCena());
+			pstmt.setString(index++, projekcija.getUser().getUserName());
+			System.out.println(pstmt);
+
+			return pstmt.executeUpdate() == 1;
+		} finally {
+			try {pstmt.close();} catch (Exception ex1) {ex1.printStackTrace();}
+			try {conn.close();} catch (Exception ex1) {ex1.printStackTrace();}
+		}
 	}
 	
 	public static boolean delete(String idProjekcija) throws Exception{

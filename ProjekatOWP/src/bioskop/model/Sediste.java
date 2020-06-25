@@ -4,13 +4,11 @@ public class Sediste{
 	
 	private String idSediste;
 	private Sala sala;
-	private boolean zauzeto;
 	
-	public Sediste(String idSediste, Sala sala, boolean zauzeto) {
+	public Sediste(String idSediste, Sala sala) {
 		super();
 		this.idSediste = idSediste;
 		this.sala = sala;
-		this.zauzeto = zauzeto;
 	}
 
 	@Override
@@ -44,15 +42,5 @@ public class Sediste{
 	public void setSala(Sala sala) {
 		this.sala = sala;
 	}
-
-	public boolean isZauzeto() {
-		return zauzeto;
-	}
-
-	public void setZauzeto(boolean zauzeto) {
-		this.zauzeto = zauzeto;
-	}
-	
-	
 
 }

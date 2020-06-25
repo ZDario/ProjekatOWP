@@ -3,9 +3,9 @@ $(document).ready(function(){
 	var filmFilterInput = $('#filmFilterInput');
 	var tipProjekcijeFilterInput = $('#tipProjekcijeFilterInput');
 	var salaFilterInput = $('#salaFilterInput');
-	//var datumPrikazivanjaFilterInput = $('#datumPrikazivanjaFilterInput');
-	var mindatvrFilterInput = $('mindatvrFilterInput');
-	var maxdatvrFilterInput = $('maxdatvrFilterInput');
+	var datumPrikazivanjaFilterInput = $('#datumPrikazivanjaFilterInput');
+//	var mindatvrFilterInput = $('mindatvrFilterInput');
+//	var maxdatvrFilterInput = $('maxdatvrFilterInput');
 	var lowCenaFilterInput = $('#lowCenaFilterInput');
 	var highCenaFilterInput = $('#highCenaFilterInput');
 	
@@ -28,54 +28,48 @@ $(document).ready(function(){
 	}
 	
 	function getProjekcije(){
-		var film = filmFilterInput.val();
-		var tipProjekcije = tipProjekcijeFilterInput.val();
-		var sala = salaFilterInput.val();
-		var mindatvr = mindatvrFilterInput.val();
-		var maxdatvr = maxdatvrFilterInput.val();
-		//var datumPrikazivanja = datumPrikazivanjaFilterInput.val();
-		var lowCena = lowCenaFilterInput.val();
-		var highCena = highCenaFilterInput.val();
-		console.log('film:' + film);
-		console.log('tipProjekcije:' + tipProjekcije);
-		console.log('sala:' + sala);
-		console.log('mindatvr:' + mindatvr);
-		console.log('maxdatvr:' + maxdatvr);
-		console.log('lowCena:' + lowCena);
-		console.log('highCena:' + highCena);
+		var filmFilter = filmFilterInput.val();
+		var tipProjekcijeFilter = tipProjekcijeFilterInput.val();
+		var salaFilter = salaFilterInput.val();
+//		var mindatvrFilter = mindatvrFilterInput.val();
+//		var maxdatvrFilter = maxdatvrFilterInput.val();
+		var datumPrikazivanjaFilter = datumPrikazivanjaFilterInput.val();
+		var lowCenaFilter = lowCenaFilterInput.val();
+		var highCenaFilter = highCenaFilterInput.val();
+		console.log('filmFilter:' + filmFilter);
+		console.log('tipProjekcijeFilter:' + tipProjekcijeFilter);
+		console.log('salaFilter:' + salaFilter);
+		console.log('datumPrikazivanjaFilter:' + datumPrikazivanjaFilter);
+//		console.log('mindatvrFilter:' + mindatvrFilter);
+//		console.log('maxdatvrFilter:' + maxdatvrFilter);
+		console.log('lowCenaFilter:' + lowCenaFilter);
+		console.log('highCenaFilter:' + highCenaFilter);
 		
 		var params = {
-			'film': film,
-			'tipProjekcije': tipProjekcije,
-			'sala': sala,
-			'mindatvr':mindatvr,
-			'maxdatvr':maxdatvr,
-			//'datumPrikazivanja': datumPrikazivanja,
-			'lowCena': lowCena,
-			'highCena': highCena
+			'filmFilter': filmFilter,
+			'tipProjekcijeFilter': tipProjekcijeFilter,
+			'salaFilter': salaFilter,
+//			'mindatvrFilter': mindatvrFilter,
+//			'maxdatvrFilter': maxdatvrFilter,
+			'datumPrikazivanjaFilter': datumPrikazivanjaFilter,
+			'lowCenaFilter': lowCenaFilter,
+			'highCenaFilter': highCenaFilter
 		};
 		$.get('ListaProjekcijaServlet', params, function(data){
-			console.log("SS");
-
 			console.log(data);
-			console.log("SS");
 
 //			if(data.status == 'unauthenticated'){
 //				window.location.replace('Login.html');
 //				return;
 //			}
 			if(data.status == 'success'){
-				console.log("Success");
-				console.log(data.filteredProjekcije);
-				console.log(data.status);
-
-
 				projekcijeTable.find('tr:gt(1)').remove();
+				
 				var filteredProjekcije = data.filteredProjekcije;
 				for(it in filteredProjekcije){
 					projekcijeTable.append(
 						'<tr class="item" style="text-align:center;">' +
-							'<td><a href="Film.html?id=' + filteredProjekcije[it].film.idFilm +
+							'<td><a href="Projekcija.html?id=' + filteredProjekcije[it].idProjekcija +
 							'">' + filteredProjekcije[it].film.naziv + '</a></td>' +
 							'<td>' + filteredProjekcije[it].tipProjekcije.naziv + '</td>' +
 							'<td>' + filteredProjekcije[it].sala.naziv + '</td>' +
@@ -200,24 +194,24 @@ $(document).ready(function(){
 		event.preventDefault();
 		return false;
 	});
-	mindatvrFilterInput.on('keyup', function(event){
-		getProjekcije();
-		
-		event.preventDefault();
-		return false;
-	});
-	maxdatvrFilterInput.on('keyup', function(event){
-		getProjekcije();
-		
-		event.preventDefault();
-		return false;
-	});
-//	datumPrikazivanjaFilterInput.on('keyup', function(event){
+//	mindatvrFilterInput.on('keyup', function(event){
 //		getProjekcije();
 //		
 //		event.preventDefault();
 //		return false;
 //	});
+//	maxdatvrFilterInput.on('keyup', function(event){
+//		getProjekcije();
+//		
+//		event.preventDefault();
+//		return false;
+//	});
+	datumPrikazivanjaFilterInput.on('keyup', function(event){
+		getProjekcije();
+		
+		event.preventDefault();
+		return false;
+	});
 	lowCenaFilterInput.on('keyup', function(event){
 		getProjekcije();
 		

@@ -27,10 +27,6 @@ public class FilmServlet extends HttpServlet {
 //		}
 		try {
 			User loggedInUser = UserDAO.get(loggedInUserName);
-			if (loggedInUser == null) {
-//				request.getRequestDispatcher("./LogoutServlet").forward(request, response);
-				return;
-			}
 	
 			String idFilm = request.getParameter("idFilm");
 			Film film = FilmDAO.get(idFilm);

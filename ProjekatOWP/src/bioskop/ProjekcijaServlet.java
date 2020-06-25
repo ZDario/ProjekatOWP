@@ -45,7 +45,7 @@ public class ProjekcijaServlet extends HttpServlet {
 			
 			Map<String, Object> data = new LinkedHashMap<>();
 			data.put("projekcija", projekcija);
-			data.put("loggedInUserRole", loggedInUser.getRole());
+//			data.put("loggedInUserRole", loggedInUser.getRole());
 			
 			request.setAttribute("data", data);
 			request.getRequestDispatcher("./SuccessServlet").forward(request, response);
@@ -84,20 +84,58 @@ public class ProjekcijaServlet extends HttpServlet {
 					System.out.println(salaPr);
 					String datumivremee = request.getParameter("datumvreme");
 					SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-					Date datumPrikazivanja = formatter1.parse(datumivremee);
+					//Date datumPrikazivanja = formatter1.parse(datumivremee);
+					java.sql.Date datumPrikazivanja = new java.sql.Date(formatter1.parse(datumivremee).getTime());
 					System.out.println(datumivremee);
-					System.out.println("datumPrikazivanja" + datumPrikazivanja);
+					System.out.println("datumPrikazivanja: " + datumPrikazivanja);
 					
-					double cenazakartu = Double.parseDouble(request.getParameter("cenakartezapr"));
-					cenazakartu = (cenazakartu > 0? cenazakartu: 300);
+					double cenazakartu = Double.parseDouble(request.getParameter("cenazakartu"));
+					cenazakartu = (cenazakartu > 0? cenazakartu: 3000);
 					System.out.println(cenazakartu);
-					Film film = FilmDAO.getNaziv(nazivFilma);
-					TipProjekcije tipProjekcijee = TipProjekcijeDAO.getNaziv(tipProjek);
-					Sala sala = SalaDAO.getNaziv(salaPr);
+					Film film = FilmDAO.get(nazivFilma);
+					TipProjekcije tipProjekcijee = TipProjekcijeDAO.get(tipProjek);
+					Sala sala = SalaDAO.get(salaPr);
 					User user = UserDAO.get(loggedInUserName);
 						
 					Projekcija proj = new Projekcija("", film, tipProjekcijee, sala, datumPrikazivanja, cenazakartu, user);
 					ProjekcijaDAO.add(proj);
+					break;
+				}
+				case "update": {
+					String idProjekcija = request.getParameter("idProjekcija");
+					Projekcija projekcija = ProjekcijaDAO.get(idProjekcija);
+					
+					String film = request.getParameter("film");
+					film = (!"".equals(film)? film: film);
+					String tipProjekcije = request.getParameter("tipProjekcije");
+					tipProjekcije = (!"".equals(tipProjekcije)? tipProjekcije: tipProjekcije);
+					String sala = request.getParameter("sala");
+					sala = (!"".equals(sala)? sala: sala);
+					
+					String datumivremee = request.getParameter("datum");
+					SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+					//Date datum = formatter1.parse(datumivremee);
+					
+					//String datumPrikazivanjaString = request.getParameter("datumPrikazivanja");
+					//SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd");
+					java.sql.Date datum = new java.sql.Date(formatter1.parse(datumivremee).getTime());
+					
+					double cenazakartu = Double.parseDouble(request.getParameter("cenazakartu"));
+					cenazakartu = (cenazakartu > 0? cenazakartu: 3000);
+					
+					Film film1 = FilmDAO.get(film);
+					TipProjekcije tipProjekcije1 = TipProjekcijeDAO.get(tipProjekcije);
+					Sala sala1 = SalaDAO.get(sala);
+					User user = UserDAO.get(loggedInUserName);
+					
+					projekcija.setIdProjekcija(idProjekcija);
+					projekcija.setFilm(film1);
+					projekcija.setTip(tipProjekcije1);
+					projekcija.setSala(sala1);;
+					projekcija.setDatumPrikazivanja(datum);
+					projekcija.setCena(cenazakartu);
+					projekcija.setUser(user);
+					ProjekcijaDAO.update(projekcija);
 					break;
 				}
 				case "delete": {

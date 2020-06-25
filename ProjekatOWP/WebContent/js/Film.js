@@ -13,7 +13,24 @@ $(document).ready(function() {
 //			if (data.status == 'unauthenticated') {
 //				window.location.replace('Login.html');
 //				return;
-//			}
+//			}else{
+			var film = data.film; 
+			
+			$('#userTable').show();
+			$('#adminForm').hide();
+			$('.unregisteredParagraph').show();
+			$('#userParagraph').hide();
+			
+			$('#nazivCell').text(film.naziv);
+			$('#reziserCell').text(film.reziser);
+			$('#glumciCell').text(film.glumci);
+			$('#zanroviCell').text(film.zanrovi);
+			$('#trajanjeCell').text(film.trajanje);
+			$('#distributerCell').text(film.distributer);
+			$('#zemljaPoreklaCell').text(film.zemljaPorekla);
+			$('#godinaProizvodnjeCell').text(film.godinaProizvodnje);
+			$('#opisCell').text(film.opis);
+		
 			
 			if (data.status == 'success') {
 				var film = data.film;
@@ -199,23 +216,6 @@ $(document).ready(function() {
 					});
 				}
 				});
-			} else{
-				var film = data.film; 
-				
-				$('#userTable').show();
-				$('#adminForm').hide();
-				$('.unregisteredParagraph').show();
-				$('#userParagraph').hide();
-				
-				$('#nazivCell').text(film.naziv);
-				$('#reziserCell').text(film.reziser);
-				$('#glumciCell').text(film.glumci);
-				$('#zanroviCell').text(film.zanrovi);
-				$('#trajanjeCell').text(film.trajanje);
-				$('#distributerCell').text(film.distributer);
-				$('#zemljaPoreklaCell').text(film.zemljaPorekla);
-				$('#godinaProizvodnjeCell').text(film.godinaProizvodnje);
-				$('#opisCell').text(film.opis);
 			}
 		});
 	}

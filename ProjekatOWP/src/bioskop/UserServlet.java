@@ -32,8 +32,8 @@ public class UserServlet extends HttpServlet {
 			}
 			
 			
-			String userName = request.getParameter("userName");
-			User user = UserDAO.get(userName);
+			//String userName = request.getParameter("userName");
+			User user = UserDAO.get(loggedInUserName);
 	
 			Map<String, Object> data = new LinkedHashMap<>();
 	

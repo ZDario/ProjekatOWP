@@ -27,44 +27,27 @@ public class ListaProjekcijaServlet extends HttpServlet {
 		try {
 			User loggedInUser = UserDAO.get(loggedInUserName);
 			
-			String film = request.getParameter("film");
-			film = (film != null?film: "");
-			String tipProjekcije = request.getParameter("tipProjekcije");
+			String film = request.getParameter("filmFilter");
+			film = (film != null? film: "");
+			String tipProjekcije = request.getParameter("tipProjekcijeFilter");
 			tipProjekcije = (tipProjekcije != null?tipProjekcije: "");
-			String sala = request.getParameter("sala");
-			sala = (sala != null?sala: "");
+			String sala = request.getParameter("salaFilter");
+			sala = (sala != null? sala: "");
 			
-			/*Date minDatumRegistracije = new Date();
-			String mindatumRegistracije = minDatumRegistracije.toString();
-			mindatumRegistracije = (mindatumRegistracije != null?mindatumRegistracije: "");*/
-			int mindatVr = 0;
-			try {
-				String mindatvr = request.getParameter("mindatvr");
-				mindatVr = Integer.parseInt(mindatvr);
-				mindatVr = (mindatVr >= 0? mindatVr: 0);
-			} catch(Exception ex) {}
-			/*Date maxDatumRegistracije = new Date();
-			String maxdatumRegistracije = maxDatumRegistracije.toString();
-			maxdatumRegistracije = (maxdatumRegistracije != null?maxdatumRegistracije: "");*/
+			String dateOfRegistration = request.getParameter("datumPrikazivanjaFilter");
+			dateOfRegistration = (dateOfRegistration != null? dateOfRegistration: "");
 			
-			int maxdatVr = 0;
+			int lowCena = 0;
+			int highCena = Integer.MAX_VALUE;
 			try {
-				String maxdatvr = request.getParameter("maxdatvr");
-				maxdatVr = Integer.parseInt(maxdatvr);
-				maxdatVr = (maxdatVr >= 0? maxdatVr: 0);
-			} catch(Exception ex) {}
-			
-			int lowCena1 = 0;
-			int highCena1 = Integer.MAX_VALUE;
-			try {
-				String lowCena = request.getParameter("lowCena");
-				lowCena1= Integer.parseInt(lowCena );
-				lowCena1 = (lowCena1 >= 0? lowCena1: 0);
+				String lowCenaFilter = request.getParameter("lowCenaFilter");
+				lowCena= Integer.parseInt(lowCenaFilter);
+				lowCena = (lowCena >= 0? lowCena: 0);
 			} catch (Exception ex) {}
 			try {
-				String highCena = request.getParameter("highCena");
-				highCena1= Integer.parseInt(highCena );
-				highCena1 = (highCena1 >= 0? highCena1: 0);
+				String highCenaFilter = request.getParameter("highCenaFilter");
+				highCena= Integer.parseInt(highCenaFilter);
+				highCena = (highCena >= 0? highCena: Integer.MAX_VALUE);
 			} catch (Exception ex) {}
 			
 			
@@ -73,7 +56,7 @@ public class ListaProjekcijaServlet extends HttpServlet {
 //			String highCena = request.getParameter("highCena");
 //			highCena = (highCena != null? highCena: "");
 		
-			List<Projekcija> filteredProjekcije = ProjekcijaDAO.getAllListaProjekcije(film,tipProjekcije,sala, mindatVr, maxdatVr, lowCena1 ,highCena1);
+			List<Projekcija> filteredProjekcije = ProjekcijaDAO.getAllListaProjekcije(film,tipProjekcije,sala, dateOfRegistration, lowCena ,highCena);
 			
 			for (Projekcija projekcija : filteredProjekcije) {
 				System.out.println(projekcija);

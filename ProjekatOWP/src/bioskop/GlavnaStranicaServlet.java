@@ -36,22 +36,25 @@ public class GlavnaStranicaServlet extends HttpServlet {
 			/*Date minDatumRegistracije = new Date();
 			String mindatumRegistracije = minDatumRegistracije.toString();
 			mindatumRegistracije = (mindatumRegistracije != null?mindatumRegistracije: "");*/
-			int mindatVr = 0;
-			try {
-				String mindatvr = request.getParameter("mindatvr");
-				mindatVr = Integer.parseInt(mindatvr);
-				mindatVr = (mindatVr >= 0? mindatVr: 0);
-			} catch(Exception ex) {}
+//			int mindatVr = 0;
+//			try {
+//				String mindatvr = request.getParameter("mindatvr");
+//				mindatVr = Integer.parseInt(mindatvr);
+//				mindatVr = (mindatVr >= 0? mindatVr: 0);
+//			} catch(Exception ex) {}
 			/*Date maxDatumRegistracije = new Date();
 			String maxdatumRegistracije = maxDatumRegistracije.toString();
 			maxdatumRegistracije = (maxdatumRegistracije != null?maxdatumRegistracije: "");*/
 			
-			int maxdatVr = 0;
-			try {
-				String maxdatvr = request.getParameter("maxdatvr");
-				maxdatVr = Integer.parseInt(maxdatvr);
-				maxdatVr = (maxdatVr >= 0? maxdatVr: 0);
-			} catch(Exception ex) {}
+//			int maxdatVr = 0;
+//			try {
+//				String maxdatvr = request.getParameter("maxdatvr");
+//				maxdatVr = Integer.parseInt(maxdatvr);
+//				maxdatVr = (maxdatVr >= 0? maxdatVr: 0);
+//			} catch(Exception ex) {}
+			
+			String dateOfRegistration = request.getParameter("dateOfRegistrationFilter");
+			dateOfRegistration = (dateOfRegistration != null? dateOfRegistration: "");
 			
 			int lowCena1 = 0;
 			int highCena1 = Integer.MAX_VALUE;
@@ -66,7 +69,7 @@ public class GlavnaStranicaServlet extends HttpServlet {
 				highCena1 = (highCena1 >= 0? highCena1: 0);
 			} catch (Exception ex) {}
 		
-			List<Projekcija> filteredProjekcije = ProjekcijaDAO.getAllListaProjekcije(film, tipProjekcije, sala, mindatVr, maxdatVr, lowCena1, highCena1);
+			List<Projekcija> filteredProjekcije = ProjekcijaDAO.getAllListaProjekcije(film, tipProjekcije, sala, dateOfRegistration, lowCena1, highCena1);
 			List<Projekcija> danasnjeProjekcije = new ArrayList<>();
 			
 			Map<String, Object> data = new LinkedHashMap<>();

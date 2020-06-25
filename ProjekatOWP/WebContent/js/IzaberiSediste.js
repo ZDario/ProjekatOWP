@@ -33,8 +33,8 @@ $(document).ready(function(){
 	var s19 = $('#S19');
 	var s20 = $('#S20');
 	
-	var id = window.location.search.slice(1).split('&')[0].split('=')[1];
-	console.log(id + 'ovojeidrpoj');
+	var idProjekcija = window.location.search.slice(1).split('&')[0].split('=')[1];
+	console.log(idProjekcija + 'ovojeidrpoj');
 	
 	params = {
 		'action': 'add',
@@ -43,7 +43,7 @@ $(document).ready(function(){
 	}
 	
 	function getProjekcijaa(){
-		$.get('ProjekcijaServlet', {'id': id}, function(data){
+		$.get('ProjekcijaServlet', {'idProjekcija': idProjekcija}, function(data){
 			console.log(data + 'ovojedatazaprojodjesaa');
 			
 			if(data.status == 'unauthenticated'){

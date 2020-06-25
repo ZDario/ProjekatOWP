@@ -96,9 +96,17 @@ nav a {
 }
 
 /* MAIN */
+#karteTable {
+	background-color: rgba(249, 249, 249, 0.8);
+	font-family: 'Merienda', cursive;
+	width: 100%;
+	text-align:center;
+}
+
 #userTable {
 	background-color: rgba(249, 249, 249, 0.8);
 	font-family: 'Merienda', cursive;
+	width: 100%;
 }
 
 #adminForm {

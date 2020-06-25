@@ -13,14 +13,12 @@ $(document).ready(function(){
 		return false;
 	});
 	
+	
 	var karteTable = $('#karteTable');
-	var totalnaCena = $('#totalnaCena');
+	var totalPriceParagraph = $('#totalPriceParagraph');
 	
 	function getKupljeneKarte(){
 		$.get('KupljenaKartaServlet', {'action': 'all'}, function(data){
-			console.log("-------------------");
-			console.log(data.kupljeneKarte.karte[0]);
-			console.log("-------------------");
 			
 			if(data.status == 'unauthenticated'){
 				window.location.replace('Login.html');
@@ -29,7 +27,7 @@ $(document).ready(function(){
 			
 			if(data.status == 'success'){
 				
-				karteTable.find('tr:gt(1)').remove();
+				karteTable.find('tr:gt(0)').remove();
 				
 				var kartee = data.kupljeneKarte.karte;
 				console.log("////////////////////");
@@ -39,12 +37,11 @@ $(document).ready(function(){
 				for(i=0; i< kartee.length;i++){
 					console.log('kartekarte');
 					console.log(kartee[i]);
-					console.log('kartekarte');
 					karteTable.append(
 						'<tr>' +
 							'<td>' + kartee[i].projekcija.film.naziv + '</td>' +
 							'<td>' + formatDate(new Date(kartee[i].projekcija.datumPrikazivanja)) + '</td>' +
-							'<td>' + kartee[i].projekcija.tipPrjoekcije.naziv + '</td>' +
+							'<td>' + kartee[i].projekcija.tipProjekcije.naziv + '</td>' +
 							'<td>' + kartee[i].sediste.sala.naziv + '</td>' +
 							'<td>' + kartee[i].sediste.idSediste + '</td>' +
 							'<td>' + kartee[i].projekcija.cena + '</td>' +
@@ -52,36 +49,55 @@ $(document).ready(function(){
 						'</tr>'
 					)
 				}
+				totalPriceParagraph.text('Ukupno: ' + data.kupljeneKarte.totalPrice + ' dinara.');
 			}
 		});
 	}
 	
 	karteTable.on('click', 'input.obrisiKartuSubmit', function(event){
+		event.preventDefault();
+		var txt;
+		var potvrdi = $('#potvrdi');
+		var potvrdi = confirm("Da li ste sigurni da zelite da obrisete ovu kartu?");
 		var row = $(this).closest('tr'); //najblizi red za input koji je proizveo događaj je onaj red koji ga obuhvata
 		
 		var index = row.index() -1; //zbog zaglavlja
 		console.log('index:' + index);
-		
-		var params = {
-			'action': 'remove',
-			'index': index
-		};
-		$.post('KupljenaKartaServlet', params, function(data){
-			console.log(data);
-			
-			if(data.status == 'unauthenticated'){
-				window.location.replace('Login.html');
-				return;
-			}
-			
-			if(data.status == 'success'){
-				row.remove();
+		if (potvrdi == true){
+			var params = {
+				'action': 'remove',
+				'index': index
+			};
+			$.post('KupljenaKartaServlet', params, function(data){
+				console.log(data);
 				
-			}
-		});
-		
-		event.preventDefault();
-		return false;
+				if(data.status == 'unauthenticated'){
+					window.location.replace('Login.html');
+					return;
+				}
+				
+				if(data.status == 'success'){
+					row.remove();
+					
+					$.get('KupljenaKartaServlet', {'action': 'totalPrice'}, function(data) {
+						console.log(data);
+	
+						if (data.status == 'unauthenticated') {
+							window.location.replace('Login.html');
+							return;
+						}
+						
+						totalPriceParagraph.text('Ukupno: ' + data.totalPrice + ' dinara.');
+					});
+					
+				}
+			});
+			
+			return false;
+		}else {
+			txt ="Ponistili ste brisanje";
+		}
+		document.getElementById("poruka1").innerHTML = txt;
 	});
 	
 	function formatDate(date) {
