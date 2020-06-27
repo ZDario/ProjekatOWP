@@ -30,11 +30,14 @@
 			<table>
 				<tr>
 					<td align="right">Film:</td>
-					<td><select id="filmoviSvi"></select></td>
+					<td><select id="filmoviSvi">
+							<option value="0" disabled>Filmovi</option>
+					</select></td>
 				</tr>
 				<tr>
 					<td align="right">Tip projekcije:</td>
 					<td><select id="projekcijeSve">
+							<option value="0" disabled>Tip Projekcije</option>
 							<option value="1">2D</option>
 							<option value="2">3D</option>
 							<option value="2">4D</option>
@@ -42,8 +45,11 @@
 				</tr>
 				<tr>
 					<td align="right">Sala:</td>
-					<td><select id="saleSve"></select></td>
+					<td><select id="saleSve">
+							<option value="0" disabled>Sale</option>
+					</select></td>
 				</tr>
+				<tr><td></td><td><p>Format Datuma: "yyyy-MM-dd HH:mm"</p></td></tr>
 				<tr>
 					<td align="right">Datum Projekcije:</td>
 					<td><input type="text" id="datumVr" /></td>

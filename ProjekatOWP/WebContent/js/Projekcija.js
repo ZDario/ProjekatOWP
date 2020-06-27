@@ -102,19 +102,19 @@ $(document).ready(function(){
 					
 					$('#updateSubmit').on('click', function(event) {
 						event.preventDefault();
-						var naziv = nazivFilmaImeCellInput.val();
+						var film = nazivFilmaImeCellInput.val();
 						var tipProjekcije =tipProjekcijeCellInput.val();
 						var sala = salaCellInput.val();
 						var datum = datumPrikazivanjaCellInput.val();
 						var cena = cenaKarCellInput.val();
 
-						console.log('naziv: ' + naziv);
+						console.log('film: ' + film);
 						console.log('tipProjekcije: ' + tipProjekcije);
 						console.log('sala: ' + sala);
 						console.log('datum: ' + datum);
 						console.log('cena: ' + cena);
 						
-						if(naziv==""){
+						if(film==""){
 							$('#messageParagraph').text("Polje Naziv filma je prazno");
 						}
 						else if(tipProjekcije==""){
@@ -134,6 +134,7 @@ $(document).ready(function(){
 							params = {
 								'action': 'update',
 								'idProjekcija': idProjekcija,
+								'film': film,
 								'tipProjekcije': tipProjekcije,
 								'sala': sala,
 								'datum': datum,
@@ -155,7 +156,8 @@ $(document).ready(function(){
 						}
 					});
 					
-					$('deleteSubmit').on('click', function(event){
+					$('#deleteSubmit').on('click', function(event) {
+						console.log("sdaasdsdasdasdasda");
 						event.preventDefault();
 						var txt;
 						var potvrdi = $('#potvrdi');
@@ -163,7 +165,7 @@ $(document).ready(function(){
 						if (potvrdi == true){
 							params = {
 									'action': 'delete',
-									'idProjekcija': idProjekcija, 
+									'idProjekcija': idProjekcija 
 								};
 								console.log(params);
 								$.post('ProjekcijaServlet', params, function(data) {

@@ -74,7 +74,7 @@ $(document).ready(function() {
 							"Tip Projekcije:  " + '<a class="parametri">' + danasnjeProjekcije[it].tipProjekcije.naziv + '</a><br />' +
 							"Sala:  " + '<a class="parametri">' +danasnjeProjekcije[it].sala.naziv + '</a><br />' + 
 							"Datum Prikazivanja:  " + '<a class="parametri">' +formatDate(new Date(danasnjeProjekcije[it].datumPrikazivanja)) + '</a><br />' +
-							"Cena:  " + '<a class="parametri">' +danasnjeProjekcije[it].cena + '</a>' + 
+							"Cena:  " + '<a class="parametri">' +danasnjeProjekcije[it].cena  + '</a>' + " din" + 
 							/*'<td>' + 
 								'<form>' +
 									'<input type="text" size="3">&nbsp;' +

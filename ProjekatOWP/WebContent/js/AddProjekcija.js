@@ -37,8 +37,10 @@ $(document).ready(function(){
 		}
 		if (data.status == 'success') {
 			var filteredFilmovi = data.filteredFilms;
+			
 			for (it in filteredFilmovi) {
-				select.options[select.options.length] = new Option(filteredFilmovi[it].naziv, it);
+				var it = parseInt(it);
+				select.options[select.options.length] = new Option(filteredFilmovi[it].naziv, it+1);
 			}
 		}
 	});
@@ -63,7 +65,8 @@ $(document).ready(function(){
 
 			var filteredSale = data.filteredSale;
 			for (it in filteredSale) {
-				selects.options[selects.options.length] = new Option(filteredSale[it].naziv, it);
+				var it = parseInt(it);
+				selects.options[selects.options.length] = new Option(filteredSale[it].naziv, it+1);
 			}
 		}
 	});
@@ -81,8 +84,13 @@ $(document).ready(function(){
 		console.log('datumvreme:' + datumvreme);
 		console.log('cenazakartu:' + cenazakartu);
 		
+		var validTime = datVrCellInput.val().match(/^(\d{4})\-(\d{2})\-(\d{2}) (\d{2}):(\d{2})$/);
+		
 		if(datumvreme==""){
 			$('#messageParagraph').text("Polje Datum je prazno");
+		}
+		else if (!validTime) {
+			$('#messageParagraph').text("Polje Datum nije ispravno napisano");
 		}
 		else if(cenazakartu==""){
 			$('#messageParagraph').text("Polje Cena je prazno");

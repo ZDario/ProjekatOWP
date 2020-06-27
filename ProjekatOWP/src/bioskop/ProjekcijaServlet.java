@@ -107,21 +107,23 @@ public class ProjekcijaServlet extends HttpServlet {
 					
 					String film = request.getParameter("film");
 					film = (!"".equals(film)? film: film);
+					System.out.println(film);
 					String tipProjekcije = request.getParameter("tipProjekcije");
 					tipProjekcije = (!"".equals(tipProjekcije)? tipProjekcije: tipProjekcije);
 					String sala = request.getParameter("sala");
 					sala = (!"".equals(sala)? sala: sala);
+					System.out.println(sala);
 					
 					String datumivremee = request.getParameter("datum");
+					System.out.println(datumivremee);
 					SimpleDateFormat formatter1 = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 					//Date datum = formatter1.parse(datumivremee);
+					java.sql.Date datumPrikazivanja = new java.sql.Date(formatter1.parse(datumivremee).getTime());
+					System.out.println(datumPrikazivanja);
 					
-					//String datumPrikazivanjaString = request.getParameter("datumPrikazivanja");
-					//SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd");
-					java.sql.Date datum = new java.sql.Date(formatter1.parse(datumivremee).getTime());
-					
-					double cenazakartu = Double.parseDouble(request.getParameter("cenazakartu"));
-					cenazakartu = (cenazakartu > 0? cenazakartu: 3000);
+					double cenazakartu = Double.parseDouble(request.getParameter("cena"));
+					cenazakartu = (cenazakartu > 0? cenazakartu: 300);
+					System.out.println(cenazakartu);
 					
 					Film film1 = FilmDAO.get(film);
 					TipProjekcije tipProjekcije1 = TipProjekcijeDAO.get(tipProjekcije);
@@ -132,7 +134,7 @@ public class ProjekcijaServlet extends HttpServlet {
 					projekcija.setFilm(film1);
 					projekcija.setTip(tipProjekcije1);
 					projekcija.setSala(sala1);;
-					projekcija.setDatumPrikazivanja(datum);
+					projekcija.setDatumPrikazivanja(datumPrikazivanja);
 					projekcija.setCena(cenazakartu);
 					projekcija.setUser(user);
 					ProjekcijaDAO.update(projekcija);
@@ -141,6 +143,7 @@ public class ProjekcijaServlet extends HttpServlet {
 				case "delete": {
 					String idProjekcija = request.getParameter("idProjekcija");
 					ProjekcijaDAO.delete(idProjekcija);
+					System.out.println("dsadsasdsdadsasdadsa");
 					break;
 				}
 			}

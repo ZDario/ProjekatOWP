@@ -1,5 +1,5 @@
 /* OVAJ FAJL SE KORISTI KOD 
-Film.html, User.html, AddFilm.html, AddUser.html */
+Film.html, User.html, AddFilm.html, AddUser.html, Projekcija.html, AddProjekcija.html */
 * {
 	margin: 0px;
 	padding: 0px;
@@ -122,6 +122,7 @@ form {
 
 td {
 	padding-bottom: 5px;
+	padding-right: 10px;
 }
 
 b {

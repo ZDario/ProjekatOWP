@@ -58,7 +58,7 @@ public class FilmDAO {
 		ResultSet rset = null;
 		try {
 			String query = "SELECT idFilm, reziser, glumci, zanrovi, trajanje, " + 
-					"distributer, zemljaPorekla, godinaProizvodnje, opis FROM film WHERE idFilm = ?";
+					"distributer, zemljaPorekla, godinaProizvodnje, opis FROM films WHERE idFilm = ?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, naziv);
 			System.out.println(pstmt);

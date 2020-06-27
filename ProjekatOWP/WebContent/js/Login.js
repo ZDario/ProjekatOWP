@@ -41,10 +41,13 @@ $(document).ready(function() { // izvršava se nakon što se izgradi DOM stablo 
 	
 				if (data.status == 'success') {
 					window.location.replace('GlavnaStranica.html');
+					window.opener.location.reload(true);
+					window.close();
 				}
 			});
 			// program se odmah nastavlja dalje, pre nego što stigne odgovor
 			console.log('poslat zahtev!')
+			
 	
 			// zabraniti da browser obavi podrazumevanu akciju pri događaju
 		}
