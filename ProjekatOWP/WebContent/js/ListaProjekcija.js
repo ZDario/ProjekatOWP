@@ -13,6 +13,7 @@ $(document).ready(function(){
 	var kupljeneKarteLink = $('#kupljeneKarteLink');
 	
 	var adminParagraph = $('#adminParagraph');
+	var adminnParagraph = $('#adminnParagraph');
 	var userParagraph = $('#userParagraph');
 	var unregisteredParagraph = $('.unregisteredParagraph');
 	//var kupikar = $('#kupikar');
@@ -20,6 +21,7 @@ $(document).ready(function(){
 	
 	function getUnregisteredInterface(){	
 		adminParagraph.hide();
+		adminnParagraph.hide();
 		userParagraph.hide();
 		unregisteredParagraph.show();
 		kupljeneKarteLink.hide();
@@ -94,6 +96,7 @@ $(document).ready(function(){
 		});
 	}
 	function getUserInterface() {
+		adminnParagraph.hide();
 		userParagraph.show();
 		unregisteredParagraph.hide();
 		kupljeneKarteLink.show();
@@ -116,9 +119,8 @@ $(document).ready(function(){
 	}
 	
 	function getAdminInterface() {
-		$('#adminParagraph').append('<a href="AddFilm.html">Dodavanje filma</a>');
-		//$('#userParagraph').append('<a href="" id="logoutLink">Odjava</a>');
 		adminParagraph.show();
+		adminnParagraph.show();
 		userParagraph.show();
 		unregisteredParagraph.hide();
 		kupljeneKarteLink.show();

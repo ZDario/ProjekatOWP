@@ -13,7 +13,9 @@ import bioskop.model.User;
 import bioskop.dao.ConnectionManager;
 import bioskop.model.KupljeneKarte;
 import bioskop.model.Projekcija;
+import bioskop.model.Sala;
 import bioskop.model.Sediste;
+import bioskop.model.TipProjekcije;
 
 public class KupljeneKarteDAO {
 	public static KupljeneKarte get(User user) throws Exception{
@@ -85,7 +87,7 @@ public class KupljeneKarteDAO {
 	
 	public static boolean addItem(String idKarta, Projekcija projekcija, Sediste sediste, String korisnikKorIme) throws Exception {
 		Connection conn = ConnectionManager.getConnection();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;

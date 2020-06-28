@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lista Karata</title>
+<link rel="stylesheet" href="css/ListaFilmova.css">
+<script src="js/jquery-3.3.1.js"></script>
+<script src="js/ListaKarata.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Merienda&display=swap" rel="stylesheet">
+<link rel="shortcut icon" href="Photos/Logo.jpg" type="image/x-icon">
+<script src="https://www.w3schools.com/lib/w3.js"></script>
+</head>
+<body
+style="background-image: url(./Photos/ListaProjekcija.jpg); background-size: cover; background-attachment: fixed;">
+	<div id="container">
+		<header>
+			<p id="FilmNS">FilmoviNS</p>
+			<a href="GlavnaStranica.html"><img
+				src="Photos/LogoGlavnaStranica.jpg" alt="Home"></a>
+			<div id="header1">
+				<p id="userParagraph">
+					<a href="" id="logoutLink">Odjava</a>
+				</p>
+			</div>
+		</header>
+
+
+		<main>
+			<nav class="meni">
+				<ul>
+					<li><p>
+							<a href="ListaProjekcija.html">Lista Projekcija</a>
+						</p></li>
+					<li><p>
+				</ul>
+			</nav>
+
+
+			<h1>Pretraga Karata:</h1>
+			<table id="karteTable">
+			<tr id="sortiranje">
+			<th onclick="w3.sortHTML('#karteTable', '.item', 'td:nth-child(1)')" style="cursor:pointer " style="background-color:black ">Projekcija</th>
+			<th onclick="w3.sortHTML('#karteTable', '.item', 'td:nth-child(2)')" style="cursor:pointer " style="background-color:black ">Sediste</th>
+			<th onclick="w3.sortHTML('#karteTable', '.item', 'td:nth-child(3)')" style="cursor:pointer " style="background-color:black ">Vreme Prodaje</th>
+			<th onclick="w3.sortHTML('#karteTable', '.item', 'td:nth-child(4)')" style="cursor:pointer " style="background-color:black ">Korisnik</th>
+			</tr>
+				<tr id="pretraga">
+					<td><input type="text" id="projekcijaFilterInput" placeholder="Projekcija"></td>
+					<td><input type="text" id="sedisteFilterInput" placeholder="Sediste"></td>
+					<td><input type="text" id="vremeProdajeFilterInput" placeholder="Vreme Prodaje"></td>
+					<td><input type="text" id="korisnikFilterInput" placeholder="Korisnik"></td>
+				</tr>
+			</table>
+		</main>
+
+		<footer>
+			<a href="CommingSoon.html"><img src="Photos/twitter.png"
+				alt="Twitter"></a> <a href="CommingSoon.html"><img
+				src="Photos/facebook.png" alt="Facebook"></a> <a
+				href="CommingSoon.html"><img src="Photos/gplus.png"
+				alt="Google+"></a>
+			<div id="footer1">
+				<a href="CommingSoon.html">Politika privatnosti</a> <a
+					href="CommingSoon.html">Uslovi poslovanja</a> <a
+					href="CommingSoon.html">Kontakt</a> <a href="CommingSoon.html">Pomoc</a>
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
