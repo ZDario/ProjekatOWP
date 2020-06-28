@@ -211,8 +211,9 @@ footer img {
 		width: 160px;
 		font-size: 18px;
 	}
-	#filmsTable {
+	#filmsTable, #karteTable, #projekcijeTable {
 		margin-left: 8px;
+		margin-right: 8px;
 		width: 100%;
 	}
 }

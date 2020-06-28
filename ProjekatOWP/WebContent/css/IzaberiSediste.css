@@ -77,6 +77,10 @@ b{
 	padding: 5px 0 2px 5px;
 }
 
+.slova {
+	margin-right:450px;
+}
+
 .form-check{
 	position:center;
 	background-color: rgba(249, 249, 249, 0.7);

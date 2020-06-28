@@ -68,7 +68,7 @@ $(document).ready(function(){
 		$('input[name="locationthemes"]:checked').each(function() {
 			sediste.push($(this).val());
 			var idSediste = $(this).attr('idKarta');
-			var url = "TrecaFaza.html?id=" + idKarta + "&sediste=" + idSediste;
+			var url = "TreciKorak.html?id=" + idKarta + "&sediste=" + idSediste;
 			var dugme = $('#drugiKorakSubmit');
 			dugme.attr("href", url);
 			

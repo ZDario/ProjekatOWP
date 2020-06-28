@@ -155,7 +155,7 @@ $(document).ready(function(){
 		
 		var idProjekcija = $(this).attr('idProjekcija');
 		var url = "IzaberiSediste.html?id=" + idProjekcija;
-		var dugme = $('#kupikar');
+		var dugme = $('.kupiKartuSubmit');
 		dugme.attr("href", url);
 		
 		params = {
